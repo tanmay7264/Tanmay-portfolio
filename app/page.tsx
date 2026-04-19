@@ -35,13 +35,13 @@ export default function Home() {
             <Hero />
           </div>
           
-          <SectionTransition label="Professional Journey" index={0} />
+          <SectionTransition label="Business Journey" index={0} />
           <Experience />
           
           <SectionTransition label="Achievements & Impact" index={1} />
           <Achievements />
           
-          <SectionTransition label="Ventures" index={2} />
+          <SectionTransition label="Case Studies" index={2} />
           <Projects />
           
           <SectionTransition label="Expertise" index={3} />
