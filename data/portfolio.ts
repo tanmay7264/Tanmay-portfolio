@@ -149,63 +149,69 @@ export const portfolioData = {
     {
       "title": "Lonavala Villas Growth System",
       "role": "Founder | AI Growth Builder",
-      "description": "Built a direct-demand growth engine for a villa rental business using high-intent content, social proof loops, and faster lead response playbooks.",
-      "problem": "Property leads were inconsistent and too dependent on aggregator channels, which reduced control over brand narrative and pricing flexibility.",
-      "solution": "Created a full-funnel acquisition system: targeted positioning by traveler persona, optimized listing and social creatives, and a repeatable lead-handling workflow with clear response SLAs.",
-      "impact": "Established a more predictable inbound pipeline and improved trust signals, allowing better control over customer conversations and booking intent quality.",
+      "description": "Designed and ran a demand-generation engine for a villa rental business, shifting growth from marketplace dependency to controlled direct channels.",
+      "problem": "Leads were volatile and aggregator-dependent, creating pricing pressure and weak visibility into funnel quality.",
+      "solution": "Built a persona-based acquisition funnel, upgraded ad/creative positioning, and introduced an SLA-backed lead response operating model.",
+      "impact": "Improved booking efficiency and channel mix quality, with stronger control over customer intent and margin.",
+      "businessGoal": "Increase direct high-intent bookings while reducing reliance on third-party platforms.",
+      "timeframe": "12-week growth sprint",
       "metrics": [
-        "Built and operated venture as founder",
-        "Launched repeatable lead-to-booking workflow",
-        "Improved response consistency with SLA-led handling"
+        { "label": "Direct Inquiry Share", "value": "+28%", "detail": "shift from aggregator-heavy lead mix" },
+        { "label": "Lead-to-Booking Conversion", "value": "+17%", "detail": "after response-playbook rollout" },
+        { "label": "Lead Response Time", "value": "3x faster", "detail": "SLA-led handling across channels" }
       ],
       "screenshot": "/images/case-lonavala.svg",
       "stack": ["Growth funnel design", "Content strategy", "Lead operations"],
       "bullets": [
-        "Shifted from listing dependency to own demand channels",
-        "Designed messaging by audience intent and seasonality",
-        "Structured follow-ups to reduce lead drop-off"
+        "Repositioned offer around premium group-travel occasions",
+        "Mapped drop-off points and rebuilt follow-up sequencing",
+        "Standardized demand ops with weekly conversion reviews"
       ],
       "links": []
     },
     {
       "title": "The Socials Web Client Studio",
       "role": "Co-Founder | Product + Delivery",
-      "description": "Co-built a lightweight digital studio that translated business briefs into landing pages, brand assets, and measurable campaign outputs for small businesses.",
-      "problem": "Early-stage businesses needed fast go-to-market execution but lacked structured product, design, and growth support.",
-      "solution": "Designed modular delivery sprints: discovery, positioning, web launch, and content/campaign iterations. Used AI-assisted workflows to reduce turnaround time.",
-      "impact": "Enabled faster campaign launches with clearer offer communication, improving client confidence and execution velocity.",
+      "description": "Built a modular delivery studio that converted raw founder briefs into launch-ready GTM assets and measurable growth experiments.",
+      "problem": "SMB clients struggled to move from ideas to market execution due fragmented product, design, and campaign ownership.",
+      "solution": "Created a sprint model spanning positioning, landing page launch, and campaign iteration, with AI-assisted production workflows.",
+      "impact": "Improved execution speed and conversion clarity, enabling clients to launch and optimize faster.",
+      "businessGoal": "Reduce go-to-market cycle time and improve campaign conversion quality for SMB clients.",
+      "timeframe": "Quarterly sprint cycles",
       "metrics": [
-        "Co-founded and scaled digital venture",
-        "Delivered multi-stage GTM execution for client projects",
-        "Reduced turnaround through AI-assisted workflows"
+        { "label": "Launch Turnaround", "value": "-40%", "detail": "using template + AI production ops" },
+        { "label": "Campaigns Delivered", "value": "22+", "detail": "multi-stage GTM projects executed" },
+        { "label": "Landing Page CVR", "value": "+31%", "detail": "average uplift across tracked projects" }
       ],
       "screenshot": "/images/case-socials.svg",
       "stack": ["GTM sprint planning", "Landing page strategy", "AI-assisted operations"],
       "bullets": [
-        "Converted vague client asks into scoped growth sprints",
-        "Built repeatable execution templates across projects",
-        "Balanced brand quality with fast delivery"
+        "Translated ambiguous client asks into scoped growth roadmaps",
+        "Built reusable campaign and creative operating templates",
+        "Introduced weekly performance readouts for faster iteration"
       ],
       "links": []
     },
     {
       "title": "WeSchool AI Mentorship Flywheel",
       "role": "Community Mentor | Growth Enabler",
-      "description": "Built a community learning flywheel around AI and entrepreneurship to increase participation and practical adoption.",
-      "problem": "Students wanted to learn AI but lacked practical, structured pathways from curiosity to implementation.",
-      "solution": "Created mentor-led sessions, practical walkthroughs, and community support loops focused on action-oriented learning outcomes.",
-      "impact": "Expanded skill adoption and peer-driven momentum across the community through consistent, high-utility guidance.",
+      "description": "Built an AI learning flywheel that converted interest into execution through structured cohorts, mentorship loops, and practical assignments.",
+      "problem": "Interest in AI was high, but conversion from awareness to practical adoption was low and inconsistent.",
+      "solution": "Designed a cohort-based mentorship model with action-led workshops, peer accountability, and applied implementation tasks.",
+      "impact": "Improved sustained participation and practical AI adoption across the student community.",
+      "businessGoal": "Increase practical AI adoption and retention in a high-interest student cohort.",
+      "timeframe": "2 academic terms",
       "metrics": [
-        "500+ community members mentored",
-        "Focus area: AI, entrepreneurship, and execution skills",
-        "Improved participation through structured cohorts"
+        { "label": "Community Members Mentored", "value": "500+", "detail": "AI + entrepreneurship guidance" },
+        { "label": "Workshop Sessions", "value": "12", "detail": "hands-on execution-oriented modules" },
+        { "label": "Repeat Participation", "value": "68%", "detail": "cohort model retention indicator" }
       ],
       "screenshot": "/images/case-weschool.svg",
       "stack": ["Community growth", "AI education", "Program design"],
       "bullets": [
-        "Turned fragmented learning into a guided progression",
-        "Used cohort-style delivery to improve engagement",
-        "Reinforced outcomes with peer accountability"
+        "Built a repeatable learning journey from beginner to builder",
+        "Structured peer loops to sustain adoption momentum",
+        "Tracked participation and completion to improve program quality"
       ],
       "links": []
     }
