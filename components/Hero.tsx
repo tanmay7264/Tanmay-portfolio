@@ -68,7 +68,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.08 }}
         >
-          Always Curious
+          AI GROWTH BUILDER
         </motion.h2>
 
         {/* Tagline */}
@@ -88,7 +88,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {['PGDM E-Business \'27', 'Ex-Apexon', 'AWS Certified', 'Entrepreneur'].map((tag, i) => (
+          {['AI Product Builder', 'Growth Systems', 'PGDM E-Business \'27', 'Ex-Apexon'].map((tag, i) => (
             <span
               key={i}
               className="px-4 py-2 glass rounded-full text-sm font-medium border border-primary/30"
@@ -105,9 +105,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Front End Developer with 2.5 years at Apexon building scalable solutions. 
-          Now pursuing strategic leadership through PGDM E-Business. 
-          Founder of Lonavala Villas & Co-founder of The Socials Web.
+          I turn ambiguous business problems into AI-powered product and growth experiments.
+          My work is built around one framework: <span className="text-primary font-semibold">Problem → Solution → Impact</span>,
+          with clear metrics, rapid execution, and customer-centered storytelling.
         </motion.p>
 
         {/* CTAs */}
@@ -123,7 +123,7 @@ export default function Hero() {
                      hover:bg-primary/90 transition-all duration-300 glow hover:scale-105
                      flex items-center gap-2"
           >
-            View Experience
+            View Business Journey
             <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
           </button>
 
@@ -175,7 +175,7 @@ export default function Hero() {
             animate={{ x: ['0%', '-50%'] }}
             transition={{ duration: 18, ease: 'linear', repeat: Infinity }}
           >
-            CUSTOMER EXPERIENCE LEADERSHIP • BUSINESS ALIGNMENT • DECISION OWNERSHIP • CUSTOMER EXPERIENCE LEADERSHIP • BUSINESS ALIGNMENT • DECISION OWNERSHIP •
+            AI GROWTH STRATEGY • PRODUCT STORYTELLING • EXPERIMENT-LED EXECUTION • AI GROWTH STRATEGY • PRODUCT STORYTELLING • EXPERIMENT-LED EXECUTION •
           </motion.div>
         </motion.div>
       </div>
