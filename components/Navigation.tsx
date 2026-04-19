@@ -8,7 +8,7 @@ const navItems = [
   { id: 'hero', label: 'Home', icon: Home },
   { id: 'experience', label: 'Experience', icon: Briefcase },
   { id: 'achievements', label: 'Achievements', icon: Award },
-  { id: 'projects', label: 'Projects', icon: FolderGit2 },
+  { id: 'projects', label: 'Case Studies', icon: FolderGit2 },
   { id: 'education', label: 'Education', icon: GraduationCap },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
