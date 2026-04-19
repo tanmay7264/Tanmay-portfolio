@@ -51,6 +51,17 @@ export default function Projects() {
                 </div>
               </div>
 
+              <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-1">Business Goal</p>
+                  <p className="text-sm text-foreground/85">{(project as any).businessGoal}</p>
+                </div>
+                <div className="rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-1">Timeframe</p>
+                  <p className="text-sm text-foreground/85">{(project as any).timeframe}</p>
+                </div>
+              </div>
+
               <p className="text-foreground/80 mb-6">{project.description}</p>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -94,13 +105,12 @@ export default function Projects() {
               <div className="mb-5">
                 <h4 className="mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">Key Metrics</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {((project as any).metrics || []).map((metric: string, i: number) => (
-                    <span
-                      key={i}
-                      className="rounded-lg border border-primary/30 bg-primary/15 px-3 py-2 text-sm text-primary"
-                    >
-                      {metric}
-                    </span>
+                  {((project as any).metrics || []).map((metric: any, i: number) => (
+                    <div key={i} className="rounded-lg border border-primary/30 bg-primary/15 px-3 py-3">
+                      <p className="text-2xl font-bold text-primary leading-none mb-1">{metric.value || metric}</p>
+                      <p className="text-xs uppercase tracking-[0.16em] text-foreground/80 mb-1">{metric.label || 'Metric'}</p>
+                      <p className="text-xs text-foreground/65">{metric.detail || ''}</p>
+                    </div>
                   ))}
                 </div>
               </div>
