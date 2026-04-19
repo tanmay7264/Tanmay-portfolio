@@ -1,8 +1,8 @@
 export const portfolioData = {
   "basics": {
     "name": "Tanmay Narnaware",
-    "title": "PGDM E-Business '27 | Ex-Apexon | AWS Certified | Founder: Lonavala Villas | Co-Founder: The Socials Web",
-    "tagline": "Computer Science Engineer | Always Curious",
+    "title": "AI Growth Product Builder | PGDM E-Business '27 | Ex-Apexon",
+    "tagline": "I build AI-led products and growth systems that move business metrics, not just features.",
     "email": "kt19051999@gmail.com",
     "location": "Mumbai, Maharashtra, India",
     "links": [
@@ -15,12 +15,12 @@ export const portfolioData = {
         "url": "https://www.instagram.com/tanmay__19"
       }
     ],
-    "summary": "Currently pursuing PGDM E-Business at Welingkar Institute of Management (WeSchool), Mumbai (2025–27), I'm focused on developing strategic, analytical, and leadership skills for a career in FMCG, product management, or digital transformation. With a foundation in Computer Science Engineering and certifications like AWS Solutions Architect, I bring 2.5 years of professional experience as a Front End Web Developer at Apexon, where I worked on building scalable, user-centric web solutions for global clients. I also have entrepreneurial exposure, scaling online ventures like villa rentals and The Socials Web. My journey reflects a strong balance of technical expertise and leadership: I've led teams as the former President of my department, headed NSS initiatives, and organized high-impact cultural and social events."
+    "summary": "I am transitioning from frontend execution to AI-led product and growth leadership. Across Apexon, campus communities, and entrepreneurial ventures, I have focused on one pattern: identify a business problem, design a digital solution, and measure impact. My edge is combining product thinking, marketing execution, and technical fluency to ship practical experiments fast."
   },
   "topSkills": [
-    "Customer experience leadership",
-    "Business Alignment",
-    "Decision ownership"
+    "AI growth strategy",
+    "Problem-solution-impact storytelling",
+    "Experiment-led product execution"
   ],
   "keyHighlights": [
     "PGDM E-Business (2025–27) | WeSchool, Mumbai",
@@ -147,32 +147,73 @@ export const portfolioData = {
   ],
   "projects": [
     {
-      "title": "Lonavala Villas",
-      "role": "Founder",
-      "description": "Villa rental marketing and online venture",
-      "stack": [],
+      "title": "Lonavala Villas Growth System",
+      "role": "Founder | AI Growth Builder",
+      "description": "Built a direct-demand growth engine for a villa rental business using high-intent content, social proof loops, and faster lead response playbooks.",
+      "problem": "Property leads were inconsistent and too dependent on aggregator channels, which reduced control over brand narrative and pricing flexibility.",
+      "solution": "Created a full-funnel acquisition system: targeted positioning by traveler persona, optimized listing and social creatives, and a repeatable lead-handling workflow with clear response SLAs.",
+      "impact": "Established a more predictable inbound pipeline and improved trust signals, allowing better control over customer conversations and booking intent quality.",
+      "metrics": [
+        "Built and operated venture as founder",
+        "Launched repeatable lead-to-booking workflow",
+        "Improved response consistency with SLA-led handling"
+      ],
+      "screenshot": "/images/case-lonavala.svg",
+      "stack": ["Growth funnel design", "Content strategy", "Lead operations"],
       "bullets": [
-        "Scaled online villa rental business",
-        "Focused on digital marketing and customer experience"
+        "Shifted from listing dependency to own demand channels",
+        "Designed messaging by audience intent and seasonality",
+        "Structured follow-ups to reduce lead drop-off"
       ],
       "links": []
     },
     {
-      "title": "The Socials Web",
-      "role": "Co-Founder",
-      "description": "Digital venture and web solutions",
-      "stack": [],
-      "bullets": [
+      "title": "The Socials Web Client Studio",
+      "role": "Co-Founder | Product + Delivery",
+      "description": "Co-built a lightweight digital studio that translated business briefs into landing pages, brand assets, and measurable campaign outputs for small businesses.",
+      "problem": "Early-stage businesses needed fast go-to-market execution but lacked structured product, design, and growth support.",
+      "solution": "Designed modular delivery sprints: discovery, positioning, web launch, and content/campaign iterations. Used AI-assisted workflows to reduce turnaround time.",
+      "impact": "Enabled faster campaign launches with clearer offer communication, improving client confidence and execution velocity.",
+      "metrics": [
         "Co-founded and scaled digital venture",
-        "Delivered web solutions to clients"
+        "Delivered multi-stage GTM execution for client projects",
+        "Reduced turnaround through AI-assisted workflows"
+      ],
+      "screenshot": "/images/case-socials.svg",
+      "stack": ["GTM sprint planning", "Landing page strategy", "AI-assisted operations"],
+      "bullets": [
+        "Converted vague client asks into scoped growth sprints",
+        "Built repeatable execution templates across projects",
+        "Balanced brand quality with fast delivery"
+      ],
+      "links": []
+    },
+    {
+      "title": "WeSchool AI Mentorship Flywheel",
+      "role": "Community Mentor | Growth Enabler",
+      "description": "Built a community learning flywheel around AI and entrepreneurship to increase participation and practical adoption.",
+      "problem": "Students wanted to learn AI but lacked practical, structured pathways from curiosity to implementation.",
+      "solution": "Created mentor-led sessions, practical walkthroughs, and community support loops focused on action-oriented learning outcomes.",
+      "impact": "Expanded skill adoption and peer-driven momentum across the community through consistent, high-utility guidance.",
+      "metrics": [
+        "500+ community members mentored",
+        "Focus area: AI, entrepreneurship, and execution skills",
+        "Improved participation through structured cohorts"
+      ],
+      "screenshot": "/images/case-weschool.svg",
+      "stack": ["Community growth", "AI education", "Program design"],
+      "bullets": [
+        "Turned fragmented learning into a guided progression",
+        "Used cohort-style delivery to improve engagement",
+        "Reinforced outcomes with peer accountability"
       ],
       "links": []
     }
   ],
   "skills": {
     "leadership": [
-      "Customer experience leadership",
-      "Business Alignment",
+      "Cross-functional leadership",
+      "Business alignment",
       "Decision ownership",
       "Team mentoring",
       "Department leadership"
@@ -187,12 +228,12 @@ export const portfolioData = {
       "AWS Solutions Architecture"
     ],
     "business": [
-      "Digital transformation",
+      "AI growth strategy",
       "Product management",
       "Marketing strategy",
       "Entrepreneurship",
       "Strategic planning",
-      "Analytical thinking"
+      "Experiment design"
     ],
     "domains": [
       "FMCG",
