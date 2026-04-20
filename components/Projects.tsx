@@ -3,15 +3,13 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { TrendingUp, Target, Lightbulb } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const pathname = usePathname();
-  const pagesBasePath = pathname.startsWith('/Tanmay-portfolio') ? '/Tanmay-portfolio' : '';
+  const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
     <section id="projects" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
