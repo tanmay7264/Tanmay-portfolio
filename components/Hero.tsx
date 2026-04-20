@@ -2,13 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { ArrowDown, Download, Mail, Linkedin } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 
 export default function Hero() {
-  const pathname = usePathname();
-  const pagesBasePath = pathname.startsWith('/Tanmay-portfolio') ? '/Tanmay-portfolio' : '';
+  const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
