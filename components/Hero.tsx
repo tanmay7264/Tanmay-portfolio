@@ -2,10 +2,14 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { ArrowDown, Download, Mail, Linkedin } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 
 export default function Hero() {
+  const pathname = usePathname();
+  const pagesBasePath = pathname.startsWith('/Tanmay-portfolio') ? '/Tanmay-portfolio' : '';
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -32,7 +36,7 @@ export default function Hero() {
             <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary/40 via-accent/30 to-cyan-400/30 blur-lg" />
             <div className="glass panel-shift relative h-40 w-40 overflow-hidden rounded-full border border-primary/40 sm:h-48 sm:w-48">
               <Image
-                src="/images/Image.png"
+                src={`${pagesBasePath}/images/Image.png`}
                 alt="Tanmay Narnaware professional profile"
                 fill
                 priority
