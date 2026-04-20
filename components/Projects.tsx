@@ -3,12 +3,15 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { TrendingUp, Target, Lightbulb } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const pathname = usePathname();
+  const pagesBasePath = pathname.startsWith('/Tanmay-portfolio') ? '/Tanmay-portfolio' : '';
 
   return (
     <section id="projects" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -67,7 +70,7 @@ export default function Projects() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]">
                   <Image
-                    src={(project as any).screenshot}
+                    src={`${pagesBasePath}${(project as any).screenshot}`}
                     alt={`${project.title} case study screenshot`}
                     width={1200}
                     height={720}
