@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/lib/language';
 
 export default function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0);
+  const { ui } = useLanguage();
 
   useEffect(() => {
     const duration = 1500; // 1.5 seconds
@@ -76,7 +78,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        Loading portfolio...
+        {ui.splashLoading}
       </motion.p>
     </motion.div>
   );

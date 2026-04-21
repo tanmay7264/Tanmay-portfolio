@@ -21,7 +21,7 @@ export default function SectionTransition({ label, index }: SectionTransitionPro
   return (
     <motion.div
       ref={ref}
-      className="sticky top-20 z-30 mx-4 my-8 sm:mx-6 lg:mx-8"
+      className="hidden md:block sticky top-20 z-30 mx-4 my-8 sm:mx-6 lg:mx-8"
       style={{ opacity }}
     >
       <motion.div

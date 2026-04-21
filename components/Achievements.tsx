@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Trophy, Users, Rocket, Calendar, Award, Briefcase } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { useLanguage } from '@/lib/language';
 
 const categoryIcons: Record<string, any> = {
   Leadership: Users,
@@ -22,6 +22,7 @@ const categoryColors: Record<string, string> = {
 export default function Achievements() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { portfolioData, ui } = useLanguage();
 
   // Group achievements by category
   const groupedAchievements = portfolioData.achievements.reduce((acc, achievement) => {
@@ -33,27 +34,11 @@ export default function Achievements() {
   }, {} as Record<string, typeof portfolioData.achievements>);
 
   // Top 3 Impact highlights
-  const topHighlights = [
-    {
-      title: '2.5 Years',
-      subtitle: 'At Apexon',
-      description: 'Building scalable solutions for global clients',
-    },
-    {
-      title: 'Dept. President',
-      subtitle: 'CSE Leadership',
-      description: 'Led Computer Science Engineering department',
-    },
-    {
-      title: 'AWS Certified',
-      subtitle: 'Solutions Architect',
-      description: 'Associate level certification',
-    },
-  ];
+  const topHighlights = ui.achievements.topHighlights;
 
   return (
     <section id="achievements" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="side-label side-label-right hidden xl:block">Achievements</div>
+      <div className="side-label side-label-right hidden xl:block">{ui.achievements.sideLabel}</div>
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -64,10 +49,10 @@ export default function Achievements() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-gradient">Achievements & Impact</span>
+            <span className="text-gradient">{ui.achievements.heading}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Leadership, entrepreneurship, and professional milestones
+            {ui.achievements.subheading}
           </p>
         </motion.div>
 
@@ -155,7 +140,7 @@ export default function Achievements() {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <p className="text-lg text-muted-foreground mb-4">
-            Passionate about leveraging technology and business insights to create impactful solutions
+            {ui.achievements.cta}
           </p>
         </motion.div>
       </div>

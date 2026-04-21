@@ -1,22 +1,29 @@
 'use client';
 
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Menu, X, Home, Briefcase, Award, FolderGit2, GraduationCap, Mail } from 'lucide-react';
-
-const navItems = [
-  { id: 'hero', label: 'Home', icon: Home },
-  { id: 'experience', label: 'Experience', icon: Briefcase },
-  { id: 'achievements', label: 'Achievements', icon: Award },
-  { id: 'projects', label: 'Case Studies', icon: FolderGit2 },
-  { id: 'education', label: 'Education', icon: GraduationCap },
-  { id: 'contact', label: 'Contact', icon: Mail },
-];
+import { useState, useEffect, useMemo } from 'react';
+import { Menu, X, Home, Briefcase, Award, FolderGit2, GraduationCap, Mail, HandCoins, MessagesSquare, NotebookText } from 'lucide-react';
+import { useLanguage } from '@/lib/language';
 
 export default function Navigation() {
+  const { ui, language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [scrollPercent, setScrollPercent] = useState(0);
+  const navItems = useMemo(
+    () => [
+      { id: 'hero', label: ui.navigation.home, icon: Home },
+      { id: 'experience', label: ui.navigation.experience, icon: Briefcase },
+      { id: 'achievements', label: ui.navigation.achievements, icon: Award },
+      { id: 'projects', label: ui.navigation.projects, icon: FolderGit2 },
+      { id: 'services', label: ui.navigation.services, icon: HandCoins },
+      { id: 'testimonials', label: ui.navigation.testimonials, icon: MessagesSquare },
+      { id: 'insights', label: ui.navigation.insights, icon: NotebookText },
+      { id: 'education', label: ui.navigation.education, icon: GraduationCap },
+      { id: 'contact', label: ui.navigation.contact, icon: Mail },
+    ],
+    [ui]
+  );
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -44,7 +51,7 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navItems]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -77,8 +84,28 @@ export default function Navigation() {
             </button>
 
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <span>Start</span>
+              <span>{ui.navigation.start}</span>
               <span className="text-foreground">{String(scrollPercent).padStart(2, '0')}%</span>
+            </div>
+
+            <div className="hidden items-center gap-1 rounded-md border border-white/10 bg-white/[0.03] p-1 xl:flex">
+              {([
+                { code: 'en', label: 'English' },
+                { code: 'de', label: 'Deutsch' },
+              ] as const).map((item) => (
+                <button
+                  key={item.code}
+                  onClick={() => setLanguage(item.code)}
+                  className={`rounded px-2 py-1 text-[11px] font-semibold tracking-[0.08em] transition-colors ${
+                    language === item.code
+                      ? 'bg-primary text-primary-foreground'
+                      : 'text-foreground/70 hover:bg-white/10'
+                  }`}
+                  aria-label={`Switch language to ${item.label}`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
 
             <div className="flex items-center gap-1">
@@ -121,6 +148,25 @@ export default function Navigation() {
           exit={{ opacity: 0 }}
         >
           <div className="flex flex-col items-center justify-center h-full gap-6">
+            <div className="mb-2 flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] p-2">
+              {([
+                { code: 'en', label: 'English' },
+                { code: 'de', label: 'Deutsch' },
+              ] as const).map((item) => (
+                <button
+                  key={item.code}
+                  onClick={() => setLanguage(item.code)}
+                  className={`rounded-full px-3 py-1 text-xs font-semibold tracking-[0.08em] transition-colors ${
+                    language === item.code
+                      ? 'bg-primary text-primary-foreground'
+                      : 'text-foreground/70 hover:bg-white/10'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}

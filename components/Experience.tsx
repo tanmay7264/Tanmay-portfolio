@@ -3,10 +3,11 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MapPin, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { portfolioData as portfolioDataShape } from '@/data/portfolio';
+import { useLanguage } from '@/lib/language';
 
 interface ExperienceItemProps {
-  data: typeof portfolioData.experience[0];
+  data: (typeof portfolioDataShape.experience)[number];
   index: number;
 }
 
@@ -96,10 +97,11 @@ function ExperienceItem({ data, index }: ExperienceItemProps) {
 export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { portfolioData, ui } = useLanguage();
 
   return (
     <section id="experience" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="side-label side-label-left hidden xl:block">Experience</div>
+      <div className="side-label side-label-left hidden xl:block">{ui.experience.sideLabel}</div>
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -110,10 +112,10 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-gradient">Professional Journey</span>
+            <span className="text-gradient">{ui.experience.heading}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            2.5 years of building scalable, user-centric solutions at Apexon
+            {ui.experience.subheading}
           </p>
         </motion.div>
 
@@ -127,7 +129,7 @@ export default function Experience() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/10 to-cyan-400/20" />
             <div className="absolute -left-8 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-primary/30 blur-3xl" />
             <div className="absolute right-8 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-accent/30 blur-3xl" />
-            <div className="section-label absolute left-6 top-6 text-foreground/70">Career Story Cards</div>
+            <div className="section-label absolute left-6 top-6 text-foreground/70">{ui.experience.storyCards}</div>
             <div className="font-display absolute bottom-6 left-6 text-4xl text-foreground/90 sm:text-5xl">Apexon 2021-2024</div>
           </div>
         </motion.div>
@@ -152,18 +154,12 @@ export default function Experience() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="glass p-6 rounded-xl text-center">
-            <div className="text-4xl font-bold text-primary mb-2">2.5+</div>
-            <div className="text-muted-foreground">Years Experience</div>
-          </div>
-          <div className="glass p-6 rounded-xl text-center">
-            <div className="text-4xl font-bold text-primary mb-2">4</div>
-            <div className="text-muted-foreground">Career Milestones</div>
-          </div>
-          <div className="glass p-6 rounded-xl text-center">
-            <div className="text-4xl font-bold text-primary mb-2">Global</div>
-            <div className="text-muted-foreground">Client Reach</div>
-          </div>
+          {ui.experience.stats.map((stat, idx) => (
+            <div key={idx} className="glass p-6 rounded-xl text-center">
+              <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
+              <div className="text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

@@ -4,16 +4,17 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { TrendingUp, Target, Lightbulb } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { useLanguage } from '@/lib/language';
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const { portfolioData, ui } = useLanguage();
 
   return (
     <section id="projects" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="side-label side-label-left hidden xl:block">Case Studies</div>
+      <div className="side-label side-label-left hidden xl:block">{ui.projects.sideLabel}</div>
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -24,16 +25,16 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-gradient">Product & Growth Case Studies</span>
+            <span className="text-gradient">{ui.projects.heading}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Built with a business-first lens: Problem, Solution, and measurable Impact.
+            {ui.projects.subheading}
           </p>
         </motion.div>
 
         {/* Case studies */}
         <div className="grid grid-cols-1 gap-8">
-          {portfolioData.projects.map((project, index) => (
+          {portfolioData.projects.map((project: typeof portfolioData.projects[number], index: number) => (
             <motion.div
               key={index}
               className="glass panel-shift p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
@@ -54,11 +55,11 @@ export default function Projects() {
 
               <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className="rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-1">Business Goal</p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-1">{ui.projects.businessGoal}</p>
                   <p className="text-sm text-foreground/85">{(project as any).businessGoal}</p>
                 </div>
                 <div className="rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-1">Timeframe</p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-1">{ui.projects.timeframe}</p>
                   <p className="text-sm text-foreground/85">{(project as any).timeframe}</p>
                 </div>
               </div>
@@ -80,7 +81,7 @@ export default function Projects() {
                   <div className="rounded-xl border border-red-400/20 bg-red-500/10 p-4">
                     <div className="mb-2 flex items-center gap-2 text-red-300">
                       <Target className="h-4 w-4" />
-                      <span className="text-xs uppercase tracking-[0.18em]">Problem</span>
+                      <span className="text-xs uppercase tracking-[0.18em]">{ui.projects.problem}</span>
                     </div>
                     <p className="text-sm text-foreground/80">{(project as any).problem}</p>
                   </div>
@@ -88,7 +89,7 @@ export default function Projects() {
                   <div className="rounded-xl border border-cyan-400/20 bg-cyan-500/10 p-4">
                     <div className="mb-2 flex items-center gap-2 text-cyan-300">
                       <Lightbulb className="h-4 w-4" />
-                      <span className="text-xs uppercase tracking-[0.18em]">Solution</span>
+                      <span className="text-xs uppercase tracking-[0.18em]">{ui.projects.solution}</span>
                     </div>
                     <p className="text-sm text-foreground/80">{(project as any).solution}</p>
                   </div>
@@ -96,7 +97,7 @@ export default function Projects() {
                   <div className="rounded-xl border border-emerald-400/20 bg-emerald-500/10 p-4">
                     <div className="mb-2 flex items-center gap-2 text-emerald-300">
                       <TrendingUp className="h-4 w-4" />
-                      <span className="text-xs uppercase tracking-[0.18em]">Impact</span>
+                      <span className="text-xs uppercase tracking-[0.18em]">{ui.projects.impact}</span>
                     </div>
                     <p className="text-sm text-foreground/80">{(project as any).impact}</p>
                   </div>
@@ -104,7 +105,7 @@ export default function Projects() {
               </div>
 
               <div className="mb-5">
-                <h4 className="mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">Key Metrics</h4>
+                <h4 className="mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">{ui.projects.metrics}</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {((project as any).metrics || []).map((metric: any, i: number) => (
                     <div key={i} className="rounded-lg border border-primary/30 bg-primary/15 px-3 py-3">
@@ -118,7 +119,7 @@ export default function Projects() {
 
               {project.stack.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.stack.map((tech, i) => (
+                  {project.stack.map((tech: string, i: number) => (
                     <span key={i} className="px-3 py-1 bg-white/5 rounded-full text-sm text-foreground/80 border border-white/10">
                       {tech}
                     </span>
@@ -127,7 +128,7 @@ export default function Projects() {
               )}
 
               <div className="space-y-2">
-                {project.bullets.map((bullet, i) => (
+                {project.bullets.map((bullet: string, i: number) => (
                   <div key={i} className="flex gap-2 items-start">
                     <span className="text-primary mt-1.5 text-xs">▹</span>
                     <p className="text-foreground/70">{bullet}</p>
@@ -146,7 +147,7 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <p className="text-lg text-foreground/80">
-            <span className="font-semibold text-primary">Positioning:</span> AI Product Builder with a Growth Marketing Lens
+            <span className="font-semibold text-primary">{ui.projects.positioningLabel}</span> {ui.projects.positioningText}
           </p>
         </motion.div>
       </div>

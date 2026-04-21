@@ -2,8 +2,8 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Linkedin, MapPin, Send, Instagram } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { Mail, Linkedin, MapPin, Send, Instagram, Github } from 'lucide-react';
+import { useLanguage } from '@/lib/language';
 
 const getSocialIcon = (label: string) => {
   switch (label.toLowerCase()) {
@@ -11,18 +11,38 @@ const getSocialIcon = (label: string) => {
       return <Linkedin className="w-6 h-6 text-primary" />;
     case 'instagram':
       return <Instagram className="w-6 h-6 text-primary" />;
+    case 'github':
+      return <Github className="w-6 h-6 text-primary" />;
     default:
       return <Linkedin className="w-6 h-6 text-primary" />;
+  }
+};
+
+const getSocialHandle = (label: string, url: string) => {
+  if (label.toLowerCase() === 'linkedin') {
+    return 'Tanmay Narnaware';
+  }
+  if (label.toLowerCase() === 'instagram') {
+    return '@tanmay__19';
+  }
+
+  try {
+    const pathname = new URL(url).pathname.replace(/\/$/, '');
+    const handle = pathname.split('/').filter(Boolean).pop();
+    return handle ? `@${handle}` : label;
+  } catch {
+    return label;
   }
 };
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { portfolioData, ui } = useLanguage();
 
   return (
     <section id="contact" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="side-label side-label-right hidden xl:block">Contact</div>
+      <div className="side-label side-label-right hidden xl:block">{ui.contact.sideLabel}</div>
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -33,10 +53,10 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-gradient">Let&apos;s Connect</span>
+            <span className="text-gradient">{ui.contact.heading}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Currently exploring internships and projects in consulting, product management, and digital transformation
+            {ui.contact.subheading}
           </p>
         </motion.div>
 
@@ -61,14 +81,14 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground mb-1">Email</p>
+                <p className="text-sm text-muted-foreground mb-1">{ui.contact.email}</p>
                 <p className="font-semibold group-hover:text-primary transition-colors">
                   {portfolioData.basics.email}
                 </p>
               </div>
             </motion.a>
 
-            {portfolioData.basics.links.map((link, index) => (
+            {portfolioData.basics.links.map((link: typeof portfolioData.basics.links[number], index: number) => (
               <motion.a
                 key={link.label}
                 href={link.url}
@@ -86,7 +106,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{link.label}</p>
                   <p className="font-semibold group-hover:text-primary transition-colors">
-                    {link.label === 'LinkedIn' ? 'Tanmay Narnaware' : `@tanmay__19`}
+                    {getSocialHandle(link.label, link.url)}
                   </p>
                 </div>
               </motion.a>
@@ -102,7 +122,7 @@ export default function Contact() {
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground mb-1">Location</p>
+                <p className="text-sm text-muted-foreground mb-1">{ui.contact.location}</p>
                 <p className="font-semibold">{portfolioData.basics.location}</p>
               </div>
             </motion.div>
@@ -116,14 +136,14 @@ export default function Contact() {
             transition={{ delay: 0.7 }}
           >
             <p className="text-muted-foreground mb-4">
-              Open to opportunities in FMCG, product management, and digital transformation
+              {ui.contact.ctaText}
             </p>
             <a
               href={`mailto:${portfolioData.basics.email}`}
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 glow hover:scale-105"
             >
               <Send className="w-5 h-5" />
-              Send a Message
+              {ui.contact.ctaButton}
             </a>
           </motion.div>
         </motion.div>
@@ -135,8 +155,8 @@ export default function Contact() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.9 }}
         >
-          <p>© {new Date().getFullYear()} {portfolioData.basics.name}. All rights reserved.</p>
-          <p className="mt-2">Built with Next.js, TypeScript, Tailwind CSS & Framer Motion</p>
+          <p>© {new Date().getFullYear()} {portfolioData.basics.name}. {ui.contact.footerRights}</p>
+          <p className="mt-2">{ui.contact.builtWith}</p>
         </motion.div>
       </div>
     </section>

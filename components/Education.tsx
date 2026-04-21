@@ -3,15 +3,30 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { useLanguage } from '@/lib/language';
+
+interface Education {
+  institution: string;
+  degree: string;
+  field: string;
+  dates: string;
+  location: string;
+  highlights?: string[];
+  exposure?: string[];
+  coreAreas?: string[];
+  academicPractical?: string[];
+  skillsDeveloped?: string[];
+  placementOffers?: string[];
+}
 
 export default function Education() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { portfolioData, ui } = useLanguage();
 
   return (
     <section id="education" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="side-label side-label-left hidden xl:block">Education</div>
+      <div className="side-label side-label-left hidden xl:block">{ui.education.sideLabel}</div>
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -22,16 +37,16 @@ export default function Education() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-gradient">Education & Certifications</span>
+            <span className="text-gradient">{ui.education.heading}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Building expertise through continuous learning
+            {ui.education.subheading}
           </p>
         </motion.div>
 
         {/* Education cards */}
         <div className="space-y-8 mb-16">
-          {portfolioData.education.map((edu, index) => (
+          {portfolioData.education.map((edu: Education, index: number) => (
             <motion.div
               key={index}
               className="glass p-8 rounded-2xl hover:bg-white/10 transition-all duration-300"
@@ -65,6 +80,104 @@ export default function Education() {
                       <span>{edu.location}</span>
                     </div>
                   </div>
+
+                  {edu.highlights && (
+                    <div className="mt-6 space-y-3">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/90">
+                        Key Highlights
+                      </h4>
+                      <ul className="space-y-2 text-sm leading-relaxed text-foreground/80">
+                        {edu.highlights.map((item: string, highlightIndex: number) => (
+                          <li key={highlightIndex} className="flex gap-2">
+                            <span className="mt-1 text-primary text-xs">▹</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {edu.exposure && (
+                    <div className="mt-6 space-y-3">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/90">
+                        Academic & Practical Exposure
+                      </h4>
+                      <ul className="space-y-2 text-sm leading-relaxed text-foreground/80">
+                        {edu.exposure.map((item: string, exposureIndex: number) => (
+                          <li key={exposureIndex} className="flex gap-2">
+                            <span className="mt-1 text-primary text-xs">▹</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {edu.coreAreas && (
+                    <div className="mt-6 space-y-3">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/90">
+                        Core Areas of Study
+                      </h4>
+                      <ul className="space-y-2 text-sm leading-relaxed text-foreground/80">
+                        {edu.coreAreas.map((item: string, coreAreaIndex: number) => (
+                          <li key={coreAreaIndex} className="flex gap-2">
+                            <span className="mt-1 text-primary text-xs">▹</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {edu.academicPractical && (
+                    <div className="mt-6 space-y-3">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/90">
+                        Academic & Practical Work
+                      </h4>
+                      <ul className="space-y-2 text-sm leading-relaxed text-foreground/80">
+                        {edu.academicPractical.map((item: string, practicalIndex: number) => (
+                          <li key={practicalIndex} className="flex gap-2">
+                            <span className="mt-1 text-primary text-xs">▹</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {edu.skillsDeveloped && (
+                    <div className="mt-6 space-y-3">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/90">
+                        Skills Developed
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.skillsDeveloped.map((skill: string, skillIndex: number) => (
+                          <span
+                            key={skillIndex}
+                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/80"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {edu.placementOffers && (
+                    <div className="mt-6 space-y-3">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/90">
+                        Placement Outcomes
+                      </h4>
+                      <ul className="space-y-2 text-sm leading-relaxed text-foreground/80">
+                        {edu.placementOffers.map((item: string, placementIndex: number) => (
+                          <li key={placementIndex} className="flex gap-2">
+                            <span className="mt-1 text-primary text-xs">▹</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -79,11 +192,11 @@ export default function Education() {
         >
           <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
             <Award className="w-6 h-6 text-primary" />
-            Certifications
+            {ui.education.certifications}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {portfolioData.certifications.map((cert, index) => (
+            {portfolioData.certifications.map((cert: { name: string; issuer?: string }, index: number) => (
               <motion.div
                 key={index}
                 className="glass p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group"
@@ -117,9 +230,9 @@ export default function Education() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h3 className="text-xl font-bold mb-4">Additional Context</h3>
+          <h3 className="text-xl font-bold mb-4">{ui.education.additionalContext}</h3>
           <div className="space-y-2">
-            {portfolioData.extra.map((item, index) => (
+            {portfolioData.extra.map((item: string, index: number) => (
               <motion.p
                 key={index}
                 className="text-foreground/70 flex gap-2 items-start"

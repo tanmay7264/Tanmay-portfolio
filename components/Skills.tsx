@@ -3,22 +3,22 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Users, Code, Briefcase, Target } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
-
-const skillCategories = [
-  { key: 'technical', label: 'Technical Skills', icon: Code, color: 'from-blue-500 to-cyan-500' },
-  { key: 'leadership', label: 'Leadership', icon: Users, color: 'from-purple-500 to-pink-500' },
-  { key: 'business', label: 'Business', icon: Briefcase, color: 'from-orange-500 to-red-500' },
-  { key: 'domains', label: 'Domain Expertise', icon: Target, color: 'from-green-500 to-emerald-500' },
-];
+import { useLanguage } from '@/lib/language';
 
 export default function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { portfolioData, ui } = useLanguage();
+  const skillCategories = [
+    { key: 'technical', label: ui.skills.categories.technical, icon: Code, color: 'from-blue-500 to-cyan-500' },
+    { key: 'leadership', label: ui.skills.categories.leadership, icon: Users, color: 'from-purple-500 to-pink-500' },
+    { key: 'business', label: ui.skills.categories.business, icon: Briefcase, color: 'from-orange-500 to-red-500' },
+    { key: 'domains', label: ui.skills.categories.domains, icon: Target, color: 'from-green-500 to-emerald-500' },
+  ] as const;
 
   return (
     <section id="skills" className="section-shell lg:snap-start py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="side-label side-label-right hidden xl:block">Skills</div>
+      <div className="side-label side-label-right hidden xl:block">{ui.skills.sideLabel}</div>
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -29,10 +29,10 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-gradient">Skills & Expertise</span>
+            <span className="text-gradient">{ui.skills.heading}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A blend of technical prowess and strategic thinking
+            {ui.skills.subheading}
           </p>
         </motion.div>
 
@@ -43,7 +43,7 @@ export default function Skills() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-xl font-bold mb-4 text-center">Core Strengths</h3>
+          <h3 className="text-xl font-bold mb-4 text-center">{ui.skills.coreStrengths}</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {portfolioData.topSkills.map((skill, index) => (
               <motion.span

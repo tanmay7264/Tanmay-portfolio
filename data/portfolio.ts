@@ -5,10 +5,15 @@ export const portfolioData = {
     "tagline": "I build AI-led products and growth systems that move business metrics, not just features.",
     "email": "kt19051999@gmail.com",
     "location": "Mumbai, Maharashtra, India",
+    "resumeUrl": "/Tanmay-Narnaware-CV.pdf",
     "links": [
       {
         "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/ktanmayn/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/tanmay7264/"
       },
       {
         "label": "Instagram",
@@ -216,6 +221,59 @@ export const portfolioData = {
       "links": []
     }
   ],
+  "testimonials": [
+    {
+      "quote": "Tanmay combines technical execution with business thinking. He does not stop at shipping features; he tracks outcomes and keeps improving.",
+      "name": "Former Team Lead",
+      "role": "Apexon"
+    },
+    {
+      "quote": "His growth mindset stands out. Tanmay can translate ambiguous ideas into structured experiments and clear action plans.",
+      "name": "Startup Collaborator",
+      "role": "The Socials Web"
+    },
+    {
+      "quote": "As a mentor, he made AI practical for students by focusing on implementation and measurable progress, not just theory.",
+      "name": "Community Coordinator",
+      "role": "WeSchool"
+    }
+  ],
+  "services": [
+    {
+      "title": "AI Growth Strategy",
+      "description": "Design growth experiments, funnel hypotheses, and KPI frameworks aligned to business outcomes."
+    },
+    {
+      "title": "Landing Pages and Conversion UX",
+      "description": "Build high-converting, responsive landing pages with clear positioning, messaging, and tracking."
+    },
+    {
+      "title": "Product and GTM Sprint Support",
+      "description": "Turn raw ideas into validated product and go-to-market sprint plans with actionable milestones."
+    }
+  ],
+  "thoughtLeadership": [
+    {
+      "title": "Educational Milestone: Student Exchange Program at Otto-Friedrich University of Bamberg",
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/posts/ktanmayn_im-excited-to-share-my-educational-milestone-activity-7451816591274553344-xClO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFz-kW8B9gp-Hf7wz6qTft66yqNhG4kJkUk"
+    },
+    {
+      "title": "How AI Growth Builders Should Think About Experiment Velocity",
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ktanmayn/"
+    },
+    {
+      "title": "From Frontend Execution to Product-Led Growth: My Framework",
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ktanmayn/"
+    },
+    {
+      "title": "What MBA + Engineering Taught Me About Building Better Products",
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ktanmayn/"
+    }
+  ],
   "skills": {
     "leadership": [
       "Cross-functional leadership",
@@ -250,18 +308,86 @@ export const portfolioData = {
   },
   "education": [
     {
-      "institution": "Welingkar Institute of Management (WeSchool)",
-      "degree": "PGDM",
+      "institution": "Prin. L. N. Welingkar Institute of Management",
+      "degree": "Post Graduate Diploma in Management",
       "field": "E-Business",
-      "dates": "July 2025 - July 2027",
-      "location": "Mumbai"
+      "dates": "2025 - 2027",
+      "location": "Mumbai, India",
+      "highlights": [
+        "Specialized in digital business models, e-commerce, and platform-driven growth strategies",
+        "Focused on leveraging technology, analytics, and digital channels for scalable business solutions",
+        "Built strong understanding of India’s digital ecosystem and consumer internet landscape"
+      ],
+      "coreAreas": [
+        "E-commerce and online marketplace strategy",
+        "Digital marketing and performance analytics",
+        "Platform business models and network effects",
+        "Business analytics and data-driven decision-making",
+        "Innovation and technology management"
+      ],
+      "academicPractical": [
+        "Analyzed real-world digital businesses such as marketplaces, D2C brands, and SaaS models",
+        "Applied metrics such as CAC, LTV, conversion rates, and retention to evaluate growth strategies",
+        "Worked on projects involving digital go-to-market strategies and revenue models"
+      ],
+      "skillsDeveloped": [
+        "Digital strategy and business model design",
+        "Performance marketing and funnel optimization",
+        "Analytical thinking using business metrics",
+        "Market research and competitive analysis",
+        "Problem-solving in tech-driven business contexts"
+      ]
     },
     {
-      "institution": "Pune University",
-      "degree": "Bachelor of Engineering - BE",
+      "institution": "Otto-Friedrich University of Bamberg",
+      "degree": "Student Exchange Program",
+      "field": "Management, Innovation & Digital Transformation",
+      "dates": "March 2026 - August 2026",
+      "location": "Bamberg, Germany",
+      "highlights": [
+        "Participating in an international academic exchange focused on management, innovation, and digital transformation",
+        "Exposure to European academic frameworks, including case-based learning and research-driven coursework",
+        "Collaborating with a diverse, multicultural cohort, strengthening cross-cultural communication and adaptability",
+        "Engaging in coursework aligned with emerging business trends such as Hybrid Intelligence and digital ecosystems"
+      ],
+      "exposure": [
+        "Studying interdisciplinary subjects combining technology and management decision-making",
+        "Applying analytical thinking to real-world business problems through assignments and projects",
+        "Understanding European business environment, policies, and market dynamics"
+      ],
+      "skillsDeveloped": [
+        "Cross-cultural communication and global mindset",
+        "Strategic thinking and problem-solving",
+        "Adaptability in international environments",
+        "Academic research and structured analysis",
+        "Collaboration in diverse teams"
+      ]
+    },
+    {
+      "institution": "Savitribai Phule Pune University",
+      "degree": "Bachelor of Engineering (B.E.)",
       "field": "Computer Science",
-      "dates": "August 2017 - May 2021",
-      "location": "Pune"
+      "dates": "2017 - 2021",
+      "location": "Pune, India",
+      "highlights": [
+        "Built a strong foundation in data structures, algorithms, DBMS, operating systems, and computer networks",
+        "Developed projects involving web applications and software systems, applying both frontend and backend technologies",
+        "Gained experience in programming, debugging, and software development lifecycle practices",
+        "Strengthened analytical thinking and problem-solving through structured coding and academic work"
+      ],
+      "academicPractical": [
+        "Applied classroom concepts to hands-on software development and academic projects",
+        "Worked across frontend and backend tasks while building practical web applications"
+      ],
+      "skillsDeveloped": [
+        "Programming and debugging",
+        "Software development lifecycle practices",
+        "Analytical thinking and problem-solving",
+        "Frontend and backend application development"
+      ],
+      "placementOffers": [
+        "Secured 4 final placement offers from MNCs including Infosys, Apexon, Atos Syntel, and Synerzip"
+      ]
     }
   ],
   "certifications": [
