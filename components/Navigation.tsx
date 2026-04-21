@@ -88,7 +88,8 @@ export default function Navigation() {
               <span className="text-foreground">{String(scrollPercent).padStart(2, '0')}%</span>
             </div>
 
-            <div className="hidden items-center gap-1 rounded-md border border-white/10 bg-white/[0.03] p-1 xl:flex">
+            <div className="hidden items-center gap-2 xl:flex">
+              <div className="flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.03] p-1">
               {([
                 { code: 'en', label: 'English' },
                 { code: 'de', label: 'Deutsch' },
@@ -106,6 +107,7 @@ export default function Navigation() {
                   {item.label}
                 </button>
               ))}
+              </div>
             </div>
 
             <div className="flex items-center gap-1">
@@ -148,7 +150,8 @@ export default function Navigation() {
           exit={{ opacity: 0 }}
         >
           <div className="flex flex-col items-center justify-center h-full gap-6">
-            <div className="mb-2 flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] p-2">
+            <div className="mb-2 flex items-center gap-2">
+              <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] p-2">
               {([
                 { code: 'en', label: 'English' },
                 { code: 'de', label: 'Deutsch' },
@@ -165,6 +168,7 @@ export default function Navigation() {
                   {item.label}
                 </button>
               ))}
+              </div>
             </div>
 
             {navItems.map((item, index) => (

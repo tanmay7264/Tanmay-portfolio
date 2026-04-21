@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import SplashScreen from '@/components/SplashScreen';
 import Navigation from '@/components/Navigation';
@@ -18,30 +18,91 @@ import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 import { LanguageProvider, Language, useLanguage } from '@/lib/language';
 
-function LanguageSelectModal({ onSelect }: { onSelect: (language: Language) => void }) {
+function LanguageSelectModal({
+  onSelect,
+  onClose,
+  canClose,
+}: {
+  onSelect: (language: Language) => void;
+  onClose?: () => void;
+  canClose?: boolean;
+}) {
+  const hookLines = useMemo(
+    () => [
+      'Pick a language, unlock a different storytelling rhythm.',
+      'Same portfolio. Different vibe. Your call.',
+      'Choose your mode: crisp global pitch or local narrative depth.',
+    ],
+    []
+  );
+  const [hookIndex, setHookIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setHookIndex((current) => (current + 1) % hookLines.length);
+    }, 2600);
+
+    return () => window.clearInterval(timer);
+  }, [hookLines.length]);
+
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-background/90 px-4 backdrop-blur-md">
-      <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-background/95 p-8 text-center shadow-2xl">
+      <motion.div
+        className="relative w-full max-w-xl rounded-3xl border border-white/15 bg-background/95 p-8 text-center shadow-2xl"
+        initial={{ opacity: 0, y: 18, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
+      >
+        <div className="mx-auto mb-4 flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5">
+          <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-primary" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/90">Live Language Mode</span>
+        </div>
+
+        {canClose && onClose && (
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 rounded-full border border-white/15 px-2.5 py-1 text-xs text-foreground/80 transition-colors hover:bg-white/10"
+            aria-label="Close language picker"
+          >
+            Close
+          </button>
+        )}
+
         <h2 className="font-display mb-3 text-4xl text-foreground">Choose your language</h2>
-        <p className="mb-8 text-sm uppercase tracking-[0.18em] text-muted-foreground">
-          Select portfolio language
-        </p>
+        <p className="mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">Select portfolio language</p>
+
+        <div className="mb-7 min-h-14 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={hookIndex}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.28 }}
+              className="text-sm text-foreground/85"
+            >
+              {hookLines[hookIndex]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <button
             onClick={() => onSelect('en')}
-            className="rounded-xl border border-white/15 bg-white/[0.03] px-4 py-4 text-sm font-semibold transition-all hover:border-primary hover:bg-primary/20"
+            className="group rounded-2xl border border-white/15 bg-white/[0.03] px-4 py-4 text-left transition-all hover:border-primary hover:bg-primary/20"
           >
-            English
+            <span className="block text-base font-semibold">English</span>
+            <span className="block text-xs text-foreground/65">Global pitch mode</span>
           </button>
           <button
             onClick={() => onSelect('de')}
-            className="rounded-xl border border-white/15 bg-white/[0.03] px-4 py-4 text-sm font-semibold transition-all hover:border-primary hover:bg-primary/20"
+            className="group rounded-2xl border border-white/15 bg-white/[0.03] px-4 py-4 text-left transition-all hover:border-primary hover:bg-primary/20"
           >
-            Deutsch
+            <span className="block text-base font-semibold">Deutsch</span>
+            <span className="block text-xs text-foreground/65">Localized narrative mode</span>
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
@@ -54,8 +115,12 @@ function HomeContent() {
     setLanguage(language === 'de' ? 'en' : 'de');
   };
 
+  const handleLanguageSelect = (nextLanguage: Language) => {
+    setLanguage(nextLanguage);
+  };
+
   if (!language) {
-    return <LanguageSelectModal onSelect={setLanguage} />;
+    return <LanguageSelectModal onSelect={handleLanguageSelect} canClose={false} />;
   }
 
   return (
@@ -111,6 +176,7 @@ function HomeContent() {
           
           <SectionTransition label={ui.sectionTransitions.contact} index={8} />
           <Contact />
+
         </>
       )}
     </main>
