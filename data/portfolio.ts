@@ -271,7 +271,7 @@ export const portfolioData = {
     {
       "title": "What MBA + Engineering Taught Me About Building Better Products",
       "platform": "LinkedIn",
-      "url": "https://www.linkedin.com/in/ktanmayn/"
+      "url": "https://www.linkedin.com/pulse/what-mba-engineering-taught-me-building-better-tanmay-narnaware-uz2xe"
     }
   ],
   "skills": {

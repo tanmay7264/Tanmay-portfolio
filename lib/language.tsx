@@ -730,7 +730,7 @@ function getPortfolioDataByLanguage(language: Language): PortfolioData {
     {
       title: 'Was MBA plus Engineering mich ueber bessere Produkte gelehrt hat',
       platform: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/ktanmayn/',
+      url: 'https://www.linkedin.com/pulse/what-mba-engineering-taught-me-building-better-tanmay-narnaware-uz2xe',
     },
   ];
 

@@ -68,15 +68,6 @@ export default function Hero() {
           <span className="text-gradient">{portfolioData.basics.name}</span>
         </motion.h1>
 
-        <motion.h2
-          className="font-display mb-6 text-[clamp(1.3rem,7.5vw,2rem)] uppercase leading-tight [text-wrap:balance] text-foreground/90 sm:text-5xl lg:text-6xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.08 }}
-        >
-          {ui.hero.roleHeading}
-        </motion.h2>
-
         {/* Tagline */}
         <motion.p
           className="mb-4 text-base leading-relaxed [overflow-wrap:anywhere] [text-wrap:balance] text-muted-foreground sm:text-2xl lg:text-3xl"
