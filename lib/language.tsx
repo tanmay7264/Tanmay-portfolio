@@ -39,6 +39,16 @@ interface UiCopy {
     roleLine: string;
     roleHeading: string;
     summary: string;
+    whyHireButton: string;
+    whyHireHeading: string;
+    whyHireIntro: string;
+    valueHighlightsLabel: string;
+    valueHighlights: { value: string; label: string }[];
+    uniqueQualitiesLabel: string;
+    skillsLabel: string;
+    impactSignalsLabel: string;
+    uniqueQualities: string[];
+    impactSignals: string[];
     ctaJourney: string;
     ctaDownloadCv: string;
     ctaContact: string;
@@ -161,6 +171,29 @@ const copyByLanguage: Record<Language, UiCopy> = {
       roleHeading: 'AI GROWTH BUILDER',
       summary:
         'I turn ambiguous business problems into AI-powered product and growth experiments. My work is built around one framework: Problem -> Solution -> Impact, with clear metrics, rapid execution, and customer-centered storytelling.',
+      whyHireButton: 'Why Hire Me?',
+      whyHireHeading: 'What Makes Me a Strong Hire',
+      whyHireIntro:
+        'I combine execution speed with business clarity and product thinking to move from idea to measurable impact quickly.',
+      valueHighlightsLabel: 'Value Snapshot',
+      valueHighlights: [
+        { value: '2.5+', label: 'Years in delivery roles' },
+        { value: '500+', label: 'Community members mentored' },
+        { value: '3x', label: 'Faster lead response in growth sprint' },
+      ],
+      uniqueQualitiesLabel: 'Unique Qualities',
+      skillsLabel: 'Top Skills',
+      impactSignalsLabel: 'Impact Signals',
+      uniqueQualities: [
+        'Business-first mindset backed by technical execution',
+        'Fast experiment cycles with measurable learning',
+        'Strong storytelling across product, growth, and customer value',
+      ],
+      impactSignals: [
+        'Converts ambiguous briefs into clear execution roadmaps',
+        'Aligns product decisions to measurable business outcomes',
+        'Builds cross-functional momentum from strategy to launch',
+      ],
       ctaJourney: 'View Journey',
       ctaDownloadCv: 'Download CV',
       ctaContact: 'Get In Touch',
@@ -296,6 +329,29 @@ const copyByLanguage: Record<Language, UiCopy> = {
       roleHeading: 'AI GROWTH BUILDER',
       summary:
         'Ich verwandle unklare Geschaeftsprobleme in KI-gestuetzte Produkt- und Wachstumsexperimente. Meine Arbeit folgt einem klaren Rahmen: Problem -> Loesung -> Wirkung, mit messbaren Ergebnissen, schneller Umsetzung und starkem Kundenfokus.',
+      whyHireButton: 'Warum mich einstellen?',
+      whyHireHeading: 'Was mich zu einer starken Besetzung macht',
+      whyHireIntro:
+        'Ich verbinde schnelle Umsetzung mit Business-Klarheit und Product Thinking, um Ideen zuegig in messbare Wirkung zu verwandeln.',
+      valueHighlightsLabel: 'Value Snapshot',
+      valueHighlights: [
+        { value: '2.5+', label: 'Jahre in Delivery-Rollen' },
+        { value: '500+', label: 'Mentorierte Community-Mitglieder' },
+        { value: '3x', label: 'Schnellere Lead-Reaktion im Growth Sprint' },
+      ],
+      uniqueQualitiesLabel: 'Einzigartige Staerken',
+      skillsLabel: 'Top Skills',
+      impactSignalsLabel: 'Wirkungssignale',
+      uniqueQualities: [
+        'Business-orientiertes Denken kombiniert mit technischer Umsetzung',
+        'Schnelle Experimentzyklen mit messbaren Learnings',
+        'Klare Storytelling-Staerke fuer Produkt, Wachstum und Kundennutzen',
+      ],
+      impactSignals: [
+        'Macht aus vagen Briefings klare Umsetzungs-Roadmaps',
+        'Richtet Produktentscheidungen auf messbare Business-Ziele aus',
+        'Schafft funktionsuebergreifenden Drive von Strategie bis Launch',
+      ],
       ctaJourney: 'Beruflichen Weg ansehen',
       ctaDownloadCv: 'CV herunterladen',
       ctaContact: 'Kontakt aufnehmen',

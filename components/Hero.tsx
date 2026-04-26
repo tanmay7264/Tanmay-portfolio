@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowDown, Download, Mail, Linkedin, Github } from 'lucide-react';
+import { ArrowDown, Download, Mail, Linkedin, Github, ChevronDown, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/lib/language';
 
 export default function Hero() {
+  const [showWhyHire, setShowWhyHire] = useState(false);
   const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const { portfolioData, ui, language, setLanguage } = useLanguage();
   const resumeHref = `${pagesBasePath}${portfolioData.basics.resumeUrl}`;
@@ -104,6 +106,102 @@ export default function Hero() {
         >
           {ui.hero.summary}
         </motion.p>
+
+        <motion.div
+          className="mx-auto mb-8 max-w-4xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45 }}
+        >
+          <button
+            onClick={() => setShowWhyHire((current) => !current)}
+            aria-expanded={showWhyHire}
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/50 bg-primary/15 px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-primary/25 hover:scale-[1.02]"
+          >
+            <Sparkles className="h-4 w-4" />
+            {ui.hero.whyHireButton}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform duration-300 ${showWhyHire ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          <motion.div
+            initial={false}
+            animate={{
+              height: showWhyHire ? 'auto' : 0,
+              opacity: showWhyHire ? 1 : 0,
+              marginTop: showWhyHire ? 20 : 0,
+            }}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="glass rounded-2xl border border-white/15 p-5 text-left sm:p-6">
+              <h3 className="mb-3 text-lg font-semibold text-primary sm:text-xl">{ui.hero.whyHireHeading}</h3>
+              <p className="mb-5 text-sm leading-relaxed text-foreground/85 sm:text-base">{ui.hero.whyHireIntro}</p>
+
+              <div className="mb-5">
+                <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">
+                  {ui.hero.valueHighlightsLabel}
+                </h4>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {ui.hero.valueHighlights.map((item, index) => (
+                    <div
+                      key={index}
+                      className="rounded-xl border border-primary/25 bg-primary/10 px-4 py-3"
+                    >
+                      <div className="text-xl font-bold text-primary sm:text-2xl">{item.value}</div>
+                      <div className="mt-1 text-xs text-foreground/75 sm:text-sm">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div>
+                  <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">
+                    {ui.hero.uniqueQualitiesLabel}
+                  </h4>
+                  <ul className="space-y-2 text-sm text-foreground/80">
+                    {ui.hero.uniqueQualities.map((quality: string, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+                        <span>{quality}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">
+                    {ui.hero.skillsLabel}
+                  </h4>
+                  <ul className="space-y-2 text-sm text-foreground/80">
+                    {portfolioData.topSkills.map((skill: string, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+                        <span>{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">
+                    {ui.hero.impactSignalsLabel}
+                  </h4>
+                  <ul className="space-y-2 text-sm text-foreground/80">
+                    {ui.hero.impactSignals.map((signal: string, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                        <span>{signal}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
 
         {/* CTAs */}
         <motion.div
