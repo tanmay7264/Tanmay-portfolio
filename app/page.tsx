@@ -13,6 +13,7 @@ import Projects from '@/components/Projects';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import ThoughtLeadership from '@/components/ThoughtLeadership';
+import MediumBlog from '@/components/MediumBlog';
 import Skills from '@/components/Skills';
 import Education from '@/components/Education';
 import Contact from '@/components/Contact';
@@ -167,6 +168,8 @@ function HomeContent() {
 
           <SectionTransition label={ui.sectionTransitions.insights} index={5} />
           <ThoughtLeadership />
+          
+          <MediumBlog />
           
           <SectionTransition label={ui.sectionTransitions.expertise} index={6} />
           <Skills />

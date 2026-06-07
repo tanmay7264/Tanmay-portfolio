@@ -98,6 +98,17 @@ interface UiCopy {
     subheading: string;
     readMore: string;
   };
+  mediumBlog: {
+    sideLabel: string;
+    badge: string;
+    heading: string;
+    subheading: string;
+    hook: string;
+    featuredArticles: { title: string; preview: string; date: string; readTime: string; url: string }[];
+    profileUrl: string;
+    ctaText: string;
+    footerText: string;
+  };
   skills: {
     sideLabel: string;
     heading: string;
@@ -264,6 +275,46 @@ const copyByLanguage: Record<Language, UiCopy> = {
       subheading: 'Perspectives on AI, growth strategy, and product execution.',
       readMore: 'Read post',
     },
+    mediumBlog: {
+      sideLabel: 'Stories',
+      badge: 'Medium Blog',
+      heading: 'Thoughts That Move Business Metrics',
+      subheading: 'Deep dives on AI-led growth, product execution, and building sustainable systems that actually deliver results.',
+      hook: 'I write about the intersection of technology and business outcomes—helping builders think faster, ship smarter, and measure impact.',
+      featuredArticles: [
+        {
+          title: 'How AI Growth Builders Should Think About Experiment Velocity',
+          preview: 'Why speed matters more than perfection. A framework for running high-velocity experiments without burning out your team or your budget.',
+          date: 'Recent',
+          readTime: '8 min read',
+          url: 'https://medium.com/@tanmay19'
+        },
+        {
+          title: 'From Frontend Execution to Product-Led Growth: My Framework',
+          preview: 'The transition from shipping features to shipping outcomes. How I moved from shipping features people asked for to shipping outcomes that move metrics.',
+          date: 'Recent',
+          readTime: '10 min read',
+          url: 'https://medium.com/@tanmay19'
+        },
+        {
+          title: 'What MBA + Engineering Taught Me About Building Better Products',
+          preview: 'Combining technical depth with business thinking. The non-obvious insights from the overlap between systems design and growth strategy.',
+          date: 'Recent',
+          readTime: '7 min read',
+          url: 'https://medium.com/@tanmay19'
+        },
+        {
+          title: 'Building AI-Driven Communities: Lessons from 500+ Members',
+          preview: 'How structure, clarity, and repeated value create sustainable communities. What worked, what did not, and why retention metrics matter more than signups.',
+          date: 'Recent',
+          readTime: '9 min read',
+          url: 'https://medium.com/@tanmay19'
+        }
+      ],
+      profileUrl: 'https://medium.com/@tanmay19',
+      ctaText: 'Explore All Articles on Medium',
+      footerText: 'Stories about growth, product strategy, and building with AI. Published on Medium.',
+    },
     skills: {
       sideLabel: 'Skills',
       heading: 'Skills & Expertise',
@@ -421,6 +472,46 @@ const copyByLanguage: Record<Language, UiCopy> = {
       heading: 'Blog und Thought Leadership',
       subheading: 'Perspektiven zu KI, Growth Strategie und Product Umsetzung.',
       readMore: 'Beitrag lesen',
+    },
+    mediumBlog: {
+      sideLabel: 'Stories',
+      badge: 'Medium Blog',
+      heading: 'Gedanken, Die Geschäftsmetriken Bewegen',
+      subheading: 'Tiefgreifende Analysen zu KI-gesteuertem Wachstum, Produktausführung und dem Aufbau nachhaltiger Systeme, die tatsächlich Ergebnisse liefern.',
+      hook: 'Ich schreibe über die Schnittmenge von Technologie und Geschäftsergebnissen – und helfe Builderin, schneller zu denken, intelligenter zu verschiffen und Wirkung zu messen.',
+      featuredArticles: [
+        {
+          title: 'Wie KI-Growth-Builder über Experiment-Geschwindigkeit nachdenken sollten',
+          preview: 'Warum Geschwindigkeit wichtiger ist als Perfektion. Ein Framework für hochfrequente Experimente ohne Team-Burnout oder Budget-Stress.',
+          date: 'Kürzlich',
+          readTime: '8 Min',
+          url: 'https://medium.com/@tanmay19'
+        },
+        {
+          title: 'Von Frontend-Ausführung zu Product-Led Growth: Mein Framework',
+          preview: 'Der Übergang vom Verschiffen von Features zum Verschiffen von Ergebnissen. Wie ich von Feature-Entwicklung zu Outcomes-Fokus übergegangen bin.',
+          date: 'Kürzlich',
+          readTime: '10 Min',
+          url: 'https://medium.com/@tanmay19'
+        },
+        {
+          title: 'Was MBA + Engineering mir über bessere Produkte beigebracht hat',
+          preview: 'Technische Tiefe mit strategischem Denken verbinden. Die nicht offensichtlichen Erkenntnisse aus der Überschneidung von Systemdesign und Growth-Strategie.',
+          date: 'Kürzlich',
+          readTime: '7 Min',
+          url: 'https://medium.com/@tanmay19'
+        },
+        {
+          title: 'Aufbau von KI-gesteuerten Communities: Lektionen aus 500+ Mitgliedern',
+          preview: 'Wie Struktur, Klarheit und wiederholter Wert nachhaltige Communities schaffen. Was funktionierte, was nicht funktionierte, und warum Retention-Metriken wichtiger sind.',
+          date: 'Kürzlich',
+          readTime: '9 Min',
+          url: 'https://medium.com/@tanmay19'
+        }
+      ],
+      profileUrl: 'https://medium.com/@tanmay19',
+      ctaText: 'Alle Artikel auf Medium erkunden',
+      footerText: 'Geschichten über Growth, Produktstrategie und Bauen mit KI. Veröffentlicht auf Medium.',
     },
     skills: {
       sideLabel: 'Skills',

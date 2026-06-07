@@ -404,5 +404,38 @@ export const portfolioData = {
     "Passionate about leveraging technology and business insights to create impactful solutions that drive growth",
     "Currently exploring internships and projects in consulting, product management, and digital transformation to apply skills in live business environments",
     "Freelance Web Developer"
-  ]
+  ],
+  "mediumBlog": {
+    "profileUrl": "https://medium.com/@tanmay19",
+    "featuredArticles": [
+      {
+        "title": "How AI Growth Builders Should Think About Experiment Velocity",
+        "preview": "Why speed matters more than perfection. A framework for running high-velocity experiments without burning out your team or your budget.",
+        "date": "Recent",
+        "readTime": "8 min read",
+        "url": "https://medium.com/@tanmay19"
+      },
+      {
+        "title": "From Frontend Execution to Product-Led Growth: My Framework",
+        "preview": "The transition from shipping features to shipping outcomes. How I moved from 'build what's asked' to 'what should we build to move metrics'.",
+        "date": "Recent",
+        "readTime": "10 min read",
+        "url": "https://medium.com/@tanmay19"
+      },
+      {
+        "title": "What MBA + Engineering Taught Me About Building Better Products",
+        "preview": "Combining technical depth with business thinking. The non-obvious insights from the overlap between systems design and growth strategy.",
+        "date": "Recent",
+        "readTime": "7 min read",
+        "url": "https://medium.com/@tanmay19"
+      },
+      {
+        "title": "Building AI-Driven Communities: Lessons from 500+ Members",
+        "preview": "How structure, clarity, and repeated value create sustainable communities. What worked, what didn't, and why retention metrics matter more than signup vanity metrics.",
+        "date": "Recent",
+        "readTime": "9 min read",
+        "url": "https://medium.com/@tanmay19"
+      }
+    ]
+  }
 };
