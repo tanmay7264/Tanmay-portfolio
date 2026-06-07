@@ -409,32 +409,32 @@ export const portfolioData = {
     "profileUrl": "https://medium.com/@tanmay19",
     "featuredArticles": [
       {
-        "title": "How AI Growth Builders Should Think About Experiment Velocity",
-        "preview": "Why speed matters more than perfection. A framework for running high-velocity experiments without burning out your team or your budget.",
-        "date": "Recent",
-        "readTime": "8 min read",
-        "url": "https://medium.com/@tanmay19"
+        "title": "I Left India for Germany",
+        "preview": "The biggest culture shock wasn't what I expected. A personal journey of adaptation, challenges, and unexpected perspectives.",
+        "date": "2d ago",
+        "readTime": "5 min read",
+        "url": "https://medium.com/@tanmay19/i-left-india-for-germany-520e85d4fa21"
       },
       {
-        "title": "From Frontend Execution to Product-Led Growth: My Framework",
-        "preview": "The transition from shipping features to shipping outcomes. How I moved from 'build what's asked' to 'what should we build to move metrics'.",
-        "date": "Recent",
-        "readTime": "10 min read",
-        "url": "https://medium.com/@tanmay19"
+        "title": "An AI Got $100,000, a Credit Card, and a 3-Year Lease. Then It Opened a Store and Hired Humans.",
+        "preview": "This isn't a demo. This isn't behind closed doors. This is already happening on a street in San Francisco.",
+        "date": "Apr 28",
+        "readTime": "6 min read",
+        "url": "https://medium.com/@tanmay19/an-ai-got-100-000-a-credit-card-and-a-3-year-lease-then-it-opened-a-store-and-hired-humans-dcd31d84b617"
+      },
+      {
+        "title": "The Cost of Intelligence Is Collapsing. Here's Where the Value Is Going.",
+        "preview": "Seven stories. One pattern. Here's what it means for the rest of us.",
+        "date": "Apr 27",
+        "readTime": "7 min read",
+        "url": "https://medium.com/@tanmay19/the-cost-of-intelligence-is-collapsing-heres-where-the-value-is-going-abd18953b31d"
       },
       {
         "title": "What MBA + Engineering Taught Me About Building Better Products",
-        "preview": "Combining technical depth with business thinking. The non-obvious insights from the overlap between systems design and growth strategy.",
-        "date": "Recent",
+        "preview": "The best product thinkers I've ever met speak two languages fluently — the language of systems and the language of people.",
+        "date": "Apr 23",
         "readTime": "7 min read",
-        "url": "https://medium.com/@tanmay19"
-      },
-      {
-        "title": "Building AI-Driven Communities: Lessons from 500+ Members",
-        "preview": "How structure, clarity, and repeated value create sustainable communities. What worked, what didn't, and why retention metrics matter more than signup vanity metrics.",
-        "date": "Recent",
-        "readTime": "9 min read",
-        "url": "https://medium.com/@tanmay19"
+        "url": "https://medium.com/@tanmay19/what-mba-engineering-taught-me-about-building-better-products-3e3f4190778c"
       }
     ]
   }

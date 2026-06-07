@@ -283,32 +283,32 @@ const copyByLanguage: Record<Language, UiCopy> = {
       hook: 'I write about the intersection of technology and business outcomes—helping builders think faster, ship smarter, and measure impact.',
       featuredArticles: [
         {
-          title: 'How AI Growth Builders Should Think About Experiment Velocity',
-          preview: 'Why speed matters more than perfection. A framework for running high-velocity experiments without burning out your team or your budget.',
-          date: 'Recent',
-          readTime: '8 min read',
-          url: 'https://medium.com/@tanmay19'
+          title: 'I Left India for Germany',
+          preview: 'The biggest culture shock wasn\'t what I expected. A personal journey of adaptation, challenges, and unexpected perspectives.',
+          date: '2d ago',
+          readTime: '5 min read',
+          url: 'https://medium.com/@tanmay19/i-left-india-for-germany-520e85d4fa21'
         },
         {
-          title: 'From Frontend Execution to Product-Led Growth: My Framework',
-          preview: 'The transition from shipping features to shipping outcomes. How I moved from shipping features people asked for to shipping outcomes that move metrics.',
-          date: 'Recent',
-          readTime: '10 min read',
-          url: 'https://medium.com/@tanmay19'
+          title: 'An AI Got $100,000, a Credit Card, and a 3-Year Lease. Then It Opened a Store and Hired Humans.',
+          preview: 'This isn\'t a demo. This isn\'t behind closed doors. This is already happening on a street in San Francisco.',
+          date: 'Apr 28',
+          readTime: '6 min read',
+          url: 'https://medium.com/@tanmay19/an-ai-got-100-000-a-credit-card-and-a-3-year-lease-then-it-opened-a-store-and-hired-humans-dcd31d84b617'
+        },
+        {
+          title: 'The Cost of Intelligence Is Collapsing. Here\'s Where the Value Is Going.',
+          preview: 'Seven stories. One pattern. Here\'s what it means for the rest of us.',
+          date: 'Apr 27',
+          readTime: '7 min read',
+          url: 'https://medium.com/@tanmay19/the-cost-of-intelligence-is-collapsing-heres-where-the-value-is-going-abd18953b31d'
         },
         {
           title: 'What MBA + Engineering Taught Me About Building Better Products',
-          preview: 'Combining technical depth with business thinking. The non-obvious insights from the overlap between systems design and growth strategy.',
-          date: 'Recent',
+          preview: 'The best product thinkers I\'ve ever met speak two languages fluently — the language of systems and the language of people.',
+          date: 'Apr 23',
           readTime: '7 min read',
-          url: 'https://medium.com/@tanmay19'
-        },
-        {
-          title: 'Building AI-Driven Communities: Lessons from 500+ Members',
-          preview: 'How structure, clarity, and repeated value create sustainable communities. What worked, what did not, and why retention metrics matter more than signups.',
-          date: 'Recent',
-          readTime: '9 min read',
-          url: 'https://medium.com/@tanmay19'
+          url: 'https://medium.com/@tanmay19/what-mba-engineering-taught-me-about-building-better-products-3e3f4190778c'
         }
       ],
       profileUrl: 'https://medium.com/@tanmay19',
@@ -481,32 +481,32 @@ const copyByLanguage: Record<Language, UiCopy> = {
       hook: 'Ich schreibe über die Schnittmenge von Technologie und Geschäftsergebnissen – und helfe Builderin, schneller zu denken, intelligenter zu verschiffen und Wirkung zu messen.',
       featuredArticles: [
         {
-          title: 'Wie KI-Growth-Builder über Experiment-Geschwindigkeit nachdenken sollten',
-          preview: 'Warum Geschwindigkeit wichtiger ist als Perfektion. Ein Framework für hochfrequente Experimente ohne Team-Burnout oder Budget-Stress.',
-          date: 'Kürzlich',
-          readTime: '8 Min',
-          url: 'https://medium.com/@tanmay19'
+          title: 'Ich bin von Indien nach Deutschland gezogen',
+          preview: 'Der größte Kulturschock war nicht das, was ich erwartet hatte. Eine persönliche Reise der Anpassung und unerwarteten Perspektiven.',
+          date: 'vor 2 Tagen',
+          readTime: '5 Min',
+          url: 'https://medium.com/@tanmay19/i-left-india-for-germany-520e85d4fa21'
         },
         {
-          title: 'Von Frontend-Ausführung zu Product-Led Growth: Mein Framework',
-          preview: 'Der Übergang vom Verschiffen von Features zum Verschiffen von Ergebnissen. Wie ich von Feature-Entwicklung zu Outcomes-Fokus übergegangen bin.',
-          date: 'Kürzlich',
-          readTime: '10 Min',
-          url: 'https://medium.com/@tanmay19'
+          title: 'Eine KI bekam 100.000 Dollar, eine Kreditkarte und einen 3-Jahres-Mietvertrag. Dann öffnete sie einen Laden und stellte Menschen ein.',
+          preview: 'Das ist keine Demo. Das ist nicht hinter verschlossenen Türen. Das passiert bereits auf einer Straße in San Francisco.',
+          date: '28. Apr',
+          readTime: '6 Min',
+          url: 'https://medium.com/@tanmay19/an-ai-got-100-000-a-credit-card-and-a-3-year-lease-then-it-opened-a-store-and-hired-humans-dcd31d84b617'
+        },
+        {
+          title: 'Die Kosten für Intelligenz stürzen ab. Hier ist der Wert hin.',
+          preview: 'Sieben Geschichten. Ein Muster. Hier ist, was es für den Rest von uns bedeutet.',
+          date: '27. Apr',
+          readTime: '7 Min',
+          url: 'https://medium.com/@tanmay19/the-cost-of-intelligence-is-collapsing-heres-where-the-value-is-going-abd18953b31d'
         },
         {
           title: 'Was MBA + Engineering mir über bessere Produkte beigebracht hat',
-          preview: 'Technische Tiefe mit strategischem Denken verbinden. Die nicht offensichtlichen Erkenntnisse aus der Überschneidung von Systemdesign und Growth-Strategie.',
-          date: 'Kürzlich',
+          preview: 'Die besten Produktdenker, die ich je getroffen habe, sprechen zwei Sprachen fließend — die Sprache der Systeme und die Sprache der Menschen.',
+          date: '23. Apr',
           readTime: '7 Min',
-          url: 'https://medium.com/@tanmay19'
-        },
-        {
-          title: 'Aufbau von KI-gesteuerten Communities: Lektionen aus 500+ Mitgliedern',
-          preview: 'Wie Struktur, Klarheit und wiederholter Wert nachhaltige Communities schaffen. Was funktionierte, was nicht funktionierte, und warum Retention-Metriken wichtiger sind.',
-          date: 'Kürzlich',
-          readTime: '9 Min',
-          url: 'https://medium.com/@tanmay19'
+          url: 'https://medium.com/@tanmay19/what-mba-engineering-taught-me-about-building-better-products-3e3f4190778c'
         }
       ],
       profileUrl: 'https://medium.com/@tanmay19',

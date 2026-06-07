@@ -167,8 +167,6 @@ function HomeContent() {
           <Testimonials />
 
           <SectionTransition label={ui.sectionTransitions.insights} index={5} />
-          <ThoughtLeadership />
-          
           <MediumBlog />
           
           <SectionTransition label={ui.sectionTransitions.expertise} index={6} />
