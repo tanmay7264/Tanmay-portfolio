@@ -9,7 +9,7 @@
           "value": "roadmap.tanmayportfolio.me"
         }
       ],
-      "destination": "/roadmap.html"
+      "destination": "/roadmap"
     },
     {
       "source": "/index.html",
@@ -19,7 +19,7 @@
           "value": "roadmap.tanmayportfolio.me"
         }
       ],
-      "destination": "/roadmap.html"
+      "destination": "/roadmap"
     }
   ]
 }
