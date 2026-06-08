@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 30-Day AI Edge — Pre-College Playbook by Tanmay Narnaware</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --s: #13131a;
+      --s2: #1c1c28;
+      --br: #2a2a3a;
+      --ac: #7c6dff;
+      --ac2: #ff6b6b;
+      --ac3: #00d4aa;
+      --ac4: #ffd93d;
+      --tx: #e8e8f0;
+      --td: #888899;
+      --tdd: #555566;
+      --w1: #7c6dff;
+      --w2: #ff6b6b;
+      --w3: #00d4aa;
+      --w4: #ffd93d
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--tx);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--ac);
+      border-radius: 2px
+    }
+
+    #pb {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ac), var(--ac2), var(--ac4));
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--br)
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124, 109, 255, .15), transparent 70%);
+      pointer-events: none
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 212, 170, .08), transparent 70%);
+      pointer-events: none
+    }
+
+    .hgrid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(42, 42, 58, .3) 1px, transparent 1px), linear-gradient(90deg, rgba(42, 42, 58, .3) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)
+    }
+
+    .htag {
+      font-size: 11px;
+      color: var(--ac3);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .htag::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--ac3)
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.03em;
+      margin-bottom: 32px
+    }
+
+    h1 .g {
+      background: linear-gradient(135deg, var(--ac), var(--ac2) 50%, var(--ac4));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hsub {
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px;
+      color: var(--td);
+      max-width: 560px;
+      margin-bottom: 48px;
+      font-style: italic;
+      line-height: 1.6
+    }
+
+    .hmeta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 40px
+    }
+
+    .hmi {
+      display: flex;
+      flex-direction: column;
+      gap: 4px
+    }
+
+    .hmi .l {
+      font-size: 10px;
+      color: var(--tdd);
+      letter-spacing: .15em;
+      text-transform: uppercase
+    }
+
+    .hmi .v {
+      font-size: 13px;
+      color: var(--tx);
+      font-weight: 500
+    }
+
+    .hcta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all .2s
+    }
+
+    .bp {
+      background: var(--ac);
+      color: white
+    }
+
+    .bp:hover {
+      background: #6a5bf0;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(124, 109, 255, .3)
+    }
+
+    .bs {
+      background: transparent;
+      color: var(--td);
+      border: 1px solid var(--br)
+    }
+
+    .bs:hover {
+      border-color: var(--ac);
+      color: var(--tx)
+    }
+
+    #tracker {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      background: var(--s);
+      border: 1px solid var(--br);
+      border-radius: 12px;
+      padding: 16px 20px;
+      min-width: 200px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+      transition: all .3s
+    }
+
+    #tracker.col {
+      min-width: auto;
+      padding: 12px 16px
+    }
+
+    #tt {
+      background: none;
+      border: none;
+      color: var(--tdd);
+      cursor: pointer;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      width: 100%;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace
+    }
+
+    #tb {
+      margin-top: 12px
+    }
+
+    #tracker.col #tb {
+      display: none
+    }
+
+    .tcnt {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--ac3);
+      line-height: 1
+    }
+
+    .tsub {
+      font-size: 10px;
+      color: var(--tdd);
+      margin-top: 2px
+    }
+
+    .tbar {
+      height: 4px;
+      background: var(--br);
+      border-radius: 2px;
+      margin-top: 12px;
+      overflow: hidden
+    }
+
+    .tfill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--ac), var(--ac3));
+      border-radius: 2px;
+      transition: width .4s ease
+    }
+
+    nav {
+      position: sticky;
+      top: 3px;
+      z-index: 100;
+      background: rgba(10, 10, 15, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--br);
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none
+    }
+
+    nav::-webkit-scrollbar {
+      display: none
+    }
+
+    nav a {
+      color: var(--tdd);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 16px 20px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all .2s
+    }
+
+    nav a:hover,
+    nav a.act {
+      color: var(--tx);
+      border-bottom-color: var(--ac)
+    }
+
+    .sec {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 60px;
+      border-bottom: 1px solid var(--br)
+    }
+
+    .sl {
+      font-size: 10px;
+      color: var(--tdd);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .sl::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--br);
+      max-width: 200px
+    }
+
+    .sec h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 24px
+    }
+
+    .sec p {
+      color: var(--td);
+      max-width: 700px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.8
+    }
+
+    .co {
+      background: var(--s);
+      border: 1px solid var(--br);
+      border-left: 3px solid var(--ac);
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0
+    }
+
+    .co.g {
+      border-left-color: var(--ac3)
+    }
+
+    .co.r {
+      border-left-color: var(--ac2)
+    }
+
+    .co.y {
+      border-left-color: var(--ac4)
+    }
+
+    .col {
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 8px;
+      font-weight: 600
+    }
+
+    .co.g .col {
+      color: var(--ac3)
+    }
+
+    .co.r .col {
+      color: var(--ac2)
+    }
+
+    .co.y .col {
+      color: var(--ac4)
+    }
+
+    .co p {
+      color: var(--tx);
+      margin-bottom: 0;
+      font-size: 13px
+    }
+
+    .wgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      margin: 40px 0;
+      border: 1px solid var(--br);
+      border-radius: 12px;
+      overflow: hidden
+    }
+
+    .wcard {
+      background: var(--s);
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all .2s;
+      border-right: 1px solid var(--br);
+      text-decoration: none;
+      display: block
+    }
+
+    .wcard:last-child {
+      border-right: none
+    }
+
+    .wcard:hover {
+      background: var(--s2);
+      transform: translateY(-2px)
+    }
+
+    .wn {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 12px
+    }
+
+    .wcard:nth-child(1) .wn {
+      color: var(--w1)
+    }
+
+    .wcard:nth-child(2) .wn {
+      color: var(--w2)
+    }
+
+    .wcard:nth-child(3) .wn {
+      color: var(--w3)
+    }
+
+    .wcard:nth-child(4) .wn {
+      color: var(--w4)
+    }
+
+    .wt {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--tx)
+    }
+
+    .wf {
+      font-size: 12px;
+      color: var(--tdd);
+      line-height: 1.5
+    }
+
+    .wa {
+      font-size: 18px;
+      margin-top: 12px;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .wcard:hover .wa {
+      opacity: 1
+    }
+
+    .wcard:nth-child(1) .wa {
+      color: var(--w1)
+    }
+
+    .wcard:nth-child(2) .wa {
+      color: var(--w2)
+    }
+
+    .wcard:nth-child(3) .wa {
+      color: var(--w3)
+    }
+
+    .wcard:nth-child(4) .wa {
+      color: var(--w4)
+    }
+
+    .wb {
+      margin: 60px 0;
+      border: 1px solid var(--br);
+      border-radius: 12px;
+      overflow: hidden
+    }
+
+    .wh {
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px
+    }
+
+    .wb:nth-of-type(1) .wh {
+      background: linear-gradient(135deg, rgba(124, 109, 255, .15), transparent 70%);
+      border-bottom: 1px solid rgba(124, 109, 255, .3)
+    }
+
+    .wb:nth-of-type(2) .wh {
+      background: linear-gradient(135deg, rgba(255, 107, 107, .12), transparent 70%);
+      border-bottom: 1px solid rgba(255, 107, 107, .3)
+    }
+
+    .wb:nth-of-type(3) .wh {
+      background: linear-gradient(135deg, rgba(0, 212, 170, .1), transparent 70%);
+      border-bottom: 1px solid rgba(0, 212, 170, .3)
+    }
+
+    .wb:nth-of-type(4) .wh {
+      background: linear-gradient(135deg, rgba(255, 217, 61, .1), transparent 70%);
+      border-bottom: 1px solid rgba(255, 217, 61, .3)
+    }
+
+    .wbadge {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 4px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap
+    }
+
+    .wb:nth-of-type(1) .wbadge {
+      background: rgba(124, 109, 255, .2);
+      color: var(--w1)
+    }
+
+    .wb:nth-of-type(2) .wbadge {
+      background: rgba(255, 107, 107, .2);
+      color: var(--w2)
+    }
+
+    .wb:nth-of-type(3) .wbadge {
+      background: rgba(0, 212, 170, .2);
+      color: var(--w3)
+    }
+
+    .wb:nth-of-type(4) .wbadge {
+      background: rgba(255, 217, 61, .2);
+      color: var(--w4)
+    }
+
+    .whc h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .whc p {
+      font-size: 13px;
+      color: var(--td);
+      margin: 0
+    }
+
+    .wbody {
+      padding: 32px 36px;
+      background: var(--s)
+    }
+
+    .tst {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--td);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--br)
+    }
+
+    .tgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px
+    }
+
+    .tc {
+      background: var(--s2);
+      border: 1px solid var(--br);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all .2s;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden
+    }
+
+    .tc::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .wb:nth-of-type(1) .tc::before {
+      background: linear-gradient(135deg, rgba(124, 109, 255, .08), transparent)
+    }
+
+    .wb:nth-of-type(2) .tc::before {
+      background: linear-gradient(135deg, rgba(255, 107, 107, .08), transparent)
+    }
+
+    .wb:nth-of-type(3) .tc::before {
+      background: linear-gradient(135deg, rgba(0, 212, 170, .08), transparent)
+    }
+
+    .wb:nth-of-type(4) .tc::before {
+      background: linear-gradient(135deg, rgba(255, 217, 61, .08), transparent)
+    }
+
+    .tc:hover::before {
+      opacity: 1
+    }
+
+    .wb:nth-of-type(1) .tc:hover {
+      border-color: var(--w1);
+      box-shadow: 0 4px 20px rgba(124, 109, 255, .15);
+      transform: translateY(-2px)
+    }
+
+    .wb:nth-of-type(2) .tc:hover {
+      border-color: var(--w2);
+      box-shadow: 0 4px 20px rgba(255, 107, 107, .15);
+      transform: translateY(-2px)
+    }
+
+    .wb:nth-of-type(3) .tc:hover {
+      border-color: var(--w3);
+      box-shadow: 0 4px 20px rgba(0, 212, 170, .15);
+      transform: translateY(-2px)
+    }
+
+    .wb:nth-of-type(4) .tc:hover {
+      border-color: var(--w4);
+      box-shadow: 0 4px 20px rgba(255, 217, 61, .15);
+      transform: translateY(-2px)
+    }
+
+    .tn {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--tx);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between
+    }
+
+    .tnl {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0
+    }
+
+    .wb:nth-of-type(1) .dot {
+      background: var(--w1)
+    }
+
+    .wb:nth-of-type(2) .dot {
+      background: var(--w2)
+    }
+
+    .wb:nth-of-type(3) .dot {
+      background: var(--w3)
+    }
+
+    .wb:nth-of-type(4) .dot {
+      background: var(--w4)
+    }
+
+    .tli {
+      font-size: 10px;
+      opacity: 0;
+      transition: opacity .2s;
+      color: var(--tdd)
+    }
+
+    .tc:hover .tli {
+      opacity: 1
+    }
+
+    .td2 {
+      font-size: 11px;
+      color: var(--tdd);
+      line-height: 1.5;
+      padding-left: 14px
+    }
+
+    .ttag {
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      flex-shrink: 0
+    }
+
+    .tf {
+      background: rgba(0, 212, 170, .15);
+      color: var(--ac3)
+    }
+
+    .tfm {
+      background: rgba(124, 109, 255, .15);
+      color: var(--ac)
+    }
+
+    .tp {
+      background: rgba(255, 107, 107, .15);
+      color: var(--ac2)
+    }
+
+    .di {
+      border: 1px solid var(--br);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      overflow: hidden
+    }
+
+    .dh {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      background: var(--s2);
+      transition: background .2s;
+      user-select: none
+    }
+
+    .dh:hover {
+      background: var(--br)
+    }
+
+    .dnum {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
+      flex-shrink: 0
+    }
+
+    .wb:nth-of-type(1) .dnum {
+      background: rgba(124, 109, 255, .2);
+      color: var(--w1)
+    }
+
+    .wb:nth-of-type(2) .dnum {
+      background: rgba(255, 107, 107, .2);
+      color: var(--w2)
+    }
+
+    .wb:nth-of-type(3) .dnum {
+      background: rgba(0, 212, 170, .2);
+      color: var(--w3)
+    }
+
+    .wb:nth-of-type(4) .dnum {
+      background: rgba(255, 217, 61, .2);
+      color: var(--w4)
+    }
+
+    .dtit {
+      font-size: 13px;
+      color: var(--tx);
+      flex: 1
+    }
+
+    .dc {
+      font-size: 12px;
+      color: var(--tdd);
+      transition: transform .2s;
+      flex-shrink: 0
+    }
+
+    .di.op .dc {
+      transform: rotate(90deg)
+    }
+
+    .dbody {
+      padding: 16px;
+      background: var(--s);
+      border-top: 1px solid var(--br);
+      display: none
+    }
+
+    .di.op .dbody {
+      display: block
+    }
+
+    .dbody p {
+      font-size: 13px;
+      color: var(--td);
+      line-height: 1.8
+    }
+
+    .dbody strong {
+      color: var(--tx)
+    }
+
+    .del {
+      background: var(--s2);
+      border: 1px solid var(--br);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0
+    }
+
+    .del h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--tdd);
+      margin-bottom: 14px
+    }
+
+    .ci {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background .15s
+    }
+
+    .ci:last-child {
+      margin-bottom: 0
+    }
+
+    .ci:hover {
+      background: rgba(255, 255, 255, .03)
+    }
+
+    .ci.done .clabel {
+      text-decoration: line-through;
+      color: var(--tdd)
+    }
+
+    .cbox {
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--br);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s
+    }
+
+    .ci.done .cbox {
+      background: var(--ac3);
+      border-color: var(--ac3)
+    }
+
+    .cm {
+      display: none;
+      width: 5px;
+      height: 9px;
+      border-right: 2px solid white;
+      border-bottom: 2px solid white;
+      transform: rotate(45deg) translate(-1px, -1px)
+    }
+
+    .ci.done .cm {
+      display: block
+    }
+
+    .clabel {
+      font-size: 12px;
+      color: var(--td);
+      line-height: 1.6
+    }
+
+    .sr {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2px;
+      margin: 40px 0;
+      border: 1px solid var(--br);
+      border-radius: 12px;
+      overflow: hidden
+    }
+
+    .si {
+      background: var(--s);
+      padding: 24px 20px;
+      border-right: 1px solid var(--br);
+      transition: background .2s
+    }
+
+    .si:last-child {
+      border-right: none
+    }
+
+    .si:hover {
+      background: var(--s2)
+    }
+
+    .sn {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px
+    }
+
+    .sl2 {
+      font-size: 11px;
+      color: var(--tdd);
+      letter-spacing: .08em
+    }
+
+    .pn {
+      background: var(--s);
+      border: 1px solid var(--br);
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pn::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-family: 'Instrument Serif', serif;
+      font-size: 180px;
+      color: rgba(124, 109, 255, .08);
+      line-height: 1;
+      pointer-events: none
+    }
+
+    .pnl {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 16px
+    }
+
+    .pn p {
+      font-family: 'Instrument Serif', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--tx);
+      line-height: 1.8;
+      max-width: 680px
+    }
+
+    .pn .au {
+      font-family: 'DM Mono', monospace;
+      font-style: normal;
+      font-size: 12px;
+      color: var(--tdd);
+      margin-top: 20px;
+      display: block
+    }
+
+    .sgrid {
+      border: 1px solid var(--br);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0
+    }
+
+    .srow {
+      display: grid;
+      grid-template-columns: 110px 1fr
+    }
+
+    .stime {
+      background: var(--s2);
+      padding: 14px 16px;
+      font-size: 11px;
+      color: var(--tdd);
+      border-bottom: 1px solid var(--br);
+      border-right: 1px solid var(--br);
+      display: flex;
+      align-items: center
+    }
+
+    .stask {
+      background: var(--s);
+      padding: 14px 16px;
+      font-size: 12px;
+      color: var(--td);
+      border-bottom: 1px solid var(--br);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background .15s
+    }
+
+    .stask:hover {
+      background: var(--s2)
+    }
+
+    .srow:last-child .stime,
+    .srow:last-child .stask {
+      border-bottom: none
+    }
+
+    .stag {
+      font-size: 9px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      flex-shrink: 0
+    }
+
+    .tbuild {
+      background: rgba(124, 109, 255, .2);
+      color: var(--w1)
+    }
+
+    .tlearn {
+      background: rgba(0, 212, 170, .2);
+      color: var(--w3)
+    }
+
+    .tapply {
+      background: rgba(255, 107, 107, .2);
+      color: var(--w2)
+    }
+
+    .treview {
+      background: rgba(255, 217, 61, .2);
+      color: var(--w4)
+    }
+
+    .sdiv {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0 16px
+    }
+
+    .sdiv h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap
+    }
+
+    .sdiv::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--br)
+    }
+
+    footer {
+      padding: 60px;
+      border-top: 1px solid var(--br);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px
+    }
+
+    footer .fl h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    footer .fl p {
+      font-size: 12px;
+      color: var(--tdd)
+    }
+
+    footer .fr {
+      font-size: 11px;
+      color: var(--tdd);
+      text-align: right
+    }
+
+    footer a {
+      color: var(--ac);
+      text-decoration: none
+    }
+
+    footer a:hover {
+      text-decoration: underline
+    }
+
+    code {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      background: var(--s2);
+      border: 1px solid var(--br);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--ac3)
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--s);
+      border: 1px solid var(--ac3);
+      color: var(--ac3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 12px;
+      opacity: 0;
+      transition: all .3s;
+      z-index: 2000;
+      pointer-events: none;
+      white-space: nowrap
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0)
+    }
+
+    #sb {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(.95);
+      z-index: 2000;
+      background: var(--s);
+      border: 1px solid var(--ac);
+      border-radius: 12px;
+      padding: 20px;
+      width: 420px;
+      max-width: 90vw;
+      opacity: 0;
+      pointer-events: none;
+      transition: all .2s
+    }
+
+    #sb.op {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(-50%, -50%) scale(1)
+    }
+
+    #so {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      z-index: 1999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s
+    }
+
+    #so.op {
+      opacity: 1;
+      pointer-events: all
+    }
+
+    #si {
+      width: 100%;
+      background: var(--s2);
+      border: 1px solid var(--br);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--tx);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      outline: none
+    }
+
+    #si:focus {
+      border-color: var(--ac)
+    }
+
+    #sr2 {
+      margin-top: 12px;
+      max-height: 300px;
+      overflow-y: auto
+    }
+
+    #sh {
+      font-size: 10px;
+      color: var(--tdd);
+      margin-top: 8px;
+      text-align: center
+    }
+
+    .res {
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background .15s
+    }
+
+    .res:hover {
+      background: var(--s2)
+    }
+
+    .rn {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--tx)
+    }
+
+    .rd {
+      font-size: 11px;
+      color: var(--tdd);
+      margin-top: 2px
+    }
+
+    .rw {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: var(--br);
+      color: var(--tdd);
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    @keyframes fu {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .hero>* {
+      animation: fu .6s ease backwards
+    }
+
+    .htag {
+      animation-delay: .1s
+    }
+
+    h1 {
+      animation-delay: .2s
+    }
+
+    .hsub {
+      animation-delay: .3s
+    }
+
+    .hmeta {
+      animation-delay: .4s
+    }
+
+    .hcta {
+      animation-delay: .5s
+    }
+
+    @media(max-width:768px) {
+
+      .hero,
+      .sec {
+        padding: 48px 24px
+      }
+
+      nav {
+        padding: 0 24px
+      }
+
+      .wbody,
+      .wh {
+        padding: 20px
+      }
+
+      footer {
+        padding: 40px 24px
+      }
+
+      #tracker {
+        bottom: 12px;
+        right: 12px
+      }
+
+      .srow {
+        grid-template-columns: 80px 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="pb"></div>
+  <div id="tracker">
+    <button id="tt" onclick="tgl()">Progress Tracker <span id="ta">&#9650;</span></button>
+    <div id="tb">
+      <div style="font-size:10px;color:var(--tdd);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">
+        Deliverables Completed</div>
+      <div class="tcnt" id="tn">0</div>
+      <div class="tsub" id="ts">of 26 total tasks</div>
+      <div class="tbar">
+        <div class="tfill" id="tf2" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+  <div id="toast"></div>
+  <div id="so" onclick="cs()"></div>
+  <div id="sb"><input id="si" placeholder="Search tools... (e.g. video, CV, automation)" oninput="ds(this.value)"
+      autocomplete="off" />
+    <div id="sr2"></div>
+    <div id="sh">Press ESC to close &middot; &#8984;K to open anytime</div>
+  </div>
+
+  <section class="hero">
+    <div class="hgrid"></div>
+    <div class="htag"> Pre-College Playbook &middot; 2026</div>
+    <h1>The <span class="g">30-Day</span><br>AI Edge.</h1>
+    <p class="hsub">What I wish someone had told me before my MBA began. A no-fluff, action-first guide for the month
+      you have left — before college consumes your schedule.</p>
+    <div class="hmeta">
+      <div class="hmi"><span class="l">Author</span><span class="v">Tanmay Narnaware</span></div>
+      <div class="hmi"><span class="l">Duration</span><span class="v">4 Weeks &middot; 30 Days</span></div>
+      <div class="hmi"><span class="l">Tools</span><span class="v">80+ AI Tools (All Clickable)</span></div>
+      <div class="hmi"><span class="l">Mode</span><span class="v">Action &gt; Theory</span></div>
+    </div>
+    <div class="hcta">
+      <a href="#week1" class="btn bp">&#9654; Start Week 1</a>
+      <button class="btn bs" onclick="os()">&#128269; Search Tools (&#8984;K)</button>
+      <a href="https://linkedin.com/in/ktanmayn" target="_blank" rel="noopener" class="btn bs">LinkedIn &#8599;</a>
+      <a href="https://tanmayportfolio.me" target="_blank" rel="noopener" class="btn bs">Portfolio &#8599;</a>
+    </div>
+  </section>
+
+  <nav id="mn">
+    <a href="#why">Why This</a><a href="#week1">Week 1</a><a href="#week2">Week 2</a><a href="#week3">Week 3</a><a
+      href="#week4">Week 4</a><a href="#schedule">Schedule</a><a href="#closing">Final Note</a>
+    <a href="#" onclick="os();return false;" style="margin-left:auto;color:var(--ac)">&#128269; Search</a>
+  </nav>
+
+  <section class="sec" id="why">
+    <div class="sl">Context</div>
+    <h2>The Gap Nobody Talks About</h2>
+    <p>You're about to enter an MBA. Everyone will talk about frameworks, case studies, and presentations. But the
+      students who stand out — in placements, internships, early careers — arrive already knowing how to use AI as a
+      multiplier.</p>
+    <p>I'm writing this from Bamberg, Germany, midway through an international exchange semester. I use AI tools every
+      single day — for research, content creation, job applications, presentation building, and business strategy. These
+      aren't hacks. They're the new baseline.</p>
+    <div class="co r">
+      <div class="col">&#9889; Reality Check</div>
+      <p>The average MBA student learns tools reactively — when a professor assigns something. You have 30 days to get 6
+        months ahead. That window closes the moment orientation begins.</p>
+    </div>
+    <div class="co g">
+      <div class="col">&#128205; From My Experience</div>
+      <p>I used Claude to build my HiWi application, cover letter, 4 CV variants, LinkedIn strategy, and a 120-day
+        business roadmap — while attending 13 courses. None of that was possible without tool fluency already built. You
+        can't learn to swim while drowning.</p>
+    </div>
+    <div class="sr">
+      <div class="si">
+        <div class="sn" style="color:var(--w1)">4x</div>
+        <div class="sl2">Avg productivity gain with AI fluency</div>
+      </div>
+      <div class="si">
+        <div class="sn" style="color:var(--w2)">80+</div>
+        <div class="sl2">Tools you'll know by Day 30</div>
+      </div>
+      <div class="si">
+        <div class="sn" style="color:var(--w3)">30</div>
+        <div class="sl2">Days to build your AI stack</div>
+      </div>
+      <div class="si">
+        <div class="sn" style="color:var(--w4)">0</div>
+        <div class="sl2">Excuses accepted after this doc</div>
+      </div>
+    </div>
+    <div class="wgrid">
+      <a href="#week1" class="wcard">
+        <div class="wn">Week 01</div>
+        <div class="wt">Foundation Layer</div>
+        <div class="wf">Prompting, research, writing, document production</div>
+        <div class="wa">&#8594;</div>
+      </a>
+      <a href="#week2" class="wcard">
+        <div class="wn">Week 02</div>
+        <div class="wt">Career Infrastructure</div>
+        <div class="wf">CV, LinkedIn, personal brand, job tools</div>
+        <div class="wa">&#8594;</div>
+      </a>
+      <a href="#week3" class="wcard">
+        <div class="wn">Week 03</div>
+        <div class="wt">Business &amp; Strategy</div>
+        <div class="wf">Market research, decks, financial models, automation</div>
+        <div class="wa">&#8594;</div>
+      </a>
+      <a href="#week4" class="wcard">
+        <div class="wn">Week 04</div>
+        <div class="wt">Publish &amp; Deploy</div>
+        <div class="wf">Content, outreach, portfolio, college-ready stack</div>
+        <div class="wa">&#8594;</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec" id="week1">
+    <div class="sl">Week One</div>
+    <h2>Foundation Layer</h2>
+    <p>Before you touch any specialised tool, master the fundamentals. This week is about building the cognitive
+      infrastructure — how you <em>think</em> with AI, not just use it.</p>
+    <div class="wb">
+      <div class="wh"><span class="wbadge">Week 1 &middot; Days 1&ndash;7</span>
+        <div class="whc">
+          <h3>Prompting, Research &amp; Document Production</h3>
+          <p>Master the core interface: how to talk to AI systems effectively</p>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="sdiv">
+          <h4>&#127919; Week Goal</h4>
+        </div>
+        <p style="color:var(--td);font-size:13px;margin-bottom:24px">By Sunday: produce a research-backed 2,000-word
+          report, a formatted document, and a structured prompt library that reliably gets you consistent output from
+          any LLM.</p>
+        <div class="tst">&#129302; AI Writing &amp; Reasoning Tools</div>
+        <div class="tgrid">
+          <a href="https://claude.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Claude (Anthropic)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Your primary reasoning engine. Use for long-form thinking, nuanced analysis, document
+              generation. Not just Q&amp;A — use it as a thinking partner. Open Projects, pin context, iterate deeply.
+            </div>
+          </a>
+          <a href="https://chat.openai.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>ChatGPT (GPT-4o)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Use for fast drafts, brainstorming, and when you need web browsing + image generation in
+              one place. Best for structured output tasks. Practice system prompt usage here.</div>
+          </a>
+          <a href="https://www.perplexity.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Perplexity AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI-native search — replace Google for research. Every answer is cited. Use Pro for deep
+              research mode. Task: Write a competitive analysis using only Perplexity.</div>
+          </a>
+          <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Gemini 1.5 Pro</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">1M token context window. Upload an entire PDF textbook, ask questions across the whole
+              thing. Best for document ingestion + Q&amp;A over long files.</div>
+          </a>
+          <a href="https://www.notion.so" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Notion AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI embedded in your workspace. Auto-summarise meeting notes, generate action items, write
+              first drafts. Set up your college OS in Notion this week.</div>
+          </a>
+          <a href="https://otter.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Otter.ai</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Record any meeting or lecture — it transcribes, identifies speakers, generates summary
+              notes automatically. Set this up before your first class. It's your AI note-taker.</div>
+          </a>
+          <a href="https://notebooklm.google.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>NotebookLM (Google)</div><span class="tf ttag">Free</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Upload PDFs, textbooks, articles — it builds a custom AI that only answers from those
+              sources. Use for exam prep. Task: Upload 5 research papers, interview the model.</div>
+          </a>
+          <a href="https://www.grammarly.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Grammarly + GrammarlyGO</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Real-time writing quality layer. Install the Chrome extension — sits on top of Gmail,
+              Google Docs, LinkedIn. Not just grammar: clarity, tone, and conciseness scoring.</div>
+          </a>
+          <a href="https://hemingwayapp.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Hemingway Editor</div><span class="tf ttag">Free</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Paste any draft here. Highlights sentences that are too complex, passive voice, adverbs.
+              Trains you to write like a strategist — short, direct, no fluff. Run every important doc through it.</div>
+          </a>
+          <a href="https://elicit.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Elicit</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI research assistant trained on 200M+ academic papers. Ask a research question, get
+              structured summaries of peer-reviewed literature. Use for any assignments requiring academic sources.
+            </div>
+          </a>
+        </div>
+        <div class="tst">&#128196; Document Production &amp; Productivity</div>
+        <div class="tgrid">
+          <a href="https://gamma.app" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Gamma.app</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Type a topic &#8594; get a fully designed presentation in 60 seconds. First-draft
+              generator. Produce the skeleton, then refine. Task: Build a 10-slide deck on any startup idea.</div>
+          </a>
+          <a href="https://www.beautiful.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Beautiful.ai</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Smart presentation tool where slides auto-format as you add content. Better than raw
+              PowerPoint for anyone who isn't a designer. Great for quick first drafts.</div>
+          </a>
+          <a href="https://www.canva.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Canva AI (Magic Studio)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Design anything — social posts, infographics, CVs. Magic Write generates copy inside
+              designs. Magic Design creates whole visuals from a prompt. Non-negotiable for any marketer.</div>
+          </a>
+          <a href="https://pdf.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>PDF.ai / ChatPDF</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Upload any PDF &#8594; chat with it. Upload your syllabus, ask "what are the key
+              deliverables?" Upload a case study, ask for SWOT, Porter's Five Forces, key stakeholders.</div>
+          </a>
+          <a href="https://www.taskade.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Taskade</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI project management. Describe a project in plain English — it generates the full task
+              breakdown with deadlines and subtasks. Use for group projects where you need to assign work fast.</div>
+          </a>
+          <a href="https://speechify.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Speechify</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Text-to-speech at 2-4x speed. Upload PDFs, articles, textbooks. Listen to research while
+              commuting. People who don't use this are leaving 2&#8211;3 hours of learning time per day unused.</div>
+          </a>
+          <a href="https://obsidian.md" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Obsidian (+ AI plugins)</div><span
+                class="tf ttag">Free</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Local-first note-taking with knowledge graph. Install Smart Connections plugin for
+              AI-powered note linking. Your ideas start connecting automatically.</div>
+          </a>
+          <a href="https://www.deepl.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>DeepL Translator</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Best-in-class AI translation. Better than Google Translate for nuanced business text. Use
+              for international case studies, German content, or translating research papers.</div>
+          </a>
+          <a href="https://harpa.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>HARPA AI (Chrome)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI co-pilot that sits in your browser. Summarize any webpage, monitor page changes, extract
+              structured data from websites. Combine with Perplexity for power research sessions.</div>
+          </a>
+          <a href="https://chat.openai.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>DALL-E 3 (in ChatGPT)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Free AI image generation inside ChatGPT. Create concept diagrams, infographic visuals,
+              presentation images. No design skills needed — type what you want, get the image.</div>
+          </a>
+        </div>
+        <div class="sdiv">
+          <h4>&#128203; Daily Tasks &mdash; Click to Expand</h4>
+        </div>
+        <div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 1</span><span class="dtit">Set up core AI accounts &amp; build your
+                tool routing cheat sheet</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Set up Claude + ChatGPT + Perplexity accounts. Spend 3 hours prompting the <strong>exact same
+                  task</strong> across all three. Note which gives better output for which task type. Build your
+                personal "tool routing" cheat sheet in Notion: Research &#8594; Perplexity | Long documents &#8594;
+                Claude | Fast drafts &#8594; ChatGPT.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 2</span><span class="dtit">Build your Notion MBA OS — your second
+                brain</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Build your Notion MBA OS. Create: <strong>Course Tracker, Assignment Board, Reading List, Career
+                  Pipeline, Content Bank, Prompt Library</strong>. Use Notion AI to generate template text for each. By
+                end of day it must be functional, not just designed.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 3</span><span class="dtit">Master prompting — zero-shot, few-shot,
+                chain-of-thought</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Read OpenAI's Prompt Engineering guide (15 min). Practice: <strong>zero-shot</strong> (just the
+                question), <strong>few-shot</strong> (give examples first), <strong>chain-of-thought</strong> ("think
+                step by step"), <strong>role prompting</strong> ("You are a McKinsey consultant"). Write 10 prompts for
+                MBA tasks. Save all in your Prompt Library.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 4</span><span class="dtit">Research deep dive — produce a 3-page
+                industry brief</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Pick any industry you find interesting. Use <strong>Perplexity</strong> for current market data,
+                <strong>NotebookLM</strong> for academic depth, <strong>Elicit</strong> for research papers,
+                <strong>Claude</strong> for synthesis. Produce a 3-page industry brief by EOD. This is your first real
+                AI-assisted deliverable.
+              </p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 5</span><span class="dtit">Document production — brief &#8594; deck,
+                notice the time gap</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Take your industry brief &#8594; paste into <strong>Gamma</strong> &#8594; generate a 10-slide deck.
+                Then recreate the same deck manually in <strong>Canva</strong>. Notice the time difference. That gap is
+                your leverage multiplier.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 6</span><span class="dtit">Install browser tools — Grammarly, HARPA,
+                Otter.ai live test</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Install <strong>Grammarly</strong> and <strong>HARPA AI</strong> Chrome extensions, set up
+                <strong>Otter.ai</strong>. Have a 10-minute conversation with a friend, record it with Otter, review the
+                transcript and auto-summary. Run your brief through Hemingway Editor.
+              </p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 7</span><span class="dtit">Week 1 review — write your reflection in
+                Notion</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>What took you 4 hours on Day 1 now takes 45 minutes. Write a <strong>200-word reflection</strong> in
+                Notion on what changed. Check all your Week 1 deliverables below. This reflection habit compounds — by
+                Day 30 you'll have a 30-day learning record.</p>
+            </div>
+          </div>
+        </div>
+        <div class="del">
+          <h4>&#9989; Week 1 Deliverables &mdash; Click to Check Off</h4>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Notion MBA OS live and structured with at least 5 linked sections</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">A 3-page AI-generated industry report with cited sources from Perplexity</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">A 10-slide deck generated from that report using Gamma or Beautiful.ai</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Your personal Prompt Library — 10+ reusable prompts saved in Notion</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">All 10 tools installed and tested with at least one real task each</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Week 1 reflection written in Notion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="week2">
+    <div class="sl">Week Two</div>
+    <h2>Career Infrastructure</h2>
+    <p>Now that you can produce output efficiently, build the career-facing layer. Recruiters are drowning in
+      applications. The ones who use AI to create personalised, precise materials get through.</p>
+    <div class="pn">
+      <div class="pnl">From Tanmay's Experience</div>
+      <p>When I applied for the HiWi research role at Bamberg, I used Claude to build 4 different CV variants — a
+        general one, an AI-focused one, a Sales &amp; Marketing version, and a company-specific one for TYTAN
+        Technologies. Each took under 20 minutes once I had the base template. Without AI fluency, that would have been
+        3 days of work.</p><span class="au">&mdash; Tanmay Narnaware, Exchange Semester, Bamberg 2026</span>
+    </div>
+    <div class="wb">
+      <div class="wh"><span class="wbadge">Week 2 &middot; Days 8&ndash;14</span>
+        <div class="whc">
+          <h3>CV, LinkedIn, Personal Brand &amp; Job Tools</h3>
+          <p>Build a digital presence that works while you sleep</p>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="sdiv">
+          <h4>&#127919; Week Goal</h4>
+        </div>
+        <p style="color:var(--td);font-size:13px;margin-bottom:24px">By Day 14: polished master CV, 2&ndash;3
+          role-specific variants, LinkedIn getting recruiter views, and a repeatable system for applying to jobs in
+          under 30 minutes per application.</p>
+        <div class="tst">&#128188; Career &amp; CV Tools</div>
+        <div class="tgrid">
+          <a href="https://www.kickresume.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Kickresume</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI-assisted CV builder with ATS-optimised templates. Input your experience in natural
+              language, it structures it to recruiter standards. Task: Build master CV here before adapting elsewhere.
+            </div>
+          </a>
+          <a href="https://www.rezi.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Rezi.ai</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI CV optimiser specifically trained on ATS. Paste a job description + your CV &#8594; it
+              rewrites your bullets to match JD keywords. Use this for every single application.</div>
+          </a>
+          <a href="https://www.tealhq.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Teal HQ</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Your job search CRM. Track applications, save job descriptions, compare opportunities, get
+              AI suggestions. Prevents the "applied to 50 jobs and forgot which ones" chaos.</div>
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>LinkedIn AI Features</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">LinkedIn Premium has AI writing tools for About section, connection requests, and InMail.
+              Free tier: use the profile completeness checker. Headline = Role | Value prop | Keyword.</div>
+          </a>
+          <a href="https://taplio.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Taplio</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI LinkedIn content scheduler. Generates post ideas based on your niche, schedules them,
+              tracks engagement. Maintain 3 posts/week without burning out on content creation.</div>
+          </a>
+          <a href="https://www.shieldapp.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Shield App</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">LinkedIn analytics. Tracks your impressions, follower growth, best posting times. Use from
+              day 1 to understand what content gets traction for your specific audience.</div>
+          </a>
+          <a href="https://www.clay.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Clay</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI-powered people intelligence. Research anyone — their company, recent activity, mutual
+              connections, talking points — before reaching out. Use before every cold outreach.</div>
+          </a>
+          <a href="https://simplify.jobs" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Simplify.jobs</div><span class="tf ttag">Free</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Auto-fills job applications with one click using your saved profile. Reduces application
+              friction by ~70%. Essential for high-volume job searches. Works on most major job portals.</div>
+          </a>
+          <a href="https://wonsulting.com/resumai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Wonsulting AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Paste job description + your background &#8594; generates targeted cover letter in 60
+              seconds. Use as first draft only. Then open Claude: "make this sound like a strategic thinker."</div>
+          </a>
+          <a href="https://www.remove.bg" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Remove.bg</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Professional headshot enhancement. Remove background, replace with clean white or gradient.
+              Use for LinkedIn profile photo. Better photo = 3x more profile views (LinkedIn data).</div>
+          </a>
+        </div>
+        <div class="tst">&#128226; Personal Brand &amp; Content Tools</div>
+        <div class="tgrid">
+          <a href="https://medium.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Medium</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Start writing on Medium now. Post one article before orientation — it becomes a permanent
+              credibility asset recruiters find via Google. Use Claude to draft, Hemingway to refine.</div>
+          </a>
+          <a href="https://beehiiv.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Beehiiv</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Newsletter platform. Start an email list around your niche (AI for MBAs, career growth).
+              Even 50 subscribers when placement season starts is better than 0. AI writes the first 3 editions.</div>
+          </a>
+          <a href="https://www.descript.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Descript</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI video editor — edit video by editing the transcript. Remove filler words and silences
+              with one click. If you plan to do YouTube or Reels about your MBA journey, this is your tool.</div>
+          </a>
+          <a href="https://www.opus.pro" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Opus Clip</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Upload a long-form video &#8594; it finds the best 60-second clips automatically using AI.
+              Repurpose presentations or webinars into Reels content. Input once, output many.</div>
+          </a>
+          <a href="https://buffer.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Buffer</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Social media scheduler with AI caption generation. Write your week of LinkedIn content in 1
+              hour on Monday, schedule it. Consistent daily presence beats sporadic bursts.</div>
+          </a>
+          <a href="https://www.framer.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Framer</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Build a personal website in under an hour with AI generation. You need: a URL with your
+              name that recruiters can visit. Minimum: bio, skills, 2&ndash;3 projects, contact. Your digital handshake.
+            </div>
+          </a>
+          <a href="https://www.loom.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Loom</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Record your screen + face in one click. Send video messages instead of long emails. In a
+              job application: record a 90-second personalised Loom to the hiring manager. Stands out 100% of the time.
+            </div>
+          </a>
+          <a href="https://hunter.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Hunter.io</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Email finding platform. Before a conference or job fair — find 20 people you want to meet,
+              get their emails, draft personalised outreach with Claude. This is how cold networking works.</div>
+          </a>
+          <a href="https://app.apollo.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Apollo.io</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">B2B contact database with outreach sequences. Find decision-makers at any company, view
+              contact info, build email sequences. Free tier gives 50 email credits/month.</div>
+          </a>
+          <a href="https://linktr.ee" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Linktree</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Single link pointing to all your profiles: LinkedIn, website, Medium, Calendly, CV
+              download. Put this in your Instagram and Twitter bio. One link = complete professional context.</div>
+          </a>
+        </div>
+        <div class="sdiv">
+          <h4>&#128203; Daily Tasks &mdash; Click to Expand</h4>
+        </div>
+        <div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 8</span><span class="dtit">Build your master CV with
+                achievement-oriented bullet points</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Build your master CV in Kickresume. Feed Claude your entire work history. Ask it to write
+                achievement-oriented bullets using: <strong>Action verb + what you did + measurable result</strong>. No
+                responsibilities, only impacts. Example: "Led social media strategy &#8594; grew engagement 340% in 3
+                months."</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 9</span><span class="dtit">LinkedIn profile overhaul — headline,
+                About, Featured section</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Full LinkedIn overhaul. Formula: <strong>Headline = Role you want | Value you bring | Keywords for
+                  search</strong>. Rewrite your About section using Claude. Add Featured section with any project,
+                article, or presentation. Use Remove.bg for a clean profile photo.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 10</span><span class="dtit">Research 5 target companies + send
+                personalised connection requests</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Research 5 companies you'd genuinely want to intern at. For each: find 1 recruiter on LinkedIn via
+                Clay, save job descriptions in Teal, draft a personalised 3-line connection request. Personalisation
+                formula: <strong>Name + mutual context + specific reason for connecting</strong>. Send all 5.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 11</span><span class="dtit">Publish your first LinkedIn post, track
+                with Shield</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Write your first LinkedIn post. Topic: "One thing I learned before my MBA started." Use Claude to
+                draft, Hemingway to polish. Under 300 words with 5&ndash;7 line breaks. Publish. Track impressions with
+                Shield. Obsess over whether the post made someone think, not likes.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 12</span><span class="dtit">Build your personal website on Framer or
+                Carrd</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Build your personal website using <strong>Framer</strong> or Carrd. Get a domain from Namecheap.
+                Include: name + tagline, 3 skills, 2 projects, LinkedIn + email. A recruiter Googling your name should
+                find this on page 1.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 13</span><span class="dtit">Write and publish your first Medium
+                article</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Write one Medium article. Topic: your perspective on AI in your field. <strong>800&ndash;1,200
+                  words</strong>. Use Claude to draft, then rewrite the intro and conclusion in your own voice. Publish
+                on Medium, share on LinkedIn with 3 key takeaways. This post is on Google forever.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 14</span><span class="dtit">Full application simulation for one real
+                role</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Application simulation. Find a real job/internship you want. Use <strong>Rezi</strong> to tailor your
+                CV to the JD. Use <strong>Wonsulting</strong> for cover letter first draft. Use <strong>Loom</strong> to
+                record a 90-second intro video. This is your Week 2 end-to-end output — repeat this for every serious
+                application.</p>
+            </div>
+          </div>
+        </div>
+        <div class="del">
+          <h4>&#9989; Week 2 Deliverables &mdash; Click to Check Off</h4>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Master CV + 2 role-specific variants (PDF ready)</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">LinkedIn profile fully optimised (100% completeness score)</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Personal website live at your own domain</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">1 Medium article published and shared on LinkedIn</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">5 personalised recruiter connection requests sent</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Complete mock application for 1 real role (CV + Cover Letter + Loom video)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="week3">
+    <div class="sl">Week Three</div>
+    <h2>Business &amp; Strategy Layer</h2>
+    <p>This is where MBA students who understand AI diverge sharply from those who don't. Every case competition, group
+      project, and strategy assignment becomes easier when you can compress 10 hours of analysis into 2.</p>
+    <div class="co y">
+      <div class="col">&#9889; Key Insight</div>
+      <p>The MBA teaches frameworks: SWOT, Porter's Five Forces, BCG Matrix, PESTLE. AI doesn't replace these — it runs
+        them at 10x speed. Your job shifts from data gathering to judgment, interpretation, and communication. Be the
+        strategist on top of the machine.</p>
+    </div>
+    <div class="wb">
+      <div class="wh"><span class="wbadge">Week 3 &middot; Days 15&ndash;21</span>
+        <div class="whc">
+          <h3>Market Research, Financial Models, Decks &amp; Automation</h3>
+          <p>Build the business toolkit that makes you 10x more valuable in a group</p>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="sdiv">
+          <h4>&#127919; Week Goal</h4>
+        </div>
+        <p style="color:var(--td);font-size:13px;margin-bottom:24px">By Day 21: independently produce a market research
+          report, a basic financial model, a professional strategy deck, and automate at least one repetitive workflow
+          using a no-code tool.</p>
+        <div class="tst">&#128202; Business Intelligence &amp; Research Tools</div>
+        <div class="tgrid">
+          <a href="https://www.statista.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Statista</div><span class="tp ttag">Paid*</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Premium data platform. Your college likely has free access — check first. Pull market size
+              stats, consumer trend data, industry forecasts. Paste into Claude: "synthesise into 3 strategic insights
+              for a startup pitch."</div>
+          </a>
+          <a href="https://www.semrush.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>SEMrush (Free tier)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Competitive intelligence. See any website's traffic sources, top keywords, audience
+              demographics. Use to benchmark competitors in any case study. Task: Analyse traffic of 3 companies in one
+              sector.</div>
+          </a>
+          <a href="https://www.crunchbase.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Crunchbase</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Startup and VC data. Track funding rounds, investors, company traction. Use free tier to
+              research any startup before a case, interview, or competition. Know the funding history before you walk
+              in.</div>
+          </a>
+          <a href="https://julius.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Julius AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Upload a CSV or Excel file, ask questions in plain English. "Show me the top 5
+              revenue-generating products by quarter." Generates charts and insights automatically. No SQL needed.</div>
+          </a>
+          <a href="https://consensus.app" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Consensus.app</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Ask any business or policy question &#8594; it searches 200M+ research papers and
+              synthesises evidence. Better than Google Scholar for finding credible data to back a strategy argument.
+            </div>
+          </a>
+          <a href="https://www.similarweb.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Similarweb</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Web traffic analytics for any website. See where competitors get traffic, their top pages,
+              audience demographics. Free tier gives enough data for case study competitive analysis.</div>
+          </a>
+          <a href="https://sparktoro.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>SparkToro</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Audience intelligence. "Who does my target customer follow on Twitter? What podcasts do
+              they listen to?" Use for any marketing strategy project. Replaces weeks of manual persona research.</div>
+          </a>
+          <a href="https://trends.google.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Google Trends</div><span class="tf ttag">Free</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Free market signal tool. Search demand validation of any idea. Compare interest over time,
+              across regions. Use alongside Statista — Trends shows direction, Statista shows size.</div>
+          </a>
+          <a href="https://www.airtable.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Airtable (+ AI blocks)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Database + spreadsheet hybrid with AI features. Build a competitor tracker: add a company
+              name, AI auto-fills description, funding, business model, key differentiators. Reusable template for any
+              case.</div>
+          </a>
+          <a href="https://miro.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Miro AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Collaborative whiteboard with AI features. Generate mind maps, affinity diagrams, user
+              journey maps from a text description. Use in group projects for real-time visual strategy sessions.</div>
+          </a>
+        </div>
+        <div class="tst">&#9881;&#65039; Automation &amp; No-Code Tools</div>
+        <div class="tgrid">
+          <a href="https://zapier.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Zapier (Free Tier)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Connect apps without code. "When a new LinkedIn comment comes in, save it to a Google
+              Sheet." Build 3 Zaps that save you time daily. Start here, not n8n — simpler for beginners.</div>
+          </a>
+          <a href="https://www.make.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Make (ex-Integromat)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">More powerful than Zapier. Visual workflow builder with conditional logic, loops, filters.
+              Build: new job saved &#8594; Perplexity researches company &#8594; summary saved to Notion automatically.
+            </div>
+          </a>
+          <a href="https://relevanceai.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Relevance AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Build AI agents without code. Create a "research agent" that browses the web, synthesises
+              information, and writes reports. Create a "JD analyser" that scores job descriptions against your profile.
+            </div>
+          </a>
+          <a href="https://www.glideapps.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Glide (No-Code Apps)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Turn Google Sheets or Airtable into a mobile app in 30 minutes. Build a simple MVP
+              prototype for any business idea. Useful for entrepreneurship projects and case competition demos.</div>
+          </a>
+          <a href="https://fireflies.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Fireflies.ai</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI meeting recorder that integrates with Zoom, Teams, and Google Meet. Transcribes,
+              identifies speakers, generates action items and searchable archives. Set up before your first group
+              project meeting.</div>
+          </a>
+          <a href="https://tome.app" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Tome</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI-native presentation tool. Unlike Gamma, Tome generates narrative-driven slides — it
+              tells a story, not just bullet points. Use for investor pitch-style decks in entrepreneurship or strategy
+              courses.</div>
+          </a>
+          <a href="https://www.microsoft.com/en-us/microsoft-365/copilot" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Copilot in Excel</div><span class="tp ttag">Paid*</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">If your college has Microsoft 365, Copilot in Excel lets you ask "build a 3-year revenue
+              projection model with 3 scenarios" and it builds the formulas. Know it before others do.</div>
+          </a>
+          <a href="https://www.midjourney.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Midjourney</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI image generation for presentations, marketing materials, prototype mockups. Best for
+              high-quality brand visuals. Use for case competition decks to stand out visually from generic slide
+              backgrounds.</div>
+          </a>
+          <a href="https://bardeen.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Bardeen.ai</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Browser automation for repetitive tasks. "Scrape all job listings matching these criteria
+              from 5 job boards and add to my Airtable." Automation that used to require a developer.</div>
+          </a>
+          <a href="https://n8n.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>n8n</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Open-source automation platform. More powerful and flexible than Zapier. Self-hostable
+              (free). Learn this alongside Make — n8n is becoming the industry standard for serious AI automation
+              workflows.</div>
+          </a>
+        </div>
+        <div class="sdiv">
+          <h4>&#128203; Daily Tasks &mdash; Click to Expand</h4>
+        </div>
+        <div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 15</span><span class="dtit">Full strategic analysis of 1 real company
+                — consulting-grade output</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Pick a real company (startup or mid-size). Use <strong>Perplexity, Crunchbase, Similarweb, and
+                  SparkToro</strong> to research fully. Give Claude all the data: "Produce a Porter's Five Forces + SWOT
+                + 3 strategic recommendations." That's a consulting output in 3 hours.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 16</span><span class="dtit">Financial modelling — build a 3-year
+                P&amp;L with 3 scenarios</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Open Excel or Google Sheets. Use <strong>ChatGPT Advanced Data Analysis</strong> to help build a basic
+                3-year P&amp;L model for a hypothetical SaaS business with <strong>3 growth scenarios</strong>
+                (conservative, base, aggressive). Understand every line — AI builds it, you explain it.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 17</span><span class="dtit">Build 2 live automations in Zapier and
+                Make</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Sign up for <strong>Zapier</strong> and <strong>Make</strong>. Build: (1) New bookmarked article
+                &#8594; summarised by AI &#8594; saved to Notion. (2) New job saved in Teal &#8594; research brief
+                created in Notion. These two automations will save 30 min/day.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 18</span><span class="dtit">Case competition — solve end-to-end using
+                your full toolkit</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Find any recent MBA case competition brief online (ISB, IIM, Wharton all publish these). Use your full
+                Week 1&ndash;3 toolkit: research with Perplexity + NotebookLM, analyse with Claude, build the deck with
+                Gamma or Tome. Run through the full case in one day. Time yourself.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 19</span><span class="dtit">Build a competitor map for any industry
+                in Airtable</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Build a competitor map using <strong>Airtable</strong>. Columns: Company, Business Model, Revenue
+                Model, Target Segment, Key Differentiator, Funding Status, Weakness. Use AI to auto-fill for 10
+                companies. Reusable template for any case competition.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 20</span><span class="dtit">Build 1 AI agent or no-code app using
+                Relevance AI or Glide</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Build something with <strong>Relevance AI</strong> or <strong>Glide</strong>. Create a simple AI agent
+                that does one useful task: research a company, summarise a news feed, or score a JD against your
+                profile. Build it in 2 hours. It doesn't need to be perfect — it needs to work.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 21</span><span class="dtit">Assemble your Business Analysis Portfolio
+                in Notion</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Assemble everything from this week into a <strong>"Business Analysis Portfolio"</strong> Notion page.
+                Include: the company analysis, the financial model, the automation workflow description, and the case
+                competition output. This is your capability proof for any group project pitch or interview.</p>
+            </div>
+          </div>
+        </div>
+        <div class="del">
+          <h4>&#9989; Week 3 Deliverables &mdash; Click to Check Off</h4>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Full strategic analysis of 1 real company (Porter's + SWOT + 3
+              recommendations)</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">A functional 3-year financial model with 3 scenarios</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">2 live Zapier/Make automations saving measurable time daily</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">1 case competition solved end-to-end using your full AI toolkit</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">1 simple AI agent or no-code app built using Relevance AI or Glide</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Business Analysis Portfolio page live in Notion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="week4">
+    <div class="sl">Week Four</div>
+    <h2>Publish, Deploy &amp; College-Ready</h2>
+    <p>The final week is about consolidation and deployment. Convert what you've built into visible, compounding assets.
+      Walk into orientation with infrastructure most students won't build in their entire first year.</p>
+    <div class="wb">
+      <div class="wh"><span class="wbadge">Week 4 &middot; Days 22&ndash;30</span>
+        <div class="whc">
+          <h3>Content Flywheel, Outreach Systems &amp; Your AI Stack</h3>
+          <p>Convert what you've built into a compounding personal engine</p>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="sdiv">
+          <h4>&#127919; Week Goal</h4>
+        </div>
+        <p style="color:var(--td);font-size:13px;margin-bottom:24px">By Day 30: a content system producing LinkedIn +
+          Medium content weekly in under 90 minutes, 10 warm outreach conversations started, and a documented personal
+          AI stack you can maintain during the semester.</p>
+        <div class="tst">&#127912; Content Creation &amp; Video Tools</div>
+        <div class="tgrid">
+          <a href="https://www.heygen.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>HeyGen</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Create AI avatar videos — upload your face once, generate videos of yourself speaking any
+              script. Create explainer videos, company pitches, or recorded presentations. 3-minute free videos
+              available.</div>
+          </a>
+          <a href="https://runwayml.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Runway ML (Gen-2)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Text-to-video AI. Generate short video clips from text prompts. Create visuals for
+              presentations, B-roll for YouTube or Instagram content, or concept videos for startup pitches.</div>
+          </a>
+          <a href="https://elevenlabs.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>ElevenLabs</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI voice cloning and text-to-speech. Create professional-sounding voiceovers for any
+              presentation, podcast, or video content. Clone your own voice. Use for narrating case study videos.</div>
+          </a>
+          <a href="https://www.adobe.com/products/firefly.html" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Adobe Firefly</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Adobe's generative AI in Photoshop and Express. Generative Fill removes/replaces image
+              elements. Creates polished marketing-quality visuals in minutes. Free credits available.</div>
+          </a>
+          <a href="https://pictory.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Pictory.ai</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Paste blog post or script &#8594; auto-generates a video with stock footage + your text
+              overlaid. Turn your Medium articles into LinkedIn video posts in under 20 minutes. One input, multiple
+              formats.</div>
+          </a>
+          <a href="https://castmagic.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Castmagic</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Upload a podcast or long-form video &#8594; generates show notes, key quotes, LinkedIn
+              posts, tweet threads, newsletter sections, and blog outlines automatically. One podcast = 15 pieces of
+              content.</div>
+          </a>
+          <a href="https://www.synthesia.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Synthesia</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Create AI presenter videos with diverse virtual avatars. Use for training videos,
+              presentation recordings. Looks professional without cameras, lighting, or editing. Free demo available.
+            </div>
+          </a>
+          <a href="https://suno.ai" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Suno AI</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI music generation. Create original background music for presentations, event promos, or
+              personal brand videos. Type the mood, get a track. Separates you in creative contexts.</div>
+          </a>
+          <a href="https://repurpose.io" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Repurpose.io</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Automated content repurposing. Post on LinkedIn &#8594; it auto-distributes to Instagram,
+              Twitter, Facebook with platform-specific formatting. Build your content once, distribute everywhere.</div>
+          </a>
+          <a href="https://www.typefully.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Typefully</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Twitter/X content tool with AI writing assistance. Write threads, schedule, analyse
+              engagement. Twitter is still valuable for connecting with startup founders, VCs, and building a technical
+              audience.</div>
+          </a>
+        </div>
+        <div class="tst">&#128279; Networking, Outreach &amp; Relationship Tools</div>
+        <div class="tgrid">
+          <a href="https://lemlist.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Lemlist</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Cold email tool with AI personalisation. Write one template, it personalises each message
+              with the prospect's name, company, recent news. Use for internship outreach. 20 strategic targets max.
+            </div>
+          </a>
+          <a href="https://www.getmagical.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Magical (Chrome Ext.)</div><span
+                class="tf ttag">Free</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Text expansion tool. Create shortcuts that expand to full personalised messages. Type
+              <code>/linreq</code> &#8594; get your full LinkedIn connection request template. Saves 5 minutes per
+              outreach. Installs in 2 minutes.
+            </div>
+          </a>
+          <a href="https://calendly.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Calendly</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Stop the back-and-forth email scheduling. Set up a free Calendly link, put it in your email
+              signature and LinkedIn profile. When someone wants to connect, they book directly. Signals you value time.
+            </div>
+          </a>
+          <a href="https://www.crystalknows.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Crystal Knows</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Analyses personality profiles from LinkedIn to tell you how to communicate with someone.
+              Use before a cold outreach to match your tone to theirs. Meaningful conversion rate increase.</div>
+          </a>
+          <a href="https://folk.app" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Folk CRM</div><span class="tfm ttag">Freemium</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">The modern CRM for individuals. Track every relationship — investors, mentors, recruiters,
+              classmates. AI enriches contact profiles from LinkedIn. Set a "next follow-up" date for every important
+              contact.</div>
+          </a>
+          <a href="https://superhuman.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Superhuman</div><span class="tp ttag">Paid</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">AI-powered email client. Triages your inbox, suggests replies, tracks email opens. When
+              college starts and your inbox explodes, this is how you stay on top.</div>
+          </a>
+          <a href="https://cal.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Cal.com</div><span class="tf ttag">Free</span><span
+                class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Open-source Calendly alternative. Free to use. Same functionality — shareable scheduling
+              link, calendar integration, meeting notifications. No premium plan needed for basic networking scheduling.
+            </div>
+          </a>
+          <a href="https://beehiiv.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Beehiiv (Relationship Warm-up)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Use your newsletter to build warm relationships at scale. When you reach out to someone
+              cold, "I wrote about this in my newsletter" is a much warmer opener than a generic pitch.</div>
+          </a>
+          <a href="https://www.notion.so" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Notion Relationships DB</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Build a relationships database in Notion. Every person you meet: name, company, context,
+              how you met, follow-up date. Use Notion AI to auto-generate follow-up email drafts based on context you
+              stored.</div>
+          </a>
+          <a href="https://www.loom.com" target="_blank" rel="noopener" class="tc">
+            <div class="tn">
+              <div class="tnl"><span class="dot"></span>Loom (Outreach Video)</div><span
+                class="tfm ttag">Freemium</span><span class="tli">&#8599;</span>
+            </div>
+            <div class="td2">Send a 60-second Loom instead of a cold email. Reference something specific about their
+              work. Response rates are 3&ndash;5x higher than text-only outreach because almost no one else does it.
+            </div>
+          </a>
+        </div>
+        <div class="sdiv">
+          <h4>&#128203; Daily Tasks &mdash; Click to Expand</h4>
+        </div>
+        <div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 22</span><span class="dtit">Build your content flywheel — 1 idea
+                &#8594; 7 days of posts</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Map out: <strong>1 big idea &#8594; 1 LinkedIn post + 1 Twitter thread + 1 Medium article
+                  outline</strong>. Use Castmagic if you have any recorded content. Schedule your first week of content
+                using Buffer. One 90-minute session = 7 days of presence. This is the week you become consistent, not
+                just occasionally visible.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 23</span><span class="dtit">Outreach sprint — 10 personalised
+                messages to real targets</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Use <strong>Clay/Hunter.io</strong> to find contact info for 10 people: 3 alumni from your college, 3
+                startup founders in your space, 4 recruiters at target companies. Draft personalised messages with
+                Claude (different tone for each category). Send them all. Track in Folk CRM.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 24</span><span class="dtit">Build your Notion Relationships
+                Database</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Build your relationships database in Notion. Start entering everyone you've connected with in the last
+                30 days. Add follow-up reminders. Build the habit: <strong>every new person you meet goes in here within
+                  24 hours</strong>. This is your professional asset that compounds invisibly over 2 years.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 25</span><span class="dtit">Portfolio consolidation — link everything
+                to your Notion MBA OS</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Make sure your Notion MBA OS links to: your Medium, LinkedIn, CV, personal website, project work,
+                prompt library, automation workflows. This becomes your <strong>"show don't tell"</strong> for any
+                interview. Share the link instead of explaining your skills.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 26</span><span class="dtit">Mock interview — record 5 answers, watch
+                the recordings</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Use Claude to generate 20 likely MBA interview questions for your target companies/roles.
+                <strong>Record yourself answering 5 using Loom.</strong> Watch the recordings. This is uncomfortable —
+                but watching yourself is the highest-leverage interview prep you can do. Most people never do it.
+              </p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 27</span><span class="dtit">Teach what you learned — write about your
+                30-day AI journey</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Write a LinkedIn post or Medium article about your 30-day AI journey. What did you learn? What
+                surprised you? What changed your workflow? Teaching reinforces learning — and this post will attract
+                people who want to hire someone like you. It's also evidence you executed, not just planned.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 28</span><span class="dtit">Block your semester systems in the
+                calendar</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Block recurring time: <strong>Weekly content creation</strong> (Sunday, 90 min), <strong>Career
+                  pipeline review</strong> (Friday, 30 min), <strong>Relationship follow-ups</strong> (Wednesday, 20
+                min). If it's not in the calendar, it doesn't happen. Systems beat motivation every time.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 29</span><span class="dtit">Audit your AI stack — keep 15, know
+                80</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Which 15&ndash;20 tools are you actually using? Delete the rest. Consolidate into a <strong>"My AI
+                  Stack" page in Notion</strong>: tool name, use case, how often, access method. Reduce friction to
+                zero. The goal is for your 15 core tools to feel like muscle memory before semester begins.</p>
+            </div>
+          </div>
+          <div class="di" onclick="td(this)">
+            <div class="dh"><span class="dnum">Day 30</span><span class="dtit">Final reflection — who are you now vs 30
+                days ago?</span><span class="dc">&#9654;</span></div>
+            <div class="dbody">
+              <p>Open Notion. Write a <strong>500-word reflection</strong>: "Who am I going into college as, versus who
+                I was 30 days ago?" This isn't performance — it's calibration. Read this again at the end of your first
+                semester. The gap between these two readings is the compound interest of this month.</p>
+            </div>
+          </div>
+        </div>
+        <div class="del">
+          <h4>&#9989; Week 4 Deliverables &mdash; Click to Check Off</h4>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Content flywheel mapped and first week of content scheduled</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">10 personalised outreach messages sent to real contacts</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Relationships database live in Notion (minimum 20 contacts)</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">5 mock interview answers recorded and self-reviewed via Loom</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Semester calendar blocked with weekly recurring systems</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">Final 500-word reflection written and saved in Notion</span>
+          </div>
+          <div class="ci" onclick="tc2(this)">
+            <div class="cbox">
+              <div class="cm"></div>
+            </div><span class="clabel">My AI Stack page documented with your 15 core tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="schedule">
+    <div class="sl">System</div>
+    <h2>Your Daily Operating Schedule</h2>
+    <p>A suggested structure for a productive 4&ndash;5 hour daily session. Adapt to your existing commitments.
+      Consistent daily output beats heroic single-day sessions.</p>
+    <div class="co">
+      <div class="col">&#129504; Framework</div>
+      <p>Structure each day around a primary task (the week's main output) and a secondary system task (tools, outreach,
+        or content). Do one thing deeply, one thing systematically. Don't try to do everything every day.</p>
+    </div>
+    <div class="sgrid">
+      <div class="srow">
+        <div class="stime">07:00&ndash;08:00</div>
+        <div class="stask"><span class="stag tlearn">Learn</span>Read 1 article on AI/tech using Perplexity or your
+          feed. Capture one insight in Notion. This is your market awareness habit.</div>
+      </div>
+      <div class="srow">
+        <div class="stime">08:00&ndash;10:30</div>
+        <div class="stask"><span class="stag tbuild">Build</span>Primary task block &mdash; deepest focus time. Do the
+          main deliverable for the week (report, CV, automation, deck). Phone on Do Not Disturb.</div>
+      </div>
+      <div class="srow">
+        <div class="stime">10:30&ndash;11:00</div>
+        <div class="stask"><span class="stag tapply">Apply</span>Outreach block. Send 2 connection requests, 1 email, or
+          1 follow-up. This is not optional. Consistent small outreach &gt; sporadic large campaigns.</div>
+      </div>
+      <div class="srow">
+        <div class="stime">11:00&ndash;12:00</div>
+        <div class="stask"><span class="stag tlearn">Learn</span>Tool exploration. 60 minutes on a new tool from the
+          week's list. Complete one actual task with it &mdash; don't just watch tutorials.</div>
+      </div>
+      <div class="srow">
+        <div class="stime">14:00&ndash;15:30</div>
+        <div class="stask"><span class="stag tbuild">Build</span>Secondary task block. Content, supporting research, or
+          system maintenance. If Week 2: tailor CVs. If Week 4: schedule content.</div>
+      </div>
+      <div class="srow">
+        <div class="stime">16:00&ndash;16:30</div>
+        <div class="stask"><span class="stag treview">Review</span>EOD review. Open Notion. Write 3 lines: what you
+          finished, what's pending, what you learned. 5 minutes. Compounds into a 30-day learning record.</div>
+      </div>
+      <div class="srow">
+        <div class="stime">Evening</div>
+        <div class="stask"><span class="stag tlearn">Optional</span>Listen to Speechify audio of an article or chapter.
+          Watch a 20-minute YouTube deep dive on a tool. Passive learning counts.</div>
+      </div>
+    </div>
+    <div class="co g" style="margin-top:28px">
+      <div class="col">&#9889; Non-Negotiables &mdash; Every Single Day</div>
+      <p>1. Log one insight in Notion. 2. Send one outreach message. 3. Write 3-line EOD review. Under 20 minutes total.
+        These are the compound interest of this month.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="closing">
+    <div class="sl">Final Words</div>
+    <h2>What This Month Actually Builds</h2>
+    <div class="pn">
+      <div class="pnl">From My Perspective</div>
+      <p>I didn't have this document before I started. I figured out most of these tools reactively. &mdash; You have 30
+        days and no distractions. Use it differently than I did.</p>
+      <p style="margin-top:12px">The students who struggle in their MBA aren't the ones with less intelligence. They're
+        the ones who are reactive &mdash; learning tools only when forced to by an assignment, networking only when
+        placement season starts, writing only when a professor requires it. By the time they build the infrastructure,
+        the semester is halfway done.</p>
+      <p style="margin-top:12px">The world is moving. AI is compressing timelines everywhere. The question isn't whether
+        to adapt &mdash; it's whether you adapt now, with structure, or later, under pressure.</p>
+      <span class="au">&mdash; Tanmay Narnaware &middot; MBA Student &middot; WeSchool Mumbai +
+        Otto-Friedrich-Universit&auml;t Bamberg &middot; <a href="https://linkedin.com/in/ktanmayn" target="_blank"
+          rel="noopener" style="color:var(--ac)">linkedin.com/in/ktanmayn</a> &middot; <a
+          href="https://tanmayportfolio.me" target="_blank" rel="noopener"
+          style="color:var(--ac)">tanmayportfolio.me</a></span>
+    </div>
+    <div class="co r">
+      <div class="col">&#9888;&#65039; The One Thing I'd Tell You</div>
+      <p>Don't try to use all 80 tools. <strong>Master 15. Know 80.</strong> The point of knowing the full landscape is
+        that you can recognise a tool when you need it. The point of mastering 15 is that those 15 become automatic
+        &mdash; no decision fatigue, no learning curve under deadline pressure.</p>
+    </div>
+    <div class="co g">
+      <div class="col">&#9989; Your 30-Day Output</div>
+      <p>A working personal website. 2&ndash;3 tailored CVs. A live LinkedIn presence with published content. A Notion
+        knowledge OS. 10+ warm outreach conversations. 2 automation workflows. 1 strategic business analysis. A content
+        flywheel. Your documented AI stack. That's the portfolio you walk into orientation with.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fl">
+      <h4>The 30-Day AI Edge</h4>
+      <p>Ocean Doc for Juniors &middot; By Tanmay Narnaware</p>
+      <p style="margin-top:6px"><a href="https://tanmayportfolio.me" target="_blank"
+          rel="noopener">tanmayportfolio.me</a> &middot; <a href="https://linkedin.com/in/ktanmayn" target="_blank"
+          rel="noopener">linkedin.com/in/ktanmayn</a></p>
+    </div>
+    <div class="fr">
+      <p>80+ Clickable Tools &middot; 4 Weeks &middot; 30 Tasks</p>
+      <p>Action &gt; Theory</p>
+    </div>
+  </footer>
+
+  <script>
+    const tools = [
+      { n: "Claude", u: "https://claude.ai", w: "Week 1", d: "Reasoning engine, documents, long-form analysis" },
+      { n: "ChatGPT", u: "https://chat.openai.com", w: "Week 1", d: "Fast drafts, brainstorming, image generation" },
+      { n: "Perplexity AI", u: "https://www.perplexity.ai", w: "Week 1", d: "Cited AI search, replace Google for research" },
+      { n: "Gemini 1.5 Pro", u: "https://gemini.google.com", w: "Week 1", d: "1M token context, PDF Q&A, document ingestion" },
+      { n: "Notion AI", u: "https://www.notion.so", w: "Week 1", d: "AI workspace, meeting notes, second brain" },
+      { n: "Otter.ai", u: "https://otter.ai", w: "Week 1", d: "AI meeting recorder, transcripts, auto-summary" },
+      { n: "NotebookLM", u: "https://notebooklm.google.com", w: "Week 1", d: "Custom AI from your PDFs and research papers" },
+      { n: "Grammarly", u: "https://www.grammarly.com", w: "Week 1", d: "Writing quality, clarity, tone, Chrome extension" },
+      { n: "Hemingway Editor", u: "https://hemingwayapp.com", w: "Week 1", d: "Clarity checker, passive voice, readability" },
+      { n: "Elicit", u: "https://elicit.com", w: "Week 1", d: "AI research assistant, 200M+ academic papers" },
+      { n: "Gamma.app", u: "https://gamma.app", w: "Week 1", d: "AI presentation generator, topic to full deck" },
+      { n: "Beautiful.ai", u: "https://www.beautiful.ai", w: "Week 1", d: "Smart auto-formatting presentations" },
+      { n: "Canva AI", u: "https://www.canva.com", w: "Week 1", d: "Design anything, Magic Write, Magic Design" },
+      { n: "PDF.ai", u: "https://pdf.ai", w: "Week 1", d: "Chat with any PDF, extract SWOT, stakeholders" },
+      { n: "Taskade", u: "https://www.taskade.com", w: "Week 1", d: "AI project management, plain English to tasks" },
+      { n: "Speechify", u: "https://speechify.com", w: "Week 1", d: "Text-to-speech 2-4x speed, upload PDFs" },
+      { n: "Obsidian", u: "https://obsidian.md", w: "Week 1", d: "Local-first notes, knowledge graph, AI plugin" },
+      { n: "DeepL", u: "https://www.deepl.com", w: "Week 1", d: "Best-in-class translation for business text" },
+      { n: "HARPA AI", u: "https://harpa.ai", w: "Week 1", d: "Chrome AI co-pilot, summarise webpages" },
+      { n: "DALL-E 3", u: "https://chat.openai.com", w: "Week 1", d: "AI image generation inside ChatGPT" },
+      { n: "Kickresume", u: "https://www.kickresume.com", w: "Week 2", d: "AI CV builder, ATS optimised templates" },
+      { n: "Rezi.ai", u: "https://www.rezi.ai", w: "Week 2", d: "ATS keyword optimizer, tailor CV to JD" },
+      { n: "Teal HQ", u: "https://www.tealhq.com", w: "Week 2", d: "Job search CRM, track applications" },
+      { n: "LinkedIn AI", u: "https://www.linkedin.com", w: "Week 2", d: "Profile optimisation, AI writing, recruiter visibility" },
+      { n: "Taplio", u: "https://taplio.com", w: "Week 2", d: "AI LinkedIn content scheduler, post analytics" },
+      { n: "Shield App", u: "https://www.shieldapp.ai", w: "Week 2", d: "LinkedIn analytics, impressions, best posting times" },
+      { n: "Clay", u: "https://www.clay.com", w: "Week 2", d: "AI people intelligence, research before outreach" },
+      { n: "Simplify.jobs", u: "https://simplify.jobs", w: "Week 2", d: "One-click job application autofill" },
+      { n: "Wonsulting AI", u: "https://wonsulting.com/resumai", w: "Week 2", d: "Cover letter generator from JD + background" },
+      { n: "Remove.bg", u: "https://www.remove.bg", w: "Week 2", d: "Professional headshot background removal" },
+      { n: "Medium", u: "https://medium.com", w: "Week 2", d: "Publish articles, credibility asset, Google indexed" },
+      { n: "Beehiiv", u: "https://beehiiv.com", w: "Week 2", d: "Email newsletter, build audience" },
+      { n: "Descript", u: "https://www.descript.com", w: "Week 2", d: "Edit video by editing the transcript" },
+      { n: "Opus Clip", u: "https://www.opus.pro", w: "Week 2", d: "Long video to viral 60-second clips automatically" },
+      { n: "Buffer", u: "https://buffer.com", w: "Week 2", d: "Social media scheduler, AI captions" },
+      { n: "Framer", u: "https://www.framer.com", w: "Week 2", d: "AI website generation, personal portfolio" },
+      { n: "Loom", u: "https://www.loom.com", w: "Week 2", d: "Record screen + face, video messages" },
+      { n: "Hunter.io", u: "https://hunter.io", w: "Week 2", d: "Find email addresses, recruiter outreach" },
+      { n: "Apollo.io", u: "https://app.apollo.io", w: "Week 2", d: "B2B contact database, outreach sequences" },
+      { n: "Linktree", u: "https://linktr.ee", w: "Week 2", d: "Single link to all profiles" },
+      { n: "Statista", u: "https://www.statista.com", w: "Week 3", d: "Market size data, consumer trends, forecasts" },
+      { n: "SEMrush", u: "https://www.semrush.com", w: "Week 3", d: "Competitive intelligence, website traffic" },
+      { n: "Crunchbase", u: "https://www.crunchbase.com", w: "Week 3", d: "Startup data, funding rounds, investors" },
+      { n: "Julius AI", u: "https://julius.ai", w: "Week 3", d: "Chat with your data, CSV to charts" },
+      { n: "Consensus", u: "https://consensus.app", w: "Week 3", d: "Research question to 200M paper evidence" },
+      { n: "Similarweb", u: "https://www.similarweb.com", w: "Week 3", d: "Website traffic, audience demographics" },
+      { n: "SparkToro", u: "https://sparktoro.com", w: "Week 3", d: "Audience intelligence, target customer insights" },
+      { n: "Google Trends", u: "https://trends.google.com", w: "Week 3", d: "Search demand validation, market interest" },
+      { n: "Airtable", u: "https://www.airtable.com", w: "Week 3", d: "Database + spreadsheet, AI blocks, competitor tracker" },
+      { n: "Miro AI", u: "https://miro.com", w: "Week 3", d: "AI whiteboard, mind maps, group strategy" },
+      { n: "Zapier", u: "https://zapier.com", w: "Week 3", d: "Connect apps without code, automate workflows" },
+      { n: "Make", u: "https://www.make.com", w: "Week 3", d: "Visual workflow builder, conditional logic" },
+      { n: "Relevance AI", u: "https://relevanceai.com", w: "Week 3", d: "Build AI agents without code" },
+      { n: "Glide", u: "https://www.glideapps.com", w: "Week 3", d: "Turn Google Sheets into a mobile app" },
+      { n: "Fireflies.ai", u: "https://fireflies.ai", w: "Week 3", d: "AI meeting recorder, Zoom/Teams integration" },
+      { n: "Tome", u: "https://tome.app", w: "Week 3", d: "AI narrative-driven presentations, pitch decks" },
+      { n: "Copilot in Excel", u: "https://www.microsoft.com", w: "Week 3", d: "AI builds financial models from plain English" },
+      { n: "Midjourney", u: "https://www.midjourney.com", w: "Week 3", d: "AI image generation, brand visuals" },
+      { n: "Bardeen.ai", u: "https://bardeen.ai", w: "Week 3", d: "Browser automation, scrape job listings" },
+      { n: "n8n", u: "https://n8n.io", w: "Week 3", d: "Open-source automation, more powerful than Zapier" },
+      { n: "HeyGen", u: "https://www.heygen.com", w: "Week 4", d: "AI avatar videos, face clone, script to video" },
+      { n: "Runway ML", u: "https://runwayml.com", w: "Week 4", d: "Text-to-video AI, B-roll generation" },
+      { n: "ElevenLabs", u: "https://elevenlabs.io", w: "Week 4", d: "AI voice cloning, professional voiceovers" },
+      { n: "Adobe Firefly", u: "https://www.adobe.com", w: "Week 4", d: "Generative Fill, marketing-quality visuals" },
+      { n: "Pictory.ai", u: "https://pictory.ai", w: "Week 4", d: "Blog post to video, multiple formats" },
+      { n: "Castmagic", u: "https://castmagic.io", w: "Week 4", d: "Podcast to 15+ content pieces automatically" },
+      { n: "Synthesia", u: "https://www.synthesia.io", w: "Week 4", d: "AI presenter videos, virtual avatars" },
+      { n: "Suno AI", u: "https://suno.ai", w: "Week 4", d: "AI music generation, background tracks" },
+      { n: "Repurpose.io", u: "https://repurpose.io", w: "Week 4", d: "Post once, auto-distribute everywhere" },
+      { n: "Typefully", u: "https://www.typefully.com", w: "Week 4", d: "Twitter/X thread writer, AI suggestions" },
+      { n: "Lemlist", u: "https://lemlist.com", w: "Week 4", d: "Cold email with AI personalisation" },
+      { n: "Magical", u: "https://www.getmagical.com", w: "Week 4", d: "Text expansion, shortcuts for outreach" },
+      { n: "Calendly", u: "https://calendly.com", w: "Week 4", d: "Scheduling link, no back-and-forth emails" },
+      { n: "Crystal Knows", u: "https://www.crystalknows.com", w: "Week 4", d: "Personality profile from LinkedIn" },
+      { n: "Folk CRM", u: "https://folk.app", w: "Week 4", d: "Modern personal CRM, AI contact enrichment" },
+      { n: "Superhuman", u: "https://superhuman.com", w: "Week 4", d: "AI email client, inbox triage" },
+      { n: "Cal.com", u: "https://cal.com", w: "Week 4", d: "Open-source Calendly alternative, free" },
+      { n: "Loom (Outreach)", u: "https://www.loom.com", w: "Week 4", d: "Video outreach, 3-5x higher response rates" }
+    ];
+
+    let done = 0;
+    const tot = document.querySelectorAll('.ci').length;
+    document.getElementById('ts').textContent = 'of ' + tot + ' total tasks';
+
+    function tc2(el) {
+      el.classList.toggle('done');
+      done = document.querySelectorAll('.ci.done').length;
+      document.getElementById('tn').textContent = done;
+      const p = Math.round((done / tot) * 100);
+      document.getElementById('tf2').style.width = p + '%';
+      if (done > 0 && done % 5 === 0) toast('🎉 ' + done + ' tasks done! Keep going.');
+      if (done === tot) toast('🚀 All ' + tot + ' complete! You are ready.');
+      try { const s = []; document.querySelectorAll('.ci').forEach(e => s.push(e.classList.contains('done') ? '1' : '0')); localStorage.setItem('ai30v3', s.join(',')); } catch (e) { }
+    }
+
+    function td(el) { el.classList.toggle('op') }
+
+    function tgl() {
+      const t = document.getElementById('tracker');
+      const a = document.getElementById('ta');
+      t.classList.toggle('col');
+      a.innerHTML = t.classList.contains('col') ? '&#9660;' : '&#9650;';
+    }
+
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    function os() {
+      document.getElementById('sb').classList.add('op');
+      document.getElementById('so').classList.add('op');
+      setTimeout(() => document.getElementById('si').focus(), 100);
+      document.getElementById('si').value = '';
+      document.getElementById('sr2').innerHTML = '';
+    }
+
+    function cs() {
+      document.getElementById('sb').classList.remove('op');
+      document.getElementById('so').classList.remove('op');
+    }
+
+    function ds(q) {
+      const r = document.getElementById('sr2');
+      if (!q.trim()) { r.innerHTML = ''; return; }
+      const m = tools.filter(t => t.n.toLowerCase().includes(q.toLowerCase()) || t.d.toLowerCase().includes(q.toLowerCase()) || t.w.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+      if (!m.length) { r.innerHTML = '<div style="padding:12px;color:var(--tdd);font-size:12px;">No tools found. Try: video, CV, research, automation, email</div>'; return; }
+      r.innerHTML = m.map(t => `<div class="res" onclick="window.open('${t.u}','_blank');cs()"><div class="rn">${t.n}<span class="rw">${t.w}</span></div><div class="rd">${t.d}</div></div>`).join('');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') cs();
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); os(); }
+    });
+
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      document.getElementById('pb').style.width = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100 + '%';
+      let cur = '';
+      document.querySelectorAll('section[id]').forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+      document.querySelectorAll('#mn a[href^="#"]').forEach(a => {
+        a.classList.remove('act');
+        if (a.getAttribute('href') === '#' + cur) a.classList.add('act');
+      });
+    });
+
+    window.addEventListener('load', () => {
+      try {
+        const sv = localStorage.getItem('ai30v3');
+        if (sv) {
+          const st = sv.split(',');
+          document.querySelectorAll('.ci').forEach((el, i) => { if (st[i] === '1') el.classList.add('done'); });
+          done = document.querySelectorAll('.ci.done').length;
+          document.getElementById('tn').textContent = done;
+          document.getElementById('tf2').style.width = Math.round((done / tot) * 100) + '%';
+        }
+      } catch (e) { }
+      setTimeout(() => toast('💡 Press ⌘K to search all 80 tools'), 1200);
+    });
+  </script>
+</body>
+
+</html>
