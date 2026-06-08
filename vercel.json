@@ -1,25 +1,3 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "roadmap.tanmayportfolio.me"
-        }
-      ],
-      "destination": "/roadmap"
-    },
-    {
-      "source": "/index.html",
-      "has": [
-        {
-          "type": "host",
-          "value": "roadmap.tanmayportfolio.me"
-        }
-      ],
-      "destination": "/roadmap"
-    }
-  ]
+  "cleanUrls": true
 }
