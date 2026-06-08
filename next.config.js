@@ -23,17 +23,17 @@ const nextConfig = {
         {
           source: '/',
           has: [{ type: 'host', value: 'roadmap.tanmayportfolio.me' }],
-          destination: '/roadmap.html',
+          destination: '/roadmap',
         },
         {
           source: '/index',
           has: [{ type: 'host', value: 'roadmap.tanmayportfolio.me' }],
-          destination: '/roadmap.html',
+          destination: '/roadmap',
         },
         {
           source: '/index.html',
           has: [{ type: 'host', value: 'roadmap.tanmayportfolio.me' }],
-          destination: '/roadmap.html',
+          destination: '/roadmap',
         },
       ],
     }
