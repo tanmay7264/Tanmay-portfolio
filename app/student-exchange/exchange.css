@@ -98,12 +98,12 @@
 .exchange-book-gallery-heading p { max-width: 360px; margin: 0; color: hsl(var(--muted-foreground)); font-size: .9rem; line-height: 1.65; }
 .exchange-book-gallery-window { overflow: hidden; margin-inline: -4vw; padding: 16px 4vw 26px; mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
 .exchange-book-gallery-track { display: flex; width: max-content; gap: 16px; animation: exchange-reel 78s linear infinite; }
-.exchange-book-gallery-track:hover { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) { .exchange-book-gallery-track:hover { animation-play-state: paused; } }
 .exchange-book-gallery-track figure { position: relative; width: 194px; height: 260px; flex: 0 0 auto; overflow: hidden; border: 8px solid #fff; border-radius: 8px; background: #e8e6f1; box-shadow: 0 16px 26px rgba(37,45,90,.15); transform: rotate(-2deg); }
 .exchange-book-gallery-track figure:nth-child(3n) { transform: rotate(2.5deg) translateY(8px); }
 .exchange-book-gallery-track figure:nth-child(5n) { transform: rotate(-1deg) translateY(-6px); }
 .exchange-book-gallery-track img { width: 100%; height: 100%; object-fit: cover; }
-@keyframes exchange-reel { to { transform: translate3d(-50%, 0, 0); } }
+@keyframes exchange-reel { to { transform: translate3d(calc(-50% - 8px), 0, 0); } }
 @media (prefers-reduced-motion: reduce) { .exchange-book-gallery-track { animation-play-state: paused; } }
 .exchange-book-footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px 0; border-top: 1px solid hsl(var(--border)); color: hsl(var(--muted-foreground)); font-size: .65rem; font-weight: 900; letter-spacing: .12em; }
 
@@ -141,10 +141,7 @@
   .exchange-book-page-left blockquote { margin-top: 0; }
   .exchange-book-controls button { width: 48px; height: 48px; }
   .exchange-book-gallery-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .exchange-book-gallery-window { overflow-x: auto; mask-image: none; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-  .exchange-book-gallery-track { animation: none; }
-  .exchange-book-gallery-track figure { scroll-snap-align: center; }
-  .exchange-book-gallery-track figure:nth-child(n+67) { display: none; }
+  .exchange-book-gallery-window { mask-image: none; }
   .exchange-book-ready-link { min-width: 0; width: 100%; }
   .exchange-book-footer { align-items: flex-start; flex-direction: column; }
 }
