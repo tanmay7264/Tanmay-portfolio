@@ -205,7 +205,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="mb-10 flex flex-col items-stretch justify-center gap-3 sm:mb-12 sm:flex-row sm:items-center sm:gap-4"
+          className="mb-10 flex flex-col items-stretch justify-center gap-3 sm:mb-12 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -229,6 +229,14 @@ export default function Hero() {
           >
             <Download className="w-5 h-5" />
             {ui.hero.ctaDownloadCv}
+          </a>
+
+          <a
+            href={`${pagesBasePath}/student-exchange`}
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary/50 bg-primary/10 px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary hover:bg-primary/20 sm:px-8 sm:py-4 sm:text-base"
+          >
+            <Sparkles className="h-5 w-5" />
+            Student Exchange Experience
           </a>
 
           <button
