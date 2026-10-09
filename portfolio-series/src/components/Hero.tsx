@@ -46,6 +46,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const floating = [
     { text: '2.5 years', sub: 'Apexon', pos: 'left-[2%] top-[30%]', depth: 1 },
     { text: 'Student Exchange in Germany', sub: 'International Experience', pos: 'right-[0%] top-[18%]', depth: -1 },
+    { text: 'Product Management & Strategy Intern', sub: 'Germany', pos: 'right-[0%] top-[46%]', depth: 0.8 },
     { text: 'AI · Product · Growth', sub: 'Current focus', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 
@@ -191,7 +192,7 @@ function FloatChip({ text, sub, pos, depth, index, mx, my }: { text: string; sub
   const y = useTransform(my, (n: number) => n * depth);
   return (
     <motion.div
-      className={`glass absolute hidden rounded-xl px-4 py-2.5 md:block ${pos}`}
+      className={`glass absolute hidden max-w-[250px] rounded-xl px-4 py-2.5 md:block ${pos}`}
       style={{ x, y }}
       initial={{ opacity: 0, filter: 'blur(6px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
