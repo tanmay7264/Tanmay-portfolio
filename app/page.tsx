@@ -38,7 +38,7 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.17),transparent_38%),radial-gradient(circle_at_85%_75%,rgba(229,19,43,0.14),transparent_40%)]" />
       <div className="relative mx-auto flex min-h-full max-w-5xl flex-col justify-center">
         <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/50">Tanmay Narnaware · Portfolio</p>
-        <h1 id="portfolio-choice-title" className="font-display text-center text-4xl leading-none sm:text-6xl">Which portfolio would you like to view?</h1>
+        <h1 id="portfolio-choice-title" className="font-display text-center text-4xl leading-none sm:text-6xl">How would you like to explore my work?</h1>
         <div className="mx-auto mb-9 mt-5 flex min-h-16 w-full max-w-xl items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
           <AnimatePresence mode="wait">
             <motion.p key={lineIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28 }} className="text-sm leading-relaxed text-white/75 sm:text-base">
