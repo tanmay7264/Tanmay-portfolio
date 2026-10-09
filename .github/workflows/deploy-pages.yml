@@ -33,9 +33,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Netflix portfolio dependencies
-        run: npm ci --prefix portfolio-series
-
       - name: Build static site
         run: npm run build
 

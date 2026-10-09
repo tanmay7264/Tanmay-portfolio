@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "postinstall": "npm ci --prefix portfolio-series",
     "predev": "npm --prefix portfolio-series run build",
     "dev": "next dev",
     "prebuild": "npm --prefix portfolio-series run build",
