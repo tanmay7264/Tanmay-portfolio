@@ -39,12 +39,12 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
         </div>
       </div>
       <motion.div
-        className="gutter flex-1 pb-6"
+        className="gutter min-h-0 flex-1 overflow-hidden pb-6"
         initial={{ opacity: 0, y: 40, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <div data-lenis-prevent className="h-full overflow-y-auto rounded-xl bg-white">
+        <div data-lenis-prevent className="h-full overflow-y-auto overscroll-contain rounded-xl bg-white">
           {/* shortcut: regenerate this preview whenever the CV PDF changes. */}
           <img src="/assets/Tanmay-ATS-CV-preview.png" alt="One-page preview of Tanmay Narnaware's CV" className="mx-auto block w-full max-w-5xl" />
         </div>
