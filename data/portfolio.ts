@@ -95,9 +95,9 @@ export const portfolioData = {
   ],
   "achievements": [
     {
-      "category": "International Experience",
-      "title": "Student Exchange in Germany",
-      "description": "Studied management, innovation, and digital transformation at the University of Bamberg from March to August 2026 with an international cohort"
+      "category": "Innovation & Entrepreneurship",
+      "title": "Top 1% in CMAT Innovation & Entrepreneurship",
+      "description": "Scored 99.37 percentile in Innovation and Entrepreneurship section among 63,000 candidates across India"
     },
     {
       "category": "Innovation & Hackathons",

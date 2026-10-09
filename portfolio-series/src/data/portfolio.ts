@@ -177,7 +177,7 @@ export const topPicks: TopPick[] = [
   { label: 'Growth venture', title: 'Lonavala Villas', detail: '+28% direct inquiry share', palette: violet },
   { label: 'Founder story', title: 'The Socials Web', detail: '22+ campaigns delivered', palette: jade },
   { label: 'Community', title: '500+', detail: 'WeSchool members mentored', palette: crimson },
-  { label: 'Hackathon', title: 'We4Tech', detail: 'Second runner-up among 90 teams', palette: amber },
+  { label: 'Entrance exam', title: '99.37', detail: 'CMAT innovation & entrepreneurship percentile', palette: amber },
   { label: 'Innovation', title: 'InnoMUN', detail: '2025 winner at BITS Pilani', palette: ocean },
   { label: 'Cloud credential', title: 'AWS', detail: 'Certified Solutions Architect – Associate', palette: violet },
   { label: 'Writing', title: 'Medium', detail: 'Technology, business and growth essays', palette: jade },
@@ -188,7 +188,7 @@ export const introSlides: IntroSlide[] = [
   { kicker: 'Current chapter', title: 'PGDM · E-Business', lines: ['WeSchool, Mumbai · 2025–27', 'Student exchange · University of Bamberg · 2026'], chips: ['Product', 'Growth', 'Digital business'] },
   { kicker: 'Experience', title: 'The Apexon Years', lines: ['2.5 years across four frontend roles', 'Customer experience, performance and mentoring'], chips: ['React', 'JavaScript', 'UX'] },
   { kicker: 'Originals', title: 'Growth Systems', lines: projects.map((item) => item.title), chips: ['Lonavala Villas', 'The Socials Web', 'WeSchool'] },
-  { kicker: 'Milestones', title: 'Top Moments', lines: ['Student exchange in Germany', 'InnoMUN 2025 winner', 'We4Tech second runner-up'], chips: ['Innovation', 'Leadership'] },
+  { kicker: 'Milestones', title: 'Top Moments', lines: ['CMAT 99.37 percentile', 'InnoMUN 2025 winner', 'We4Tech second runner-up'], chips: ['Innovation', 'Leadership'] },
   { kicker: 'Next chapter', title: 'AI-Led Product Growth', lines: ['Building products and growth systems that move business metrics.'], chips: tanmay.topSkills },
 ];
 
