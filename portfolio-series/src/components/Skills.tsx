@@ -12,7 +12,7 @@ export default function Skills() {
 
   return (
     <>
-      <SectionHeading kicker="Genres" title="My Skill Universe" aside={<p className="max-w-xs text-sm text-mist">Hover or tap a skill to see where it shows up across projects and certifications.</p>} />
+      <SectionHeading kicker="Genres" title="My Skill Universe" aside={<p className="max-w-xs text-sm text-mist">Explore the skills behind my work across technology, business and growth.</p>} />
 
       <div className="gutter grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-14">
         {/* genre list */}

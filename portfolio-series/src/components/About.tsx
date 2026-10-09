@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { education, experience, profile } from '../data/portfolio';
+import { education, experience, profile, writing } from '../data/portfolio';
 import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const facts = [
-    { k: 'Now', v: 'B.Tech, AI & ML', s: `${education[0].school} · ${education[0].score}` },
-    { k: 'Training', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
-    { k: 'Primary language', v: 'Java', s: 'with Python, C, C++' },
+    { k: 'Now', v: 'PGDM, E-Business', s: `${education[0].school} · ${education[0].period}` },
+    { k: 'Experience', v: '2.5 years at Apexon', s: `${experience[0].role} · ${experience[0].period}` },
+    { k: 'Focus', v: 'AI-led product growth', s: 'Technology, customers and business outcomes' },
     { k: 'Based in', v: profile.location, s: 'India' },
   ];
 
@@ -26,12 +26,12 @@ export default function About() {
             <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#5a0b1b,#14060a_60%,#07070a)]" />
             <div className="absolute inset-0 opacity-50 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_28px)]" />
             <img
-              src="/assets/portrait-720.webp"
+              src={profile.portrait.src}
               srcSet={profile.portrait.srcSet}
               sizes="(max-width: 1024px) 90vw, 40vw"
               alt={profile.portrait.alt}
               loading="lazy"
-              className="absolute bottom-0 left-1/2 h-[92%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+              className="absolute inset-0 h-full w-full object-cover object-center [mask-image:radial-gradient(ellipse_80%_75%_at_50%_45%,black_45%,transparent_100%)]"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
@@ -39,7 +39,7 @@ export default function About() {
                 <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">STARRING</p>
                 <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
               </div>
-              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S05</span>
+              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S04</span>
             </div>
           </div>
         </Tilt>
@@ -86,6 +86,18 @@ export default function About() {
                 </span>
               ))}
             </div>
+          </div>
+          <div className="mt-8">
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Selected writing</p>
+            <ul className="space-y-2">
+              {writing.map((article) => (
+                <li key={article.url}>
+                  <a href={article.url} target="_blank" rel="noreferrer" className="text-sm text-bone/80 underline decoration-white/20 underline-offset-4 hover:text-bone">
+                    {article.title} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

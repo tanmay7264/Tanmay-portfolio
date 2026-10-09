@@ -22,7 +22,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="font-serif text-3xl italic leading-tight text-bone">Every episode, on one page.</p>
           <p className="mt-3 text-sm leading-relaxed text-mist">
-            Education, training, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
+            Education, experience, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <Magnetic className="w-full">
@@ -38,7 +38,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
             <Magnetic className="w-full">
               <a
                 href={profile.resumePdf}
-                download="Sushmita_Dasari_Resume.pdf"
+                download="Tanmay-Narnaware-CV.pdf"
                 data-cursor="link"
                 className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15"
               >
@@ -48,7 +48,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
           </div>
           <dl className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
             {[
-              { v: education[0].score.replace('CGPA ', ''), k: 'CGPA' },
+              { v: '2.5', k: 'Years at Apexon' },
               { v: String(projects.length), k: 'Originals' },
               { v: String(certifications.length), k: 'Certs' },
             ].map((s) => (
@@ -129,7 +129,7 @@ export function ResumeSheet() {
 
           <H>Work Experience</H>
           {experience.map((x) => (
-            <div key={x.company}>
+            <div key={`${x.company}-${x.role}`} className="mb-4">
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">
                   {x.company} — {x.role}
@@ -184,9 +184,7 @@ export function ResumeSheet() {
 
           <H>Certifications</H>
           <p className="text-xs leading-relaxed text-mist">
-            {Array.from(new Set(certifications.map((c) => c.issuer)))
-              .map((iss) => `${iss}: ${certifications.filter((c) => c.issuer === iss).map((c) => c.name).join(', ')}`)
-              .join(' · ')}
+            {certifications.map((c) => `${c.issuer ? `${c.issuer}: ` : ''}${c.name}`).join(' · ')}
           </p>
         </div>
       </div>
