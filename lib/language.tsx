@@ -644,10 +644,10 @@ function getPortfolioDataByLanguage(language: Language): PortfolioData {
 
   data.achievements = [
     {
-      category: 'Akademische Exzellenz',
-      title: 'CMAT Aufnahmepruefung - 99.37 Perzentil',
+      category: 'Internationale Erfahrung',
+      title: 'Studierendenaustausch in Deutschland',
       description:
-        '99.37 Perzentil im Bereich Innovation und Entrepreneurship unter 63.000 Teilnehmenden in Indien.',
+        'Von März bis August 2026 Management, Innovation und digitale Transformation an der Universität Bamberg mit einer internationalen Kohorte studiert.',
     },
     {
       category: 'Innovation und Hackathons',
