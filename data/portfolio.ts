@@ -96,7 +96,7 @@ export const portfolioData = {
   "achievements": [
     {
       "category": "Innovation & Entrepreneurship",
-      "title": "CMAT Entrance Exam - 99.37 Percentile",
+      "title": "Top 1% in CMAT Innovation & Entrepreneurship",
       "description": "Scored 99.37 percentile in Innovation and Entrepreneurship section among 63,000 candidates across India"
     },
     {
