@@ -56,7 +56,7 @@ export const portfolioData = {
       "dates": "November 2023 - April 2024",
       "duration": "6 months",
       "location": "Pune, Maharashtra, India",
-      "description": "Operated in a senior capacity with ownership of customer experience execution and mentoring, aligning digital delivery with business and marketing objectives.",
+      "description": "Led customer-facing frontend work and mentoring; improved website load speed by 30%, contributing to 20% higher user engagement.",
       "bullets": [
         "Led frontend ownership for key customer-facing modules.",
         "Translated marketing goals into scalable digital execution.",
@@ -107,6 +107,13 @@ export const portfolioData = {
       ]
     }
   ],
+  "research": {
+    "kicker": "Summer Internship Research Project",
+    "title": "The research behind the product",
+    "description": "I reviewed 20 peer-reviewed studies to understand why students join university networking platforms and what makes them stay.",
+    "finding": "Usefulness opens the door; trust, relevance and an active community determine whether people return.",
+    "application": "I used those findings to shape BatchMates onboarding, discovery and engagement priorities. This was secondary research, not a student survey."
+  },
   "achievements": [
     {
       "category": "Innovation & Entrepreneurship",
@@ -476,7 +483,7 @@ export const portfolioData = {
       "dates": "April 2026 - September 2026",
       "location": "Bamberg, Germany",
       "highlights": [
-        "Selected as one of six students for the University of Bamberg exchange",
+        "Selected as one of six students from a cohort of 840 for the University of Bamberg exchange",
         "Studied digital business, product management, marketing and digital platforms",
         "Worked in project teams spanning approximately ten nationalities",
         "Completed a Product Management & Strategy internship alongside the exchange"

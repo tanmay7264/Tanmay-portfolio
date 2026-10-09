@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Briefcase, Compass, Instagram, Lightbulb, Linkedin, MapPin, Search, Sparkles, Users } from 'lucide-react'
-import { CSSProperties, useState } from 'react'
+import { CSSProperties, useEffect, useState } from 'react'
 import { portfolioData } from '@/data/portfolio'
 
 type Lens = 'life' | 'work' | 'research'
@@ -20,7 +20,7 @@ const chapters = [
     deck: 'The official version was a semester abroad. The honest version was learning how to operate inside another system.',
     quote: 'An exchange is not a change of location. It is a change of defaults.',
     icon: Compass,
-    facts: ['Selected 1 of 4 from 840 Mumbai-campus students', 'Selected 1 of 6 from 1,110 Mumbai + Bengaluru students', 'Bamberg, Germany · Summer Semester 2026'],
+    facts: ['Selected 1 of 6 from a cohort of 840 students', 'Bamberg, Germany · Summer Semester 2026'],
     paragraphs: [
       'I arrived in Germany carrying a mixed professional identity: Computer Engineering, around 30 months at Apexon, entrepreneurial experiments, and a PGDM in E-Business at WeSchool.',
       'I was interested in marketing, product, research, AI, and strategy, but they still felt like separate boxes. The exchange was the environment where those boxes started to collide—and become useful together.',
@@ -121,8 +121,15 @@ export default function StudentExchange() {
   const [active, setActive] = useState(0)
   const [lens, setLens] = useState<Lens>('life')
   const [direction, setDirection] = useState(1)
+  const [portfolioHref, setPortfolioHref] = useState('/')
   const chapter = chapters[active]
   const ChapterIcon = chapter.icon
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('from') === 'netflix') {
+      setPortfolioHref('/netflix/index.html?portfolio=netflix')
+    }
+  }, [])
 
   const turnTo = (next: number, fromControls = false) => {
     setDirection(next >= active ? 1 : -1)
@@ -136,7 +143,7 @@ export default function StudentExchange() {
   }
 
   return <main className="exchange-book-page" style={{ '--exchange-hero-image': `url("${imageBasePath}/images/bamberg-hero.jpg")`, '--exchange-wall-image': `url("${imageBasePath}/images/travel-wall.jpg")` } as CSSProperties}>
-    <header className="exchange-book-nav"><Link href="/" className="exchange-book-brand"><span>TN</span><strong>Tanmay Narnaware<small>FIELD NOTES</small></strong></Link><div className="exchange-book-nav-center"><span>GERMANY · 2026</span><b>{String(active + 1).padStart(2, '0')} / {String(chapters.length).padStart(2, '0')}</b></div><Link href="/" className="exchange-book-back"><ArrowLeft size={15} /> Portfolio</Link></header>
+    <header className="exchange-book-nav"><Link href={portfolioHref} className="exchange-book-brand"><span>TN</span><strong>Tanmay Narnaware<small>FIELD NOTES</small></strong></Link><div className="exchange-book-nav-center"><span>GERMANY · 2026</span><b>{String(active + 1).padStart(2, '0')} / {String(chapters.length).padStart(2, '0')}</b></div><Link href={portfolioHref} className="exchange-book-back"><ArrowLeft size={15} /> Portfolio</Link></header>
 
     <section className="exchange-book-personal-intro exchange-book-shell" aria-label="About Tanmay">
       <img src={`${imageBasePath}/images/exchange-intro-tanmay.jpg`} alt="Tanmay during his summer in Europe" width="1350" height="1800" fetchPriority="high" />
@@ -163,6 +170,6 @@ export default function StudentExchange() {
 
     <section className="exchange-book-ready exchange-book-shell"><div><span className="exchange-book-kicker">BEFORE YOU GO</span><h2>Want to know how ready you are?</h2><p>Take the free five-minute Student Exchange Compatibility Test before you plan your own chapter abroad.</p></div><a href="https://www.batchmates.tech/products/exchange-compatibility" target="_blank" rel="noreferrer" className="exchange-book-ready-link"><span><Users size={18} />Quick self-check</span><strong>Check your exchange readiness</strong><ArrowUpRight size={20} /></a></section>
 
-    <footer className="exchange-book-footer exchange-book-shell"><Link href="/">← Back to Tanmay&apos;s portfolio</Link><span>© {new Date().getFullYear()} Tanmay Narnaware</span><span>GERMANY · EXCHANGE · SIP</span></footer>
+    <footer className="exchange-book-footer exchange-book-shell"><Link href={portfolioHref}>← Back to Tanmay&apos;s portfolio</Link><span>© {new Date().getFullYear()} Tanmay Narnaware</span><span>GERMANY · EXCHANGE · SIP</span></footer>
   </main>
 }

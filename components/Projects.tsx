@@ -139,6 +139,23 @@ export default function Projects() {
           ))}
         </div>
 
+        <motion.article
+          className="mt-8 grid gap-6 rounded-2xl border border-primary/25 bg-gradient-to-br from-primary/15 via-white/[0.03] to-transparent p-6 sm:p-8 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] md:items-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">{portfolioData.research.kicker}</p>
+            <h3 className="mb-3 text-2xl font-bold text-foreground sm:text-3xl">{portfolioData.research.title}</h3>
+            <p className="leading-relaxed text-foreground/80">{portfolioData.research.description}</p>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-black/15 p-5">
+            <p className="font-display text-xl leading-snug text-foreground sm:text-2xl">“{portfolioData.research.finding}”</p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/70">{portfolioData.research.application}</p>
+          </div>
+        </motion.article>
+
         {/* Additional info */}
         <motion.div
           className="mt-12 glass p-6 rounded-xl text-center"

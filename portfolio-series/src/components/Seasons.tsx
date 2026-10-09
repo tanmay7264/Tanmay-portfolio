@@ -5,6 +5,8 @@ import { EASE, SectionHeading } from './fx';
 import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
+const siteBasePath = import.meta.env.BASE_URL.replace(/\/netflix\/?$/, '').replace(/\/$/, '');
+
 export default function Seasons() {
   const [active, setActive] = useState(seasons.length - 2);
   const season = seasons[active];
@@ -17,6 +19,30 @@ export default function Seasons() {
         title="My Journey"
         aside={<p className="max-w-xs text-sm text-mist">Every stage of the resume, told as a season — select one to see its episodes.</p>}
       />
+
+      <div className="gutter mb-10">
+        <a
+          href={`${siteBasePath}/student-exchange?from=netflix`}
+          className="group grid overflow-hidden rounded-2xl bg-ink-2 ring-1 ring-white/15 transition hover:ring-white/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson-2 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)]"
+        >
+          <div className="relative min-h-64 overflow-hidden md:min-h-[360px]">
+            <img
+              src={`${siteBasePath}/images/exchange-intro-tanmay.jpg`}
+              alt="Tanmay during his student exchange in Europe"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-[center_55%] transition duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+            <span className="absolute bottom-5 left-5 text-[10px] font-bold uppercase tracking-[0.26em] text-bone">Bamberg, Germany · 2026</span>
+          </div>
+          <div className="flex flex-col justify-center p-6 sm:p-9">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.26em] text-crimson-2">The Germany chapter · Interactive storybook</p>
+            <h3 className="font-display text-4xl leading-[0.95] text-bone sm:text-5xl">A semester abroad. A different way of thinking.</h3>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-mist sm:text-base">The exchange connected life in a new country with product work, research and a new way of communicating across cultures. Go beyond the résumé and read the eight-chapter story.</p>
+            <span className="mt-6 w-fit border-b border-crimson-2 pb-1 text-sm font-bold text-bone transition group-hover:text-crimson-2">Explore the Student Exchange ↗</span>
+          </div>
+        </a>
+      </div>
 
       {/* season selector */}
       <div className="rail gutter mb-8 flex gap-2 overflow-x-auto" role="tablist" aria-label="Seasons">

@@ -165,7 +165,7 @@ export const seasons: Season[] = [
       { code: 'S04 E01', title: 'WeSchool', description: tanmay.education[0].highlights[0], tags: ['PGDM', 'E-Business'], runtime: education[0].period, palette: jade },
       { code: 'S04 E02', title: 'The Exchange', description: tanmay.education[1].highlights[0], tags: ['Bamberg', 'Digital transformation'], runtime: education[1].period, palette: violet },
       { code: 'S04 E03', title: 'University of Bamberg Internship', description: tanmay.experience[0].description, tags: ['Product strategy', 'Alumni Portal'], runtime: 'May – Aug 2026', palette: ocean },
-      { code: 'S04 E04', title: 'Research into Adoption', description: 'Reviewed 20 peer-reviewed studies to explore what shapes the adoption of student networking platforms, then applied the questions to BatchMates.', tags: ['SIRP', 'BatchMates'], runtime: '2026', palette: crimson },
+      { code: 'S04 E04', title: 'Research into Adoption', description: tanmay.research.description, tags: ['SIRP', 'BatchMates'], runtime: '2026', palette: crimson },
       { code: 'S04 E05', title: 'A 1,400+ Student Community', description: tanmay.achievements.find((item) => item.title === 'WeSchool Learning Community')!.description, tags: ['Community', 'WeSchool'], runtime: 'WeSchool', palette: jade },
     ],
   },

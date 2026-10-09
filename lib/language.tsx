@@ -567,6 +567,13 @@ function getPortfolioDataByLanguage(language: Language): PortfolioData {
   data.topSkills = ['Produktstrategie und Kundenverständnis', 'Digitales Wachstum und SEO', 'Technologieorientierte Umsetzung'];
   data.keyHighlights = portfolioDataEn.keyHighlights;
   data.experience = portfolioDataEn.experience;
+  data.research = {
+    kicker: 'Summer Internship Research Project',
+    title: 'Die Forschung hinter dem Produkt',
+    description: 'Ich habe 20 begutachtete Studien ausgewertet, um zu verstehen, warum Studierende Hochschulnetzwerke nutzen und was sie langfristig dabeihält.',
+    finding: 'Nützlichkeit erleichtert den Einstieg; Vertrauen, Relevanz und eine aktive Gemeinschaft fördern die langfristige Nutzung.',
+    application: 'Diese Erkenntnisse prägten meine Prioritäten für Onboarding, Suche und Engagement bei BatchMates. Es handelte sich um Sekundärforschung, nicht um eine Studierendenbefragung.',
+  };
   data.achievements = portfolioDataEn.achievements;
   data.projects = portfolioDataEn.projects;
 
