@@ -36,6 +36,8 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
 
   return (
     <div className="fixed inset-0 z-[80] overflow-y-auto bg-[#080b15] px-4 py-8 text-white sm:py-12" role="dialog" aria-modal="true" aria-labelledby="portfolio-choice-title">
+      <div aria-hidden className="pointer-events-none fixed inset-0 bg-cover bg-[position:22%_center] sm:bg-center" style={{ backgroundImage: `url(${basePath}/netflix/assets/portfolio-choice-background.jpg)` }} />
+      <div aria-hidden className="pointer-events-none fixed inset-0 bg-[#080b15]/30" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.17),transparent_38%),radial-gradient(circle_at_85%_75%,rgba(229,19,43,0.14),transparent_40%)]" />
       <div className="relative mx-auto flex min-h-full max-w-5xl flex-col justify-center">
         <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/50">Tanmay Narnaware · Portfolio</p>
