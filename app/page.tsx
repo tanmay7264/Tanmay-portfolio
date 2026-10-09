@@ -18,8 +18,20 @@ import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 import { LanguageProvider, Language, useLanguage } from '@/lib/language';
 
+const portfolioChoiceLines = [
+  'Same portfolio. Different vibe. Your call.',
+  'Explore the details or watch the story unfold.',
+  'Choose the experience that feels right for you.',
+];
+
 function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
   const netflixUrl = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/netflix/index.html?portfolio=netflix`;
+  const [lineIndex, setLineIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setLineIndex((current) => (current + 1) % portfolioChoiceLines.length), 2600);
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <div className="fixed inset-0 z-[80] overflow-y-auto bg-[#080b15] px-4 py-8 text-white sm:py-12" role="dialog" aria-modal="true" aria-labelledby="portfolio-choice-title">
@@ -27,7 +39,13 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
       <div className="relative mx-auto flex min-h-full max-w-5xl flex-col justify-center">
         <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/50">Tanmay Narnaware · Portfolio</p>
         <h1 id="portfolio-choice-title" className="font-display text-center text-4xl leading-none sm:text-6xl">Which portfolio would you like to view?</h1>
-        <p className="mx-auto mb-9 mt-4 max-w-xl text-center text-sm leading-relaxed text-white/60 sm:text-base">The same story, told in two different ways. Choose the experience that suits you.</p>
+        <div className="mx-auto mb-9 mt-5 flex min-h-16 w-full max-w-xl items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
+          <AnimatePresence mode="wait">
+            <motion.p key={lineIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28 }} className="text-sm leading-relaxed text-white/75 sm:text-base">
+              {portfolioChoiceLines[lineIndex]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <button type="button" onClick={onStandard} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#111b31] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:p-8">

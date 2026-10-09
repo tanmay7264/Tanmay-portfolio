@@ -1,8 +1,21 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const standardUrl = import.meta.env.DEV ? 'http://127.0.0.1:3000/?portfolio=standard' : '../?portfolio=standard';
+const choiceLines = [
+  'Same portfolio. Different vibe. Your call.',
+  'Explore the details or watch the story unfold.',
+  'Choose the experience that feels right for you.',
+];
 
 export default function PortfolioChoice({ onNetflix }: { onNetflix: () => void }) {
+  const [lineIndex, setLineIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setLineIndex((current) => (current + 1) % choiceLines.length), 2600);
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <motion.div
       className="fixed inset-0 z-[130] overflow-y-auto bg-[#080b15] px-4 py-8 text-bone sm:py-12"
@@ -17,7 +30,13 @@ export default function PortfolioChoice({ onNetflix }: { onNetflix: () => void }
       <div className="relative mx-auto flex min-h-full max-w-5xl flex-col justify-center">
         <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.35em] text-bone/50">Tanmay Narnaware · Portfolio</p>
         <h1 id="portfolio-choice-title" className="text-center font-display text-4xl leading-none sm:text-6xl">Which portfolio would you like to view?</h1>
-        <p className="mx-auto mb-9 mt-4 max-w-xl text-center text-sm leading-relaxed text-bone/60 sm:text-base">The same story, told in two different ways. Choose the experience that suits you.</p>
+        <div className="mx-auto mb-9 mt-5 flex min-h-16 w-full max-w-xl items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
+          <AnimatePresence mode="wait">
+            <motion.p key={lineIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28 }} className="text-sm leading-relaxed text-bone/75 sm:text-base">
+              {choiceLines[lineIndex]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <a href={standardUrl} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#111b31] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:p-8">
