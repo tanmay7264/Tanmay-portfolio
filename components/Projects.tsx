@@ -70,7 +70,7 @@ export default function Projects() {
                 <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]">
                   <Image
                     src={`${pagesBasePath}${(project as any).screenshot}`}
-                    alt={`${project.title} case study screenshot`}
+                    alt={`${project.title} case study illustration`}
                     width={1200}
                     height={720}
                     className="h-auto w-full object-cover"

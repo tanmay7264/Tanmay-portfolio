@@ -28,9 +28,9 @@ export const profile = {
   displayName: tanmay.basics.name,
   firstName: 'TANMAY',
   seriesTag: 'THE SERIES',
-  originalLabel: 'A NARNAWARE ORIGINAL',
-  role: 'AI Growth Product Builder',
-  tagline: ['AI Growth', 'Product', 'Technology'],
+  originalLabel: 'A TANMAY NARNAWARE STORY',
+  role: 'Product & Growth Builder',
+  tagline: ['Product', 'Growth', 'Technology'],
   intro: tanmay.basics.summary,
   location: tanmay.basics.location,
   email: tanmay.basics.email,
@@ -46,7 +46,7 @@ export const profile = {
     srcSet: '/assets/tanmay-portrait.png 992w',
     alt: 'Portrait of Tanmay Narnaware',
   },
-  interests: ['AI-led growth', 'Product strategy', 'Digital transformation'],
+  interests: ['Product strategy', 'Customer insight', 'Digital transformation'],
 };
 
 export const education = tanmay.education.map((item) => ({
@@ -75,8 +75,8 @@ export const projects: Project[] = tanmay.projects.map((item, index) => ({
   build: [item.problem, item.solution, item.impact],
   features: item.bullets,
   metrics: item.metrics.map(({ value, label }) => ({ value, label })),
-  palette: [amber, violet, ocean][index % 3],
-  motif: (['flow', 'tenants', 'flow'] as const)[index % 3],
+  palette: [violet, ocean, amber, jade, crimson, violet][index % 6],
+  motif: (['tenants', 'tenants', 'flow', 'flow', 'shield', 'flow'] as const)[index % 6],
 }));
 
 export type Achievement = { id: string; title: string; org: string; detail: string; laurel: string; link?: string };
@@ -108,11 +108,11 @@ export const skillCategories: SkillCategory[] = Object.entries(tanmay.skills).ma
 export const skillEvidence: Record<string, string[]> = {
   React: ['Apexon frontend delivery'],
   JavaScript: ['Apexon frontend delivery'],
-  'Front End Development': ['2.5 years at Apexon'],
-  'AI growth strategy': ['Lonavala Villas', 'WeSchool mentorship'],
-  'Marketing strategy': ['Lonavala Villas', 'The Socials Web'],
-  'Product management': ['The Socials Web'],
-  'Team mentoring': ['Apexon', 'WeSchool mentorship'],
+  'Web performance': ['Apexon · 30% faster load speed'],
+  'Product architecture': ['Bamberg Alumni Portal', 'BatchMates'],
+  'Community building': ['WeSchool · 1,400+ members'],
+  'Product ownership': ['BatchMates', 'Nurture+'],
+  'Digital marketing': ['Lonavala Villas', 'The Socials Web'],
 };
 
 export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette };
@@ -133,7 +133,7 @@ export const seasons: Season[] = [
     title: 'The Apexon Years',
     period: '2021 – 2024',
     synopsis: 'Four roles across 2.5 years, from associate engineer to senior frontend developer.',
-    episodes: [...tanmay.experience].reverse().map((item, index) => ({
+    episodes: tanmay.experience.filter((item) => item.company === 'Apexon').reverse().map((item, index) => ({
       code: `S02 E0${index + 1}`,
       title: item.role,
       description: item.description,
@@ -144,9 +144,9 @@ export const seasons: Season[] = [
   },
   {
     number: 3,
-    title: 'Building Growth Systems',
-    period: 'Entrepreneurship & community',
-    synopsis: 'Direct-booking growth, a client delivery studio, and practical AI mentorship.',
+    title: 'Products & Ventures',
+    period: 'Entrepreneurship & product',
+    synopsis: 'From verified student connections to hospitality growth, digital clients and early product prototypes.',
     episodes: projects.map((item, index) => ({
       code: `S03 E0${index + 1}`,
       title: item.title,
@@ -160,36 +160,39 @@ export const seasons: Season[] = [
     number: 4,
     title: 'The Business Lens',
     period: '2025 – 2027',
-    synopsis: 'PGDM E-Business in Mumbai, an exchange in Bamberg, and a focus on product-led growth.',
+    synopsis: 'Business study, a German exchange, applied research and product strategy at the University of Bamberg.',
     episodes: [
       { code: 'S04 E01', title: 'WeSchool', description: tanmay.education[0].highlights[0], tags: ['PGDM', 'E-Business'], runtime: education[0].period, palette: jade },
       { code: 'S04 E02', title: 'The Exchange', description: tanmay.education[1].highlights[0], tags: ['Bamberg', 'Digital transformation'], runtime: education[1].period, palette: violet },
-      { code: 'S04 E03', title: 'AI Community', description: tanmay.achievements.find((item) => item.title === 'Community Mentorship')!.description, tags: ['AI', 'Mentorship', '500+'], runtime: 'WeSchool', palette: crimson },
+      { code: 'S04 E03', title: 'University of Bamberg Internship', description: tanmay.experience[0].description, tags: ['Product strategy', 'Alumni Portal'], runtime: 'May – Aug 2026', palette: ocean },
+      { code: 'S04 E04', title: 'Research into Adoption', description: 'Reviewed 20 peer-reviewed studies to explore what shapes the adoption of student networking platforms, then applied the questions to BatchMates.', tags: ['SIRP', 'BatchMates'], runtime: '2026', palette: crimson },
+      { code: 'S04 E05', title: 'A 1,400+ Student Community', description: tanmay.achievements.find((item) => item.title === 'WeSchool Learning Community')!.description, tags: ['Community', 'WeSchool'], runtime: 'WeSchool', palette: jade },
     ],
   },
 ];
 
 export type TopPick = { label: string; title: string; detail: string; palette: Palette };
 export const topPicks: TopPick[] = [
-  { label: 'Professional journey', title: 'Apexon', detail: '2.5 years in frontend and customer experience', palette: crimson },
-  { label: 'Business education', title: 'WeSchool', detail: 'PGDM E-Business · 2025–27', palette: amber },
-  { label: 'International chapter', title: 'Bamberg', detail: 'Student exchange · 2026', palette: ocean },
-  { label: 'Growth venture', title: 'Lonavala Villas', detail: '+28% direct inquiry share', palette: violet },
-  { label: 'Founder story', title: 'The Socials Web', detail: '22+ campaigns delivered', palette: jade },
-  { label: 'Community', title: '500+', detail: 'WeSchool members mentored', palette: crimson },
+  { label: 'Professional journey', title: 'Apexon', detail: '30% faster loads · 20% higher engagement', palette: crimson },
+  { label: 'International work', title: 'Bamberg', detail: 'Product strategy internship · recognition', palette: ocean },
+  { label: 'Founder story', title: 'BatchMates', detail: 'Verified student network · working pilot', palette: violet },
+  { label: 'Hospitality growth', title: 'Lonavala Villas', detail: 'Occupancy from 45% to 80%', palette: amber },
+  { label: 'Client growth', title: 'The Socials Web', detail: '3× online leads · 20% better conversion', palette: jade },
+  { label: 'Community', title: '1,400+', detail: 'WeSchool students in learning community', palette: crimson },
+  { label: 'Student exchange', title: 'Germany', detail: 'Selected among 6 from a cohort of 840', palette: ocean },
+  { label: 'Research', title: 'SIRP', detail: '20 studies on student-platform adoption', palette: violet },
+  { label: 'Innovation', title: 'InnoMUN', detail: 'Winning team concept at BITS Pilani', palette: jade },
   { label: 'Entrance exam', title: '99.37', detail: 'CMAT innovation & entrepreneurship percentile', palette: amber },
-  { label: 'Innovation', title: 'InnoMUN', detail: '2025 winner at BITS Pilani', palette: ocean },
-  { label: 'Cloud credential', title: 'AWS', detail: 'Certified Solutions Architect – Associate', palette: violet },
-  { label: 'Writing', title: 'Medium', detail: 'Technology, business and growth essays', palette: jade },
 ];
 
 export type IntroSlide = { kicker: string; title: string; lines: string[]; chips?: string[] };
 export const introSlides: IntroSlide[] = [
   { kicker: 'Current chapter', title: 'PGDM · E-Business', lines: ['WeSchool, Mumbai · 2025–27', 'Student exchange · University of Bamberg · 2026'], chips: ['Product', 'Growth', 'Digital business'] },
-  { kicker: 'Experience', title: 'The Apexon Years', lines: ['2.5 years across four frontend roles', 'Customer experience, performance and mentoring'], chips: ['React', 'JavaScript', 'UX'] },
-  { kicker: 'Originals', title: 'Growth Systems', lines: projects.map((item) => item.title), chips: ['Lonavala Villas', 'The Socials Web', 'WeSchool'] },
+  { kicker: 'Experience', title: 'The Apexon Years', lines: ['30 months across four frontend roles', '30% faster loads · 20% higher engagement'], chips: ['React', 'JavaScript', 'UX'] },
+  { kicker: 'Selected work', title: 'From Idea to Impact', lines: ['BatchMates · verified student connections', 'Lonavala Villas · 45% to 80% occupancy', 'The Socials Web · 3× online leads'], chips: ['Product', 'Entrepreneurship', 'Growth'] },
+  { kicker: 'International work', title: 'The Bamberg Chapter', lines: ['Product strategy internship · Alumni Portal', 'Outstanding Internship Recognition'], chips: ['Germany', 'Research', 'Strategy'] },
   { kicker: 'Milestones', title: 'Top Moments', lines: ['CMAT 99.37 percentile', 'InnoMUN 2025 winner', 'We4Tech second runner-up'], chips: ['Innovation', 'Leadership'] },
-  { kicker: 'Next chapter', title: 'AI-Led Product Growth', lines: ['Building products and growth systems that move business metrics.'], chips: tanmay.topSkills },
+  { kicker: 'Next chapter', title: 'Products People Return To', lines: ['Connecting technology, customer insight and growth.'], chips: tanmay.topSkills },
 ];
 
 export type ProfileId = 'tanmay' | 'recruiter' | 'developer' | 'creative';
@@ -204,7 +207,7 @@ export const viewerProfiles: { id: ProfileId; name: string; blurb: string; color
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
   about: { nav: 'About', card: 'About Me', meta: 'The Pilot • Education & experience', palette: violet },
   journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((count, season) => count + season.episodes.length, 0)} Episodes`, palette: amber },
-  originals: { nav: 'Originals', card: 'My Projects', meta: `${projects.length} Originals • Growth systems`, palette: crimson },
+  originals: { nav: 'Work', card: 'Selected Work', meta: `${projects.length} stories • product, growth & research`, palette: crimson },
   picks: { nav: 'Top Picks', card: 'Top Picks', meta: 'Ten career highlights', palette: jade },
   skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Categories`, palette: ocean },
   moments: { nav: 'Moments', card: 'My Achievements', meta: `${achievements.length} Moments • ${certifications.length} Certifications`, palette: crimson },

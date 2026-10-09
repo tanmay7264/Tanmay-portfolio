@@ -49,7 +49,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
           <dl className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
             {[
               { v: '2.5', k: 'Years at Apexon' },
-              { v: String(projects.length), k: 'Originals' },
+              { v: String(projects.length), k: 'Work stories' },
               { v: String(certifications.length), k: 'Certs' },
             ].map((s) => (
               <div key={s.k} className="bg-ink-2 px-2 py-4">

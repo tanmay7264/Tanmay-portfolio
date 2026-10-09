@@ -11,7 +11,6 @@ import Experience from '@/components/Experience';
 import Achievements from '@/components/Achievements';
 import Projects from '@/components/Projects';
 import Services from '@/components/Services';
-import Testimonials from '@/components/Testimonials';
 import ThoughtLeadership from '@/components/ThoughtLeadership';
 import MediumBlog from '@/components/MediumBlog';
 import Skills from '@/components/Skills';
@@ -162,9 +161,6 @@ function HomeContent() {
 
           <SectionTransition label={ui.sectionTransitions.services} index={3} />
           <Services />
-
-          <SectionTransition label={ui.sectionTransitions.testimonials} index={4} />
-          <Testimonials />
 
           <SectionTransition label={ui.sectionTransitions.insights} index={5} />
           <MediumBlog />

@@ -130,7 +130,7 @@ export default function Experience() {
             <div className="absolute -left-8 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-primary/30 blur-3xl" />
             <div className="absolute right-8 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-accent/30 blur-3xl" />
             <div className="section-label absolute left-6 top-6 text-foreground/70">{ui.experience.storyCards}</div>
-            <div className="font-display absolute bottom-6 left-6 text-4xl text-foreground/90 sm:text-5xl">Apexon 2021-2024</div>
+            <div className="font-display absolute bottom-6 left-6 text-4xl text-foreground/90 sm:text-5xl">From Apexon to Bamberg</div>
           </div>
         </motion.div>
 

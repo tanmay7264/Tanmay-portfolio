@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useState, useEffect, useMemo } from 'react';
-import { Menu, X, Home, Briefcase, Award, FolderGit2, GraduationCap, Mail, HandCoins, MessagesSquare, NotebookText } from 'lucide-react';
+import { Menu, X, Home, Briefcase, Award, FolderGit2, GraduationCap, Mail, HandCoins, NotebookText } from 'lucide-react';
 import { useLanguage } from '@/lib/language';
 
 export default function Navigation() {
@@ -17,7 +17,6 @@ export default function Navigation() {
       { id: 'achievements', label: ui.navigation.achievements, icon: Award },
       { id: 'projects', label: ui.navigation.projects, icon: FolderGit2 },
       { id: 'services', label: ui.navigation.services, icon: HandCoins },
-      { id: 'testimonials', label: ui.navigation.testimonials, icon: MessagesSquare },
       { id: 'insights', label: ui.navigation.insights, icon: NotebookText },
       { id: 'education', label: ui.navigation.education, icon: GraduationCap },
       { id: 'contact', label: ui.navigation.contact, icon: Mail },

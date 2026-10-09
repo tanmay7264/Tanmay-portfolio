@@ -179,9 +179,9 @@ const copyByLanguage: Record<Language, UiCopy> = {
     },
     hero: {
       roleLine: "PGDM E-Business '27 | Ex-Apexon | AWS Certified",
-      roleHeading: 'AI GROWTH BUILDER',
+      roleHeading: 'PRODUCT & GROWTH BUILDER',
       summary:
-        'I turn ambiguous business problems into AI-powered product and growth experiments. My work is built around one framework: Problem -> Solution -> Impact, with clear metrics, rapid execution, and customer-centered storytelling.',
+        'I connect engineering, customer insight and growth. My work spans frontend delivery at Apexon, entrepreneurship, and product strategy at the University of Bamberg.',
       whyHireButton: 'Why Hire Me?',
       whyHireHeading: 'What Makes Me a Strong Hire',
       whyHireIntro:
@@ -189,8 +189,8 @@ const copyByLanguage: Record<Language, UiCopy> = {
       valueHighlightsLabel: 'Value Snapshot',
       valueHighlights: [
         { value: '2.5+', label: 'Years in delivery roles' },
-        { value: '500+', label: 'Community members mentored' },
-        { value: '3x', label: 'Faster lead response in growth sprint' },
+        { value: '1,400+', label: 'Students in learning community' },
+        { value: '3×', label: 'Online leads at The Socials Web' },
       ],
       uniqueQualitiesLabel: 'Unique Qualities',
       skillsLabel: 'Top Skills',
@@ -215,11 +215,11 @@ const copyByLanguage: Record<Language, UiCopy> = {
     experience: {
       sideLabel: 'Experience',
       heading: 'Professional Journey',
-      subheading: '2.5 years of building scalable, user-centric solutions at Apexon',
+      subheading: 'Product strategy at the University of Bamberg and 30 months of frontend delivery at Apexon',
       storyCards: 'Career Story Cards',
       stats: [
         { value: '2.5+', label: 'Years Experience' },
-        { value: '4', label: 'Career Milestones' },
+        { value: '5', label: 'Career Milestones' },
         { value: 'Global', label: 'Client Reach' },
       ],
     },
@@ -377,9 +377,9 @@ const copyByLanguage: Record<Language, UiCopy> = {
     },
     hero: {
       roleLine: "PGDM E-Business '27 | Ex-Apexon | AWS zertifiziert",
-      roleHeading: 'AI GROWTH BUILDER',
+      roleHeading: 'PRODUCT & GROWTH BUILDER',
       summary:
-        'Ich verwandle unklare Geschaeftsprobleme in KI-gestuetzte Produkt- und Wachstumsexperimente. Meine Arbeit folgt einem klaren Rahmen: Problem -> Loesung -> Wirkung, mit messbaren Ergebnissen, schneller Umsetzung und starkem Kundenfokus.',
+        'Ich verbinde technische Umsetzung, Kundenverständnis und Wachstum. Meine Arbeit reicht von Frontend-Entwicklung bei Apexon bis zu Produktstrategie an der Universität Bamberg.',
       whyHireButton: 'Warum mich einstellen?',
       whyHireHeading: 'Was mich zu einer starken Besetzung macht',
       whyHireIntro:
@@ -387,8 +387,8 @@ const copyByLanguage: Record<Language, UiCopy> = {
       valueHighlightsLabel: 'Value Snapshot',
       valueHighlights: [
         { value: '2.5+', label: 'Jahre in Delivery-Rollen' },
-        { value: '500+', label: 'Mentorierte Community-Mitglieder' },
-        { value: '3x', label: 'Schnellere Lead-Reaktion im Growth Sprint' },
+        { value: '1.400+', label: 'Studierende in der Lerncommunity' },
+        { value: '3×', label: 'Online-Anfragen bei The Socials Web' },
       ],
       uniqueQualitiesLabel: 'Einzigartige Staerken',
       skillsLabel: 'Top Skills',
@@ -413,11 +413,11 @@ const copyByLanguage: Record<Language, UiCopy> = {
     experience: {
       sideLabel: 'Erfahrung',
       heading: 'Beruflicher Weg',
-      subheading: '2.5 Jahre Aufbau skalierbarer, nutzerzentrierter Loesungen bei Apexon',
+      subheading: 'Produktstrategie an der Universität Bamberg und 30 Monate Frontend-Arbeit bei Apexon',
       storyCards: 'Karriere Stationen',
       stats: [
         { value: '2.5+', label: 'Jahre Erfahrung' },
-        { value: '4', label: 'Karrierestufen' },
+        { value: '5', label: 'Karrierestufen' },
         { value: 'Global', label: 'Kundenreichweite' },
       ],
     },
@@ -558,295 +558,17 @@ function getPortfolioDataByLanguage(language: Language): PortfolioData {
 
   const data = clonePortfolioData();
 
-  data.basics.title = "AI Growth Product Builder | PGDM E-Business '27 | Ex-Apexon";
-  data.basics.tagline = 'Ich baue KI-gestuetzte Produkte und Wachstumssysteme, die Business-Metriken bewegen.';
+  data.basics.title = "Product & Growth Builder | PGDM E-Business '27 | Ex-Apexon";
+  data.basics.tagline = 'Ich verbinde Technologie, Kundenbedürfnisse und Wachstum zu Produkten, die Menschen wieder nutzen.';
   data.basics.location = 'Mumbai, Maharashtra, Indien';
   data.basics.summary =
-    'Ich entwickle mich von Frontend-Execution zu KI-gestuetzter Product- und Growth-Fuehrung. Ueber Apexon, Campus-Communities und unternehmerische Projekte hinweg folge ich einem Muster: Problem erkennen, digitale Loesung bauen und Wirkung messen.';
+    'Bei Apexon habe ich erlebt, wie technische Entscheidungen das Kundenerlebnis prägen. Meine Arbeit mit Lonavala Villas und The Socials Web zeigte mir, wie wichtig Buchungen, Leads und Vertrauen sind. Mit BatchMates und meinem Praktikum in Bamberg verbinde ich diese Erfahrungen in der Produktstrategie.';
 
-  data.topSkills = [
-    'KI Growth Strategie',
-    'Problem-Loesung-Wirkung Storytelling',
-    'Experimentgetriebene Product Umsetzung',
-  ];
-
-  data.keyHighlights = [
-    'PGDM E-Business (2025-27) | WeSchool, Mumbai',
-    '2.5 Jahre bei Apexon | Front End Web Entwickler (React, JavaScript, UX)',
-    'AWS Certified Solutions Architect | Freelance Web Entwickler',
-    'Leadership: Abteilungspraesident (CSE) und NSS Teamleiter',
-    'Unternehmerische Erfahrung: Villa Rental Marketing und The Socials Web',
-    'Event Organisation: Dandiya Nights und NGO Spendenaktionen',
-  ];
-
-  data.experience = [
-    {
-      company: 'Apexon',
-      role: 'Senior Front End Entwickler (Customer Experience Fokus)',
-      dates: 'November 2023 - April 2024',
-      duration: '6 Monate',
-      location: 'Pune, Maharashtra, Indien',
-      description:
-        'Arbeit in einer Senior Rolle mit Verantwortung fuer Customer Experience und Mentoring, ausgerichtet auf Business- und Marketingziele.',
-      bullets: [
-        'Frontend-Verantwortung fuer zentrale kundenorientierte Module uebernommen.',
-        'Marketingziele in skalierbare digitale Umsetzung uebersetzt.',
-        'UX-Entscheidungen mit Verhaltensdaten und Performance-Signalen gesteuert.',
-        'Junior Entwickler begleitet, um Experience- und Brand-Qualitaet sicherzustellen.',
-      ],
-    },
-    {
-      company: 'Apexon',
-      role: 'Frontend Entwickler',
-      dates: 'Januar 2023 - Oktober 2023',
-      duration: '10 Monate',
-      location: 'Pune, Maharashtra, Indien',
-      description:
-        'Fokus auf Verbesserung digitaler Erlebnisse mit Blick auf Engagement, Performance und Brand-Konsistenz fuer globale Kunden.',
-      bullets: [
-        'UX und UI verbessert, um Engagement und Nutzbarkeit zu steigern.',
-        'Frontend-Performance optimiert, um Absprungraten zu senken.',
-        'Digitale Interfaces auf Brand Positionierung und Kundenerwartungen abgestimmt.',
-        'Iterative Experimente und Feature-Rollouts unterstuetzt.',
-      ],
-    },
-    {
-      company: 'Apexon',
-      role: 'Software Engineer',
-      dates: 'April 2022 - Dezember 2022',
-      duration: '9 Monate',
-      location: 'Pune, Maharashtra, Indien',
-      description:
-        'Eigenverantwortung fuer kundenorientierte Module, bei denen digitale Flows Nutzerreisen und Conversion-Verhalten beeinflusst haben.',
-      bullets: [
-        'Nutzerfluesse in Webanwendungen aufgebaut und optimiert.',
-        'Mit Product- und Design-Teams zur Verbesserung von Customer Journeys gearbeitet.',
-        'Schnelle UI-Iterationen fuer Experimentzyklen umgesetzt.',
-        'Konsistenz ueber Geraete hinweg fuer Reichweite und Accessibility sichergestellt.',
-      ],
-    },
-    {
-      company: 'Apexon',
-      role: 'Associate Software Engineer',
-      dates: 'Oktober 2021 - Maerz 2022',
-      duration: '6 Monate',
-      location: 'Pune, Maharashtra, Indien',
-      description:
-        'Einstieg mit Fokus auf kundenorientierte digitale Experiences und fruehem Verstaendnis, wie Interface und Messaging Nutzerbindung und Markenwahrnehmung beeinflussen.',
-      bullets: [
-        'UX-Wireframes und Brand-Guidelines in responsive Web-Interfaces uebersetzt.',
-        'UI-Fixes und Usability-Verbesserungen auf Basis von Feedback umgesetzt.',
-        'In agilen Teams gearbeitet und schnelle Iterationszyklen begleitet.',
-        'Experience-Probleme geloest, die zu Nutzerabbruechen fuehren konnten.',
-      ],
-    },
-  ];
-
-  data.achievements = [
-    {
-      category: 'Akademische Exzellenz',
-      title: 'CMAT Aufnahmepruefung - 99.37 Perzentil',
-      description:
-        '99.37 Perzentil im Bereich Innovation und Entrepreneurship unter 63.000 Teilnehmenden in Indien.',
-    },
-    {
-      category: 'Innovation und Hackathons',
-      title: 'We4Tech Zweiter Platz',
-      description:
-        'Unter 90 Teams: Prototyp fuer eine zentrale Datenbank zur Loesung des Railway Concession Pass Problems entwickelt.',
-    },
-    {
-      category: 'Innovation und Hackathons',
-      title: 'InnoMUN 2025 Gewinner',
-      description:
-        'BITS Pilani: Umwandlung von Ananasblatt-Agrarabfaellen in biologisch abbaubare Verpackung.',
-    },
-    {
-      category: 'Innovation und Hackathons',
-      title: 'Smart India Hackathon',
-      description: 'Vom WeSchool Team fuer den Smart India Hackathon nominiert.',
-    },
-    {
-      category: 'Leadership und Mentoring',
-      title: 'Community Mentoring',
-      description:
-        '500+ WeSchool Community Mitglieder in KI, Technologie und Entrepreneurship begleitet.',
-    },
-    {
-      category: 'Leadership und Mentoring',
-      title: 'Vizepraesident - Computer Science Department',
-      description:
-        'Kulturelle und technische Events fuer 600+ Studierende geleitet und Sichtbarkeit durch Promotions gesteigert.',
-    },
-    {
-      category: 'Soziale Wirkung',
-      title: 'NSS Volunteer Head',
-      description:
-        'Aufklaerungskampagnen und 18+ soziale Aktionen geleitet, Community-Engagement fuer die NGO gestaerkt.',
-    },
-    {
-      category: 'Beruflich',
-      title: 'Google Student Developer',
-      description:
-        'Junior Community Lead, West Zone, Indien. 20+ Peers bei Debugging und Projekten unterstuetzt.',
-    },
-    {
-      category: 'Unternehmertum',
-      title: 'Gruender: Lonavala Villas',
-      description: 'Online Villa Rental Venture mit Marketing-Fokus skaliert.',
-    },
-    {
-      category: 'Unternehmertum',
-      title: 'Co-Founder: The Socials Web',
-      description: 'The Socials Web als digitales Venture mit aufgebaut und skaliert.',
-    },
-    {
-      category: 'Beruflich',
-      title: '2.5 Jahre bei Apexon',
-      description: 'Front End Web Entwickler mit skalierbaren, nutzerzentrierten Loesungen fuer globale Kunden.',
-    },
-  ];
-
-  data.projects = [
-    {
-      title: 'Lonavala Villas Wachstumssystem',
-      role: 'Gruender | AI Growth Builder',
-      description:
-        'Aufbau einer Demand Generation Engine fuer ein Villa Rental Business und Verlagerung von Plattformabhaengigkeit zu direkten Kanaelen.',
-      problem:
-        'Leads waren volatil und stark von Aggregatoren abhaengig, mit Margendruck und geringer Transparenz im Funnel.',
-      solution:
-        'Persona-basierten Akquise-Funnel aufgebaut, Positionierung geschaerft und ein SLA-basiertes Lead-Response-Modell eingefuehrt.',
-      impact:
-        'Buchungseffizienz und Channel-Mix-Qualitaet verbessert, mit staerkerer Kontrolle ueber Intent und Marge.',
-      businessGoal: 'Mehr direkte, hochwertige Buchungen und geringere Abhaengigkeit von Drittplattformen.',
-      timeframe: '12 Wochen Growth Sprint',
-      metrics: [
-        {
-          label: 'Anteil direkter Anfragen',
-          value: '+28%',
-          detail: 'Verschiebung weg vom aggregatorlastigen Lead-Mix',
-        },
-        {
-          label: 'Lead-zu-Buchung Conversion',
-          value: '+17%',
-          detail: 'nach Einfuehrung des Response-Playbooks',
-        },
-        {
-          label: 'Lead Response Zeit',
-          value: '3x schneller',
-          detail: 'SLA-gesteuerte Bearbeitung ueber alle Kanaele',
-        },
-      ],
-      screenshot: '/images/case-lonavala.svg',
-      stack: ['Growth Funnel Design', 'Content Strategie', 'Lead Operations'],
-      bullets: [
-        'Angebot auf Premium Gruppenreise-Anlaesse neu positioniert.',
-        'Drop-off Punkte analysiert und Follow-up Sequenzen neu aufgebaut.',
-        'Demand Ops mit woechentlichen Conversion Reviews standardisiert.',
-      ],
-      links: [],
-    },
-    {
-      title: 'The Socials Web Client Studio',
-      role: 'Co-Founder | Product und Delivery',
-      description:
-        'Ein modulares Delivery Studio aufgebaut, das rohe Founder-Briefs in marktreife GTM Assets und messbare Growth Experimente uebersetzt.',
-      problem:
-        'SMB-Kunden konnten Ideen schwer in Marktausfuehrung uebersetzen, weil Product-, Design- und Kampagnenverantwortung fragmentiert war.',
-      solution:
-        'Ein Sprint-Modell ueber Positionierung, Landing-Page-Launch und Kampagnen-Iteration mit KI-gestuetzten Workflows eingefuehrt.',
-      impact:
-        'Umsetzungsgeschwindigkeit und Conversion-Klarheit verbessert, sodass Kunden schneller launchen und optimieren konnten.',
-      businessGoal: 'Go-to-Market Zyklus verkuerzen und Conversion-Qualitaet fuer SMB-Kunden verbessern.',
-      timeframe: 'Quartalsweise Sprint-Zyklen',
-      metrics: [
-        {
-          label: 'Launch Durchlaufzeit',
-          value: '-40%',
-          detail: 'durch Templates und KI-gestuetzte Production Ops',
-        },
-        {
-          label: 'Gelieferte Kampagnen',
-          value: '22+',
-          detail: 'mehrstufige GTM-Projekte umgesetzt',
-        },
-        {
-          label: 'Landing Page CVR',
-          value: '+31%',
-          detail: 'durchschnittlicher Uplift ueber getrackte Projekte',
-        },
-      ],
-      screenshot: '/images/case-socials.svg',
-      stack: ['GTM Sprint Planung', 'Landing Page Strategie', 'KI-gestuetzte Operations'],
-      bullets: [
-        'Unscharfe Kundenanfragen in klare Growth Roadmaps uebersetzt.',
-        'Wiederverwendbare Kampagnen- und Creative-Templates aufgebaut.',
-        'Woechentliche Performance Readouts fuer schnellere Iteration eingefuehrt.',
-      ],
-      links: [],
-    },
-    {
-      title: 'WeSchool AI Mentorship Flywheel',
-      role: 'Community Mentor | Growth Enabler',
-      description:
-        'Ein AI Learning Flywheel aufgebaut, das Interesse durch strukturierte Cohorts, Mentoring Loops und praktische Aufgaben in Umsetzung verwandelt.',
-      problem:
-        'Das Interesse an KI war hoch, aber die Conversion von Awareness zu praktischer Anwendung war niedrig und inkonsistent.',
-      solution:
-        'Ein cohort-basiertes Mentoring-Modell mit handlungsorientierten Workshops, Peer Accountability und konkreten Umsetzungsaufgaben entwickelt.',
-      impact:
-        'Nachhaltige Teilnahme und praktische KI-Adoption innerhalb der Studierenden-Community gesteigert.',
-      businessGoal: 'Praktische KI-Adoption und Retention in einer interessierten Community erhoehen.',
-      timeframe: '2 akademische Semester',
-      metrics: [
-        {
-          label: 'Begleitete Community Mitglieder',
-          value: '500+',
-          detail: 'Guidance in KI und Entrepreneurship',
-        },
-        {
-          label: 'Workshop Sessions',
-          value: '12',
-          detail: 'hands-on, umsetzungsorientierte Module',
-        },
-        {
-          label: 'Wiederkehrende Teilnahme',
-          value: '68%',
-          detail: 'Retentionsindikator des Cohort-Modells',
-        },
-      ],
-      screenshot: '/images/case-weschool.svg',
-      stack: ['Community Growth', 'KI Education', 'Programm Design'],
-      bullets: [
-        'Eine wiederholbare Lernreise vom Beginner zum Builder aufgebaut.',
-        'Peer Loops strukturiert, um Adoptionsdynamik zu halten.',
-        'Teilnahme und Abschlussraten gemessen, um Programmqualitaet zu verbessern.',
-      ],
-      links: [],
-    },
-  ];
-
-  data.testimonials = [
-    {
-      quote:
-        'Tanmay verbindet technische Umsetzung mit Business-Denken. Er stoppt nicht beim Feature-Launch, sondern optimiert auf echte Ergebnisse.',
-      name: 'Ehemaliger Team Lead',
-      role: 'Apexon',
-    },
-    {
-      quote:
-        'Sein Growth-Mindset ist stark. Tanmay uebersetzt unklare Ideen in strukturierte Experimente und klare Aktionsplaene.',
-      name: 'Startup Kollaborator',
-      role: 'The Socials Web',
-    },
-    {
-      quote:
-        'Als Mentor hat er KI fuer Studierende praktisch nutzbar gemacht - mit Fokus auf Umsetzung und messbaren Fortschritt.',
-      name: 'Community Koordinator',
-      role: 'WeSchool',
-    },
-  ];
+  data.topSkills = ['Produktstrategie und Kundenverständnis', 'Digitales Wachstum und SEO', 'Technologieorientierte Umsetzung'];
+  data.keyHighlights = portfolioDataEn.keyHighlights;
+  data.experience = portfolioDataEn.experience;
+  data.achievements = portfolioDataEn.achievements;
+  data.projects = portfolioDataEn.projects;
 
   data.services = [
     {
@@ -881,135 +603,10 @@ function getPortfolioDataByLanguage(language: Language): PortfolioData {
     },
   ];
 
-  data.skills = {
-    leadership: [
-      'Cross-funktionale Leadership',
-      'Business Alignment',
-      'Entscheidungsverantwortung',
-      'Team Mentoring',
-      'Abteilungsleitung',
-    ],
-    technical: [
-      'React',
-      'JavaScript',
-      'Front End Entwicklung',
-      'UX/UI Design',
-      'Performance Optimierung',
-      'Responsive Web Design',
-      'AWS Solutions Architektur',
-    ],
-    business: [
-      'KI Growth Strategie',
-      'Product Management',
-      'Marketing Strategie',
-      'Entrepreneurship',
-      'Strategische Planung',
-      'Experiment Design',
-    ],
-    domains: ['FMCG', 'E-Business', 'Customer Experience', 'Digitales Marketing'],
-  };
-
-  data.education = [
-    {
-      institution: 'Prin. L. N. Welingkar Institute of Management',
-      degree: 'Post Graduate Diploma in Management',
-      field: 'E-Business',
-      dates: '2025 - 2027',
-      location: 'Mumbai, Indien',
-      highlights: [
-        'Spezialisierung auf digitale Business-Modelle, E-Commerce und plattformgesteuerte Wachstumsstrategien',
-        'Fokus auf Technologie, Analytik und digitale Kanäle für skalierbare Business-Lösungen',
-        'Verständnis des indischen digitalen Ökosystems und der Consumer-Internet-Landschaft',
-      ],
-      coreAreas: [
-        'E-Commerce und Online-Marketplace-Strategie',
-        'Digital Marketing und Performance Analytics',
-        'Plattform-Business-Modelle und Netzwerk-Effekte',
-        'Business Analytics und datengesteuerte Entscheidungsfindung',
-        'Innovation und Technologie-Management',
-      ],
-      academicPractical: [
-        'Analyse von echten digitalen Geschäften wie Marktplätze, D2C-Brands und SaaS-Modelle',
-        'Anwendung von Metriken wie CAC, LTV, Konversionsraten und Retention zur Bewertung von Wachstumsstrategien',
-        'Arbeit an Projekten mit digitalen Go-to-Market-Strategien und Revenue-Modellen',
-      ],
-      skillsDeveloped: [
-        'Digitale Strategie und Business-Modell-Design',
-        'Performance Marketing und Funnel Optimization',
-        'Analytisches Denken mit Business-Metriken',
-        'Marktforschung und Wettbewerbsanalyse',
-        'Problemlösung in Tech-getriebenen Business-Kontexten',
-      ],
-    },
-    {
-      institution: 'Otto-Friedrich University of Bamberg',
-      degree: 'Student Exchange Program',
-      field: 'Management, Innovation & Digital Transformation',
-      dates: 'März 2026 - August 2026',
-      location: 'Bamberg, Deutschland',
-      highlights: [
-        'Teilnahme an internationalem akademischen Austausch mit Fokus auf Management, Innovation und digitale Transformation',
-        'Einsicht in europäische akademische Rahmen mit fallgestütztem Lernen und Forschungskursen',
-        'Zusammenarbeit mit diversen, multikulturellen Kohorten für interkulturelle Kommunikation',
-        'Kurse zu aufstrebenden Business-Trends wie Hybrid Intelligence und digitale Ökosysteme',
-      ],
-      exposure: [
-        'Studienfächern mit Technologie und Management Decision-Making kombiniert',
-        'Angewendetes analytisches Denken auf echte Business-Probleme durch Aufgaben und Projekte',
-        'Verständnis europäischer Business-Umgebung, Richtlinien und Marktdynamiken',
-      ],
-      skillsDeveloped: [
-        'Interkulturelle Kommunikation und globale Perspektive',
-        'Strategisches Denken und Problemlösung',
-        'Adaptabilität in internationalen Umgebungen',
-        'Akademische Forschung und strukturierte Analyse',
-        'Zusammenarbeit in diversen Teams',
-      ],
-    },
-    {
-      institution: 'Savitribai Phule Pune University',
-      degree: 'Bachelor of Engineering (B.E.)',
-      field: 'Computer Science',
-      dates: '2017 - 2021',
-      location: 'Pune, Indien',
-      highlights: [
-        'Starke Grundlagen in Datenstrukturen, Algorithmen, DBMS, Betriebssystemen und Computernetzwerken',
-        'Projekte mit Webanwendungen und Software-Systemen, Frontend und Backend kombiniert',
-        'Erfahrung in Programmierung, Debugging und Software Development Lifecycle',
-        'Analytisches Denken und Problemlösung durch strukturierte Codierung und akademische Arbeit',
-      ],
-      academicPractical: [
-        'Anwendung von Klassenzimmer-Konzepten auf praktische Software-Entwicklung und akademische Projekte',
-        'Arbeit über Frontend und Backend-Aufgaben beim Aufbau praktischer Webanwendungen',
-      ],
-      skillsDeveloped: [
-        'Programmierung und Debugging',
-        'Software Development Lifecycle Praktiken',
-        'Analytisches Denken und Problemlösung',
-        'Frontend und Backend Anwendungsentwicklung',
-      ],
-      placementOffers: [
-        '4 finale Placement-Angebote von MNCs wie Infosys, Apexon, Atos Syntel und Synerzip erhalten',
-      ],
-    },
-  ];
-
-  data.certifications = [
-    {
-      name: 'AWS Certified Solutions Architect - Associate',
-      issuer: 'Amazon Web Services',
-    },
-    {
-      name: 'Grundlagen des digitalen Marketings',
-      issuer: '',
-    },
-  ];
-
-  data.extra = [
-    'Leidenschaft fuer den Einsatz von Technologie und Business-Insights, um Loesungen mit Wirkung zu schaffen.',
-    'Aktuell auf der Suche nach Praktika und Projekten in Consulting, Product Management und digitaler Transformation.',
-    'Freelance Web Entwickler',
-  ];
+  data.skills = portfolioDataEn.skills;
+  data.education = portfolioDataEn.education;
+  data.certifications = portfolioDataEn.certifications;
+  data.extra = portfolioDataEn.extra;
 
   return data;
 }

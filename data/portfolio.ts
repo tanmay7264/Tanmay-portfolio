@@ -1,8 +1,8 @@
 export const portfolioData = {
   "basics": {
     "name": "Tanmay Narnaware",
-    "title": "AI Growth Product Builder | PGDM E-Business '27 | Ex-Apexon",
-    "tagline": "I build AI-led products and growth systems that move business metrics, not just features.",
+    "title": "Product & Growth Builder | PGDM E-Business '27 | Ex-Apexon",
+    "tagline": "I connect engineering, customer insight and growth to build products people return to.",
     "email": "kt19051999@gmail.com",
     "location": "Mumbai, Maharashtra, India",
     "resumeUrl": "/Tanmay-Narnaware-CV.pdf",
@@ -20,22 +20,36 @@ export const portfolioData = {
         "url": "https://www.instagram.com/tanmay__19"
       }
     ],
-    "summary": "I am transitioning from frontend execution to AI-led product and growth leadership. Across Apexon, campus communities, and entrepreneurial ventures, I have focused on one pattern: identify a business problem, design a digital solution, and measure impact. My edge is combining product thinking, marketing execution, and technical fluency to ship practical experiments fast."
+    "summary": "At Apexon, improving website performance taught me how technical decisions affect engagement. Running a hospitality business and a digital studio taught me to measure bookings, leads and customer trust. BatchMates, research and my work at the University of Bamberg brought those lessons together around a question I keep asking: what makes people choose a product and come back?"
   },
   "topSkills": [
-    "AI growth strategy",
-    "Problem-solution-impact storytelling",
-    "Experiment-led product execution"
+    "Product strategy and customer insight",
+    "Digital growth and SEO",
+    "Technology-led execution"
   ],
   "keyHighlights": [
-    "PGDM E-Business (2025–27) | WeSchool, Mumbai",
-    "2.5 years at Apexon | Front End Web Developer (React, JavaScript, UX)",
-    "☁️ AWS Certified Solutions Architect | Freelance Web Developer",
-    "Leadership: Dept. President (CSE) & NSS Team Head",
-    "Entrepreneurial experience: Villa rental marketing & The Socials Web",
-    "Event organizer: Dandiya Nights, NGO donation drives"
+    "Product Management & Strategy Intern | University of Bamberg, Germany",
+    "30 months at Apexon | 30% load-speed improvement and 20% higher engagement",
+    "Founder, BatchMates | verified campus networking product",
+    "Lonavala Villas | occupancy grew from 45% to 80%",
+    "The Socials Web | 3× online leads and 20% better conversion",
+    "WeSchool | built a 1,400+ member student learning community"
   ],
   "experience": [
+    {
+      "company": "University of Bamberg",
+      "role": "Product Management & Strategy Intern",
+      "dates": "May 2026 - August 2026",
+      "duration": "4 months",
+      "location": "Bamberg, Germany",
+      "description": "Helped turn an alumni-directory concept into an invite-only product foundation for mentoring, networking and career opportunities, alongside AI and digital-transformation consulting work.",
+      "bullets": [
+        "Mapped student, alumni and administrator journeys; defined MVP priorities and explainable mentor-matching flows.",
+        "Validated product workflows and shaped a four-phase launch plan with activation, mentoring and opportunity measures.",
+        "Diagnosed customer-experience gaps for Autohaus Sperber and recommended three AI-assisted and after-sales initiatives in a 90-day roadmap.",
+        "Received Outstanding Internship Recognition for product strategy, research, initiative and ownership."
+      ]
+    },
     {
       "company": "Apexon",
       "role": "Senior Front End Developer (Customer Experience Focus)",
@@ -100,24 +114,29 @@ export const portfolioData = {
       "description": "Scored 99.37 percentile in Innovation and Entrepreneurship section among 63,000 candidates across India"
     },
     {
+      "category": "International Recognition",
+      "title": "Outstanding Internship Recognition",
+      "description": "Recognised by the University of Bamberg for product-management and strategy work on the Alumni Portal, research and AI/digital-transformation contributions"
+    },
+    {
+      "category": "Community Building",
+      "title": "WeSchool Learning Community",
+      "description": "Built a WhatsApp learning community reaching 1,400+ of 1,600 WeSchool students, sharing resources across AI, technology, case competitions and entrepreneurship"
+    },
+    {
       "category": "Innovation & Hackathons",
       "title": "We4Tech Second Runner-Up",
-      "description": "Out of 90 teams: Designed a centralized database prototype to solve the Railway Concession Pass issue; recognized for innovation"
+      "description": "Placed second runner-up among 90 teams after working with newly formed cross-specialisation teammates on a railway concession-pass prototype"
     },
     {
       "category": "Innovation & Hackathons",
       "title": "InnoMUN 2025 Winner",
-      "description": "BITS Pilani: Converting pineapple-leaf agricultural waste into biodegradable, compostable packaging"
+      "description": "Won BITS Pilani’s Marketing Parliament with Pinapack, a team concept for packaging made from pineapple fibre"
     },
     {
       "category": "Innovation & Hackathons",
       "title": "Smart India Hackathon",
       "description": "Team nominated for Smart India Hackathon by WeSchool"
-    },
-    {
-      "category": "Leadership & Mentorship",
-      "title": "Community Mentorship",
-      "description": "Mentored 500+ WeSchool community members in AI, technology, and entrepreneurship, fostering innovation and leadership development"
     },
     {
       "category": "Leadership & Mentorship",
@@ -130,112 +149,225 @@ export const portfolioData = {
       "description": "Led awareness campaigns and 18+ social drives, strengthening community engagement and brand visibility for the NGO"
     },
     {
+      "category": "Social Impact",
+      "title": "Global Citizen Leadership",
+      "description": "Led interactive communication and employability workshops for underprivileged youth at Vatsalya Trust, adapting sessions through feedback and observation"
+    },
+    {
       "category": "Professional",
       "title": "Google Student Developer",
       "description": "Junior Community Lead, West Zone, India. Supported 20+ peers with debugging and project guidance, enhancing collaborative coding"
     },
     {
-      "category": "Entrepreneurship",
-      "title": "Founder: Lonavala Villas",
-      "description": "Scaled online villa rental venture with marketing focus"
-    },
-    {
-      "category": "Entrepreneurship",
-      "title": "Co-Founder: The Socials Web",
-      "description": "Co-founded and scaled The Socials Web digital venture"
-    },
-    {
-      "category": "Professional",
-      "title": "2.5 Years at Apexon",
-      "description": "Front End Web Developer building scalable, user-centric solutions for global clients"
+      "category": "Professional Development",
+      "title": "Sustainability & ESG Workshop",
+      "description": "Completed a 16-hour workshop in collaboration with KPMG India, covering ESG principles, sustainability strategy and data analytics"
     }
   ],
   "projects": [
     {
-      "title": "Lonavala Villas Growth System",
-      "role": "Founder | AI Growth Builder",
-      "description": "Designed and ran a demand-generation engine for a villa rental business, shifting growth from marketplace dependency to controlled direct channels.",
-      "problem": "Leads were volatile and aggregator-dependent, creating pricing pressure and weak visibility into funnel quality.",
-      "solution": "Built a persona-based acquisition funnel, upgraded ad/creative positioning, and introduced an SLA-backed lead response operating model.",
-      "impact": "Improved booking efficiency and channel mix quality, with stronger control over customer intent and margin.",
-      "businessGoal": "Increase direct high-intent bookings while reducing reliance on third-party platforms.",
-      "timeframe": "12-week growth sprint",
+      "title": "BatchMates",
+      "role": "Founder | Product Builder",
+      "description": "Students can share a campus and still struggle to find the right peer, mentor or opportunity. BatchMates brings those connections into a verified student network.",
+      "problem": "Campus discovery is scattered across group chats, spreadsheets and informal introductions.",
+      "solution": "Shaped verified profiles, skill-based discovery, onboarding and a focused campus pilot around trust and useful connections.",
+      "impact": "Built a working pre-revenue product foundation; the next challenge is proving activation and repeat participation.",
+      "businessGoal": "Help students meet, collaborate and grow through relevant campus connections.",
+      "timeframe": "Pilot",
       "metrics": [
-        { "label": "Direct Inquiry Share", "value": "+28%", "detail": "shift from aggregator-heavy lead mix" },
-        { "label": "Lead-to-Booking Conversion", "value": "+17%", "detail": "after response-playbook rollout" },
-        { "label": "Lead Response Time", "value": "3x faster", "detail": "SLA-led handling across channels" }
-      ],
-      "screenshot": "/images/case-lonavala.svg",
-      "stack": ["Growth funnel design", "Content strategy", "Lead operations"],
-      "bullets": [
-        "Repositioned offer around premium group-travel occasions",
-        "Mapped drop-off points and rebuilt follow-up sequencing",
-        "Standardized demand ops with weekly conversion reviews"
-      ],
-      "links": []
-    },
-    {
-      "title": "The Socials Web Client Studio",
-      "role": "Co-Founder | Product + Delivery",
-      "description": "Built a modular delivery studio that converted raw founder briefs into launch-ready GTM assets and measurable growth experiments.",
-      "problem": "SMB clients struggled to move from ideas to market execution due fragmented product, design, and campaign ownership.",
-      "solution": "Created a sprint model spanning positioning, landing page launch, and campaign iteration, with AI-assisted production workflows.",
-      "impact": "Improved execution speed and conversion clarity, enabling clients to launch and optimize faster.",
-      "businessGoal": "Reduce go-to-market cycle time and improve campaign conversion quality for SMB clients.",
-      "timeframe": "Quarterly sprint cycles",
-      "metrics": [
-        { "label": "Launch Turnaround", "value": "-40%", "detail": "using template + AI production ops" },
-        { "label": "Campaigns Delivered", "value": "22+", "detail": "multi-stage GTM projects executed" },
-        { "label": "Landing Page CVR", "value": "+31%", "detail": "average uplift across tracked projects" }
-      ],
-      "screenshot": "/images/case-socials.svg",
-      "stack": ["GTM sprint planning", "Landing page strategy", "AI-assisted operations"],
-      "bullets": [
-        "Translated ambiguous client asks into scoped growth roadmaps",
-        "Built reusable campaign and creative operating templates",
-        "Introduced weekly performance readouts for faster iteration"
-      ],
-      "links": []
-    },
-    {
-      "title": "WeSchool AI Mentorship Flywheel",
-      "role": "Community Mentor | Growth Enabler",
-      "description": "Built an AI learning flywheel that converted interest into execution through structured cohorts, mentorship loops, and practical assignments.",
-      "problem": "Interest in AI was high, but conversion from awareness to practical adoption was low and inconsistent.",
-      "solution": "Designed a cohort-based mentorship model with action-led workshops, peer accountability, and applied implementation tasks.",
-      "impact": "Improved sustained participation and practical AI adoption across the student community.",
-      "businessGoal": "Increase practical AI adoption and retention in a high-interest student cohort.",
-      "timeframe": "2 academic terms",
-      "metrics": [
-        { "label": "Community Members Mentored", "value": "500+", "detail": "AI + entrepreneurship guidance" },
-        { "label": "Workshop Sessions", "value": "12", "detail": "hands-on execution-oriented modules" },
-        { "label": "Repeat Participation", "value": "68%", "detail": "cohort model retention indicator" }
+        {
+          "label": "Current stage",
+          "value": "Pilot",
+          "detail": "working pre-revenue product"
+        }
       ],
       "screenshot": "/images/case-weschool.svg",
-      "stack": ["Community growth", "AI education", "Program design"],
+      "stack": [
+        "Product strategy",
+        "Verified identity",
+        "Campus discovery"
+      ],
       "bullets": [
-        "Built a repeatable learning journey from beginner to builder",
-        "Structured peer loops to sustain adoption momentum",
-        "Tracked participation and completion to improve program quality"
+        "Mapped student, alumni and mentor needs into product journeys",
+        "Prioritised trust, relevance and meaningful interactions over sign-up volume",
+        "Connected SIRP research on adoption to recommendations for onboarding and engagement"
       ],
       "links": []
-    }
-  ],
-  "testimonials": [
-    {
-      "quote": "Tanmay combines technical execution with business thinking. He does not stop at shipping features; he tracks outcomes and keeps improving.",
-      "name": "Former Team Lead",
-      "role": "Apexon"
     },
     {
-      "quote": "His growth mindset stands out. Tanmay can translate ambiguous ideas into structured experiments and clear action plans.",
-      "name": "Startup Collaborator",
-      "role": "The Socials Web"
+      "title": "Bamberg Alumni Portal",
+      "role": "Product Management & Strategy Intern",
+      "description": "Helped move a university alumni-directory concept into an invite-only product foundation for mentoring, networking and career opportunities.",
+      "problem": "A directory alone could not help students find relevant alumni, build trust and turn introductions into opportunities.",
+      "solution": "Mapped three user journeys, shaped the MVP and explainable mentor matching, then reviewed workflows, risks and launch readiness.",
+      "impact": "Contributed to a persistent multi-user foundation and a four-phase launch plan; received Outstanding Internship Recognition.",
+      "businessGoal": "Make the university alumni network useful for students and graduates.",
+      "timeframe": "2026",
+      "metrics": [
+        {
+          "label": "User groups designed for",
+          "value": "3",
+          "detail": "students, alumni and administrators"
+        },
+        {
+          "label": "Proposed launch phases",
+          "value": "4",
+          "detail": "pilot, engagement, opportunity and scale"
+        }
+      ],
+      "screenshot": "/images/case-weschool.svg",
+      "stack": [
+        "User research",
+        "Product strategy",
+        "Validation"
+      ],
+      "bullets": [
+        "Designed invite-controlled onboarding and role-scoped discovery",
+        "Defined consent-based mentoring and career-opportunity journeys",
+        "Identified launch risks and proposed activation and engagement measures"
+      ],
+      "links": []
     },
     {
-      "quote": "As a mentor, he made AI practical for students by focusing on implementation and measurable progress, not just theory.",
-      "name": "Community Coordinator",
-      "role": "WeSchool"
+      "title": "Lonavala Villas",
+      "role": "Founder | Hospitality Growth",
+      "description": "Used seasonal campaigns, pricing and customer experience to grow villa occupancy from 45% to 80%.",
+      "problem": "Empty villa nights could not be recovered, making seasonality and demand planning central to the business.",
+      "solution": "Adjusted seasonal campaigns and pricing while improving customer communication and the stay experience.",
+      "impact": "Occupancy rose by 35 percentage points, alongside reported customer satisfaction above 95%.",
+      "businessGoal": "Improve occupancy while protecting the guest experience.",
+      "timeframe": "Operating venture",
+      "metrics": [
+        {
+          "label": "Occupancy",
+          "value": "45→80%",
+          "detail": "35 percentage-point increase"
+        },
+        {
+          "label": "Customer satisfaction",
+          "value": "95%+",
+          "detail": "reported result"
+        }
+      ],
+      "screenshot": "/images/case-lonavala.svg",
+      "stack": [
+        "Seasonal campaigns",
+        "Pricing strategy",
+        "Customer experience"
+      ],
+      "bullets": [
+        "Planned promotions around seasonal demand",
+        "Used pricing and customer feedback to improve performance",
+        "Built repeat-booking and referral opportunities through service quality"
+      ],
+      "links": []
+    },
+    {
+      "title": "The Socials Web",
+      "role": "Co-Founder | Digital Growth",
+      "description": "Connected SEO, content and websites to the outcomes clients cared about: relevant traffic, leads and conversion.",
+      "problem": "Businesses needed a clearer route from digital presence to commercial enquiries.",
+      "solution": "Coordinated website work, SEO, content optimisation and digital campaigns around measurable client goals.",
+      "impact": "Reported 40% more organic traffic, 3× online leads and a 20% improvement in conversion rates.",
+      "businessGoal": "Turn client digital activity into qualified demand and on-time delivery.",
+      "timeframe": "Client venture",
+      "metrics": [
+        {
+          "label": "Organic traffic",
+          "value": "+40%",
+          "detail": "reported result"
+        },
+        {
+          "label": "Online leads",
+          "value": "3×",
+          "detail": "reported result"
+        },
+        {
+          "label": "Conversion rate",
+          "value": "+20%",
+          "detail": "reported improvement"
+        },
+        {
+          "label": "On-time delivery",
+          "value": "100%",
+          "detail": "reported client projects"
+        }
+      ],
+      "screenshot": "/images/case-socials.svg",
+      "stack": [
+        "SEO",
+        "Content strategy",
+        "Digital campaigns"
+      ],
+      "bullets": [
+        "Translated client requirements into websites and campaigns",
+        "Improved search visibility and engagement",
+        "Tracked traffic, lead and conversion outcomes"
+      ],
+      "links": []
+    },
+    {
+      "title": "Nurture+",
+      "role": "Founder | Product Prototype",
+      "description": "Designed a calm parenting companion intended to support families from pregnancy through a child’s early years.",
+      "problem": "Parents often piece together routines, milestones and advice from disconnected sources.",
+      "solution": "Prototyped a journey combining routine tracking, milestone monitoring, personalised guidance and family activities.",
+      "impact": "The concept record reports feedback involving more than 200 parents, paediatricians and teachers; it remains a prototype.",
+      "businessGoal": "Make everyday parenting guidance contextual, practical and supportive.",
+      "timeframe": "Prototype",
+      "metrics": [
+        {
+          "label": "Concept feedback",
+          "value": "200+",
+          "detail": "parents, paediatricians and teachers reported in the source"
+        },
+        {
+          "label": "Product stage",
+          "value": "Prototype",
+          "detail": "no customer or clinical claims"
+        }
+      ],
+      "screenshot": "/images/case-weschool.svg",
+      "stack": [
+        "User journey",
+        "AI guidance concept",
+        "Trust"
+      ],
+      "bullets": [
+        "Designed for a family journey from pregnancy toward age 12",
+        "Combined routines, milestones and age-aware content",
+        "Kept AI in a supporting role for parents"
+      ],
+      "links": []
+    },
+    {
+      "title": "AI Dictionary",
+      "role": "BatchMates | Product Initiative",
+      "description": "Starts with a person’s problem and helps them find relevant AI tools in plain language.",
+      "problem": "People often know what they want to accomplish but not which AI tool or category to search for.",
+      "solution": "Designed problem-aware discovery, category and capability filters, and benefit-led launch messaging.",
+      "impact": "Created a product and communication approach without relying on unverified tool counts or adoption claims.",
+      "businessGoal": "Make useful AI tools easier to discover by task and outcome.",
+      "timeframe": "Product initiative",
+      "metrics": [
+        {
+          "label": "Discovery approach",
+          "value": "Problem-first",
+          "detail": "plain-language needs before tool names"
+        }
+      ],
+      "screenshot": "/images/case-weschool.svg",
+      "stack": [
+        "AI discovery",
+        "Product positioning",
+        "Launch messaging"
+      ],
+      "bullets": [
+        "Mapped tool discovery to use case, capability and price",
+        "Wrote benefit-led product and launch copy",
+        "Applied a root-first approach to the product problem"
+      ],
+      "links": []
     }
   ],
   "services": [
@@ -276,34 +408,33 @@ export const portfolioData = {
   ],
   "skills": {
     "leadership": [
-      "Cross-functional leadership",
-      "Business alignment",
-      "Decision ownership",
-      "Team mentoring",
-      "Department leadership"
+      "Cross-functional collaboration",
+      "Community building",
+      "Workshop facilitation",
+      "Stakeholder communication",
+      "Product ownership"
     ],
     "technical": [
       "React",
       "JavaScript",
-      "Front End Development",
-      "UX/UI Design",
-      "Performance Optimization",
-      "Responsive Web Design",
-      "AWS Solutions Architecture"
+      "Web performance",
+      "Product architecture",
+      "AWS Solutions Architecture",
+      "AI workflow design"
     ],
     "business": [
-      "AI growth strategy",
-      "Product management",
-      "Marketing strategy",
-      "Entrepreneurship",
-      "Strategic planning",
-      "Experiment design"
+      "Market research",
+      "Digital Marketing & SEO",
+      "Product strategy",
+      "Consumer segmentation",
+      "Lead generation",
+      "Marketing analytics"
     ],
     "domains": [
-      "FMCG",
-      "E-Business",
-      "Customer Experience",
-      "Digital Marketing"
+      "Higher education networks",
+      "Hospitality growth",
+      "Customer experience",
+      "AI adoption"
     ]
   },
   "education": [
@@ -341,26 +472,25 @@ export const portfolioData = {
     {
       "institution": "Otto-Friedrich University of Bamberg",
       "degree": "Student Exchange Program",
-      "field": "Management, Innovation & Digital Transformation",
-      "dates": "March 2026 - August 2026",
+      "field": "Digital Business, Product Management & Marketing",
+      "dates": "April 2026 - September 2026",
       "location": "Bamberg, Germany",
       "highlights": [
-        "Participating in an international academic exchange focused on management, innovation, and digital transformation",
-        "Exposure to European academic frameworks, including case-based learning and research-driven coursework",
-        "Collaborating with a diverse, multicultural cohort, strengthening cross-cultural communication and adaptability",
-        "Engaging in coursework aligned with emerging business trends such as Hybrid Intelligence and digital ecosystems"
+        "Selected as one of six students from a cohort of 840 for the University of Bamberg exchange",
+        "Studied digital business, product management, marketing and digital platforms",
+        "Worked in project teams spanning approximately ten nationalities",
+        "Completed a Product Management & Strategy internship alongside the exchange"
       ],
       "exposure": [
-        "Studying interdisciplinary subjects combining technology and management decision-making",
-        "Applying analytical thinking to real-world business problems through assignments and projects",
-        "Understanding European business environment, policies, and market dynamics"
+        "Learned to communicate ideas clearly across different cultural contexts",
+        "Connected classroom concepts to product and digital-transformation work",
+        "Worked independently in a new academic and professional environment"
       ],
       "skillsDeveloped": [
-        "Cross-cultural communication and global mindset",
-        "Strategic thinking and problem-solving",
-        "Adaptability in international environments",
-        "Academic research and structured analysis",
-        "Collaboration in diverse teams"
+        "Cross-cultural communication",
+        "Product strategy",
+        "Digital business",
+        "Adaptability"
       ]
     },
     {
@@ -396,14 +526,22 @@ export const portfolioData = {
       "issuer": "Amazon Web Services"
     },
     {
-      "name": "The Fundamental of Digital Marketing",
-      "issuer": ""
+      "name": "McKinsey Forward Program",
+      "issuer": "McKinsey & Company"
+    },
+    {
+      "name": "Digital Marketing",
+      "issuer": "HubSpot Academy"
+    },
+    {
+      "name": "Inbound Marketing",
+      "issuer": "HubSpot Academy"
     }
   ],
   "extra": [
-    "Passionate about leveraging technology and business insights to create impactful solutions that drive growth",
-    "Currently exploring internships and projects in consulting, product management, and digital transformation to apply skills in live business environments",
-    "Freelance Web Developer"
+    "Interested in product, growth and marketing roles that connect technology with customer outcomes",
+    "Founder of BatchMates and Lonavala Villas; co-founder of The Socials Web",
+    "Product Management & Strategy internship at the University of Bamberg"
   ],
   "mediumBlog": {
     "profileUrl": "https://medium.com/@tanmay19",

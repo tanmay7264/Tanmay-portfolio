@@ -19,11 +19,11 @@ function Intro() {
   return (
     <div className="flex w-full shrink-0 flex-col justify-center lg:w-[34vw]">
       <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
-        <span className="h-px w-8 bg-crimson-2" /> {projects.length} Originals · {projects[0].year}
+        <span className="h-px w-8 bg-crimson-2" /> {projects.length} stories · product, growth & research
       </p>
-      <RevealText as="h2" text="ORIGINALS" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
+      <RevealText as="h2" text="SELECTED WORK" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
       <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Three growth systems spanning direct bookings, client launches and AI mentorship. Open any title for the full story.
+        A verified student network, an alumni product, growth ventures and early prototypes. Open a title to see the problem, the work and what happened.
       </p>
       <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">SCROLL TO BROWSE →</p>
     </div>
@@ -86,7 +86,7 @@ function PinnedOriginals({ onOpen }: { onOpen: (p: Project) => void }) {
           <Outro />
         </motion.div>
         <div className="gutter absolute inset-x-0 bottom-8 flex items-center gap-4">
-          <span className="text-[10px] font-bold tracking-[0.3em] text-smoke">ORIGINALS</span>
+          <span className="text-[10px] font-bold tracking-[0.3em] text-smoke">SELECTED WORK</span>
           <div className="h-[2px] flex-1 overflow-hidden rounded bg-white/10">
             <motion.div className="h-full origin-left bg-crimson" style={{ scaleX: bar }} />
           </div>

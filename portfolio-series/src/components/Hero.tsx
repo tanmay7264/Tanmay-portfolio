@@ -39,7 +39,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const meta = [
     education[0].period,
     'PGDM E-Business',
-    `${projects.length} Originals`,
+    `${projects.length} Work Stories`,
     `${certifications.length} Certifications`,
   ];
 
@@ -125,7 +125,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         </motion.p>
 
         <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">
-          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">AI·GROWTH</span>
+          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">PRODUCT·GROWTH</span>
           {meta.map((m, i) => (
             <span key={m} className="flex items-center gap-3">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-smoke" />}
