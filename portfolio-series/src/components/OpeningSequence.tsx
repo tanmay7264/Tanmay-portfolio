@@ -88,7 +88,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
         transition={{ duration: 1.6, ease: EASE }}
       >
         <img
-          src="/assets/tanmay-opening-cutout.png"
+          src={`${import.meta.env.BASE_URL}assets/tanmay-opening-cutout.png`}
           alt={profile.portrait.alt}
           className="h-full w-auto max-w-none object-contain object-bottom [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
         />

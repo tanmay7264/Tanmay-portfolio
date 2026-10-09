@@ -30,6 +30,7 @@ A futuristic, high-converting portfolio website built with Next.js, TypeScript, 
 
 ```bash
 npm install
+npm install --prefix portfolio-series
 ```
 
 2. Run the development server:
@@ -38,7 +39,7 @@ npm install
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+3. Open [http://localhost:3000](http://localhost:3000) and choose Standard or Netflix Style. Standard asks for a language next.
 
 ### Build for Production
 
@@ -46,6 +47,8 @@ npm run dev
 npm run build
 npm start
 ```
+
+The root build includes the Netflix Style portfolio at `/netflix/index.html`. The GitHub Pages workflow installs dependencies for both apps before building.
 
 ## Project Structure
 

@@ -88,7 +88,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           {/* rim light ring */}
           <div aria-hidden className="absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]" />
           <img
-            src="/assets/tanmay-opening-cutout.png"
+            src={`${import.meta.env.BASE_URL}assets/tanmay-opening-cutout.png`}
             alt={profile.portrait.alt}
             className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)] [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
           />

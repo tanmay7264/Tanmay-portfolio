@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "npm --prefix portfolio-series run build",
     "dev": "next dev",
+    "prebuild": "npm --prefix portfolio-series run build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -46,7 +46,7 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
       >
         <div data-lenis-prevent className="h-full overflow-y-auto overscroll-contain rounded-xl bg-white">
           {/* shortcut: regenerate this preview whenever the CV PDF changes. */}
-          <img src="/assets/Tanmay-ATS-CV-preview.png" alt="One-page preview of Tanmay Narnaware's CV" className="mx-auto block w-full max-w-5xl" />
+          <img src={`${import.meta.env.BASE_URL}assets/Tanmay-ATS-CV-preview.png`} alt="One-page preview of Tanmay Narnaware's CV" className="mx-auto block w-full max-w-5xl" />
         </div>
       </motion.div>
     </motion.div>

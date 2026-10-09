@@ -4,6 +4,7 @@ import { viewerProfiles, type ProfileId, type Project, type SectionId } from './
 import { SmoothScrollProvider, useSmoothScroll } from './hooks/smoothScroll';
 import CustomCursor from './components/CustomCursor';
 import OpeningSequence from './components/OpeningSequence';
+import PortfolioChoice from './components/PortfolioChoice';
 import ProfileSelector from './components/ProfileSelector';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -24,7 +25,7 @@ const PlayIntro = lazy(() => import('./components/PlayIntro'));
 const ProjectModal = lazy(() => import('./components/ProjectModal'));
 const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
-type Stage = 'opening' | 'profiles' | 'home';
+type Stage = 'choice' | 'opening' | 'profiles' | 'home';
 
 const STORAGE_KEY = 'tanmay-series-profile';
 
@@ -47,7 +48,9 @@ export default function App() {
 
 function Series() {
   const stored = readStoredProfile();
-  const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(
+    new URLSearchParams(window.location.search).get('portfolio') === 'netflix' ? (stored ? 'home' : 'opening') : 'choice',
+  );
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'tanmay');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -109,6 +112,7 @@ function Series() {
       <CustomCursor />
 
       <AnimatePresence>
+        {stage === 'choice' && <PortfolioChoice key="choice" onNetflix={() => setStage(stored ? 'home' : 'opening')} />}
         {stage === 'opening' && <OpeningSequence key="opening" onDone={() => setStage('profiles')} />}
         {stage === 'profiles' && <ProfileSelector key="profiles" onPick={pickProfile} />}
       </AnimatePresence>

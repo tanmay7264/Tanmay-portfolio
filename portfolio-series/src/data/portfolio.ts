@@ -40,10 +40,10 @@ export const profile = {
     instagram: tanmay.basics.links.find((link) => link.label === 'Instagram')!.url,
     medium: tanmay.mediumBlog.profileUrl,
   },
-  resumePdf: '/assets/Tanmay-ATS-CV.pdf',
+  resumePdf: `${import.meta.env.BASE_URL}assets/Tanmay-ATS-CV.pdf`,
   portrait: {
-    src: '/assets/tanmay-portrait.png',
-    srcSet: '/assets/tanmay-portrait.png 992w',
+    src: `${import.meta.env.BASE_URL}assets/tanmay-portrait.png`,
+    srcSet: `${import.meta.env.BASE_URL}assets/tanmay-portrait.png 992w`,
     alt: 'Portrait of Tanmay Narnaware',
   },
   interests: ['Product strategy', 'Customer insight', 'Digital transformation'],
