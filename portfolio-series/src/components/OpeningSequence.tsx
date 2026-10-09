@@ -51,7 +51,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       <motion.div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: 'radial-gradient(60% 50% at 50% 55%, rgba(229,19,43,0.22), transparent 70%)' }}
+        style={{ background: 'radial-gradient(45% 55% at 43% 55%, rgba(229,19,43,0.42), transparent 75%), radial-gradient(40% 50% at 67% 60%, rgba(76,201,255,0.20), transparent 80%)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: beat >= 2 ? [0, 0.9, 0.5, 1] : 0 }}
         transition={{ duration: 1.4 }}
@@ -88,12 +88,9 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
         transition={{ duration: 1.6, ease: EASE }}
       >
         <img
-          src={profile.portrait.src}
-          srcSet={profile.portrait.srcSet}
-          sizes="(max-width: 768px) 100vw, 900px"
+          src="/assets/tanmay-opening-cutout.png"
           alt={profile.portrait.alt}
-          className="h-full w-auto max-w-none object-contain object-bottom [mask-image:radial-gradient(ellipse_80%_75%_at_50%_42%,black_40%,transparent_100%)]"
-
+          className="h-full w-auto max-w-none object-contain object-bottom [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
         />
       </motion.div>
       <div aria-hidden className="absolute inset-0 z-[1] bg-[radial-gradient(70%_60%_at_50%_40%,transparent_30%,rgba(0,0,0,0.85)_100%)]" />
