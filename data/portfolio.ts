@@ -118,7 +118,7 @@ export const portfolioData = {
     {
       "category": "Innovation & Entrepreneurship",
       "title": "Top 1% in CMAT Innovation & Entrepreneurship",
-      "description": "Scored 99.37 percentile in Innovation and Entrepreneurship section among 63,000 candidates across India"
+      "description": "Scored 99.37 percentile in the CMAT Innovation and Entrepreneurship section"
     },
     {
       "category": "International Recognition",
