@@ -40,7 +40,7 @@ export const profile = {
     instagram: tanmay.basics.links.find((link) => link.label === 'Instagram')!.url,
     medium: tanmay.mediumBlog.profileUrl,
   },
-  resumePdf: '/assets/Tanmay-Narnaware-CV.pdf',
+  resumePdf: '/assets/Tanmay-ATS-CV.pdf',
   portrait: {
     src: '/assets/tanmay-portrait.png',
     srcSet: '/assets/tanmay-portrait.png 992w',
@@ -179,7 +179,7 @@ export const topPicks: TopPick[] = [
   { label: 'Hospitality growth', title: 'Lonavala Villas', detail: 'Occupancy from 45% to 80%', palette: amber },
   { label: 'Client growth', title: 'The Socials Web', detail: '3× online leads · 20% better conversion', palette: jade },
   { label: 'Community', title: '1,400+', detail: 'WeSchool students in learning community', palette: crimson },
-  { label: 'Student exchange', title: 'Germany', detail: 'Selected among 6 from a cohort of 840', palette: ocean },
+  { label: 'Student exchange', title: 'Germany', detail: 'One of six students selected', palette: ocean },
   { label: 'Research', title: 'SIRP', detail: '20 studies on student-platform adoption', palette: violet },
   { label: 'Innovation', title: 'InnoMUN', detail: 'Winning team concept at BITS Pilani', palette: jade },
   { label: 'Entrance exam', title: '99.37', detail: 'CMAT innovation & entrepreneurship percentile', palette: amber },

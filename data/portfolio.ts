@@ -3,9 +3,9 @@ export const portfolioData = {
     "name": "Tanmay Narnaware",
     "title": "Product & Growth Builder | PGDM E-Business '27 | Ex-Apexon",
     "tagline": "I connect engineering, customer insight and growth to build products people return to.",
-    "email": "kt19051999@gmail.com",
+    "email": "ktanmay.career@gmail.com",
     "location": "Mumbai, Maharashtra, India",
-    "resumeUrl": "/Tanmay-Narnaware-CV.pdf",
+    "resumeUrl": "/Tanmay-ATS-CV.pdf",
     "links": [
       {
         "label": "LinkedIn",
@@ -121,7 +121,7 @@ export const portfolioData = {
     {
       "category": "Community Building",
       "title": "WeSchool Learning Community",
-      "description": "Built a WhatsApp learning community reaching 1,400+ of 1,600 WeSchool students, sharing resources across AI, technology, case competitions and entrepreneurship"
+      "description": "Built a WhatsApp learning community reaching 1,400+ WeSchool students, sharing resources across AI, technology, case competitions and entrepreneurship"
     },
     {
       "category": "Innovation & Hackathons",
@@ -476,7 +476,7 @@ export const portfolioData = {
       "dates": "April 2026 - September 2026",
       "location": "Bamberg, Germany",
       "highlights": [
-        "Selected as one of six students from a cohort of 840 for the University of Bamberg exchange",
+        "Selected as one of six students for the University of Bamberg exchange",
         "Studied digital business, product management, marketing and digital platforms",
         "Worked in project teams spanning approximately ten nationalities",
         "Completed a Product Management & Strategy internship alongside the exchange"
