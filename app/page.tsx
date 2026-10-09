@@ -50,7 +50,7 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
 
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <button type="button" onClick={onStandard} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#111b31] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:p-8">
-            <span aria-hidden className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] opacity-50 transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${basePath}/images/Image.png)` }} />
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-80 transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${basePath}/netflix/assets/portfolio-standard-bg.jpg)` }} />
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c172d] via-[#0c172d]/90 to-[#0c172d]/35" />
             <span aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(147,197,253,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(147,197,253,0.6)_1px,transparent_1px)] [background-size:28px_28px]" />
             <span className="relative inline-flex rounded-full border border-blue-300/30 bg-blue-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-200">01 · Classic view</span>
@@ -61,7 +61,7 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
 
           <a href={netflixUrl} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#151013] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-red-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300 sm:p-8">
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(229,19,43,0.55),transparent_55%)]" />
-            <span aria-hidden className="pointer-events-none absolute inset-0 bg-no-repeat opacity-75 transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${basePath}/netflix/assets/tanmay-opening-cutout.png)`, backgroundSize: 'auto 108%', backgroundPosition: 'right -38px bottom' }} />
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-90 transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${basePath}/netflix/assets/portfolio-cinematic-bg.jpg)` }} />
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#150b0f] via-[#150b0f]/85 to-[#150b0f]/25" />
             <span className="relative inline-flex rounded-full border border-red-300/30 bg-red-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-red-200">02 · Cinematic view</span>
             <span className="relative mt-12 block font-display text-4xl sm:text-5xl">Netflix Style</span>
