@@ -235,9 +235,9 @@ const copyByLanguage: Record<Language, UiCopy> = {
           description: 'Building scalable solutions for global clients',
         },
         {
-          title: 'Dept. President',
+          title: 'Vice President',
           subtitle: 'CSE Leadership',
-          description: 'Led Computer Science Engineering department',
+          description: 'Led events for 600+ Computer Science students',
         },
         {
           title: 'AWS Certified',
@@ -285,8 +285,8 @@ const copyByLanguage: Record<Language, UiCopy> = {
         {
           title: 'I Left India for Germany',
           preview: 'The biggest culture shock wasn\'t what I expected. A personal journey of adaptation, challenges, and unexpected perspectives.',
-          date: '2d ago',
-          readTime: '5 min read',
+          date: 'Jun 5, 2026',
+          readTime: '7 min read',
           url: 'https://medium.com/@tanmay19/i-left-india-for-germany-520e85d4fa21'
         },
         {
@@ -433,9 +433,9 @@ const copyByLanguage: Record<Language, UiCopy> = {
           description: 'Skalierbare Loesungen fuer globale Kunden entwickelt',
         },
         {
-          title: 'Abteilungspraesident',
+          title: 'Vizepräsident',
           subtitle: 'CSE Leadership',
-          description: 'Leitung der Computer Science Engineering Abteilung',
+          description: 'Veranstaltungen für über 600 Informatikstudierende mitgestaltet',
         },
         {
           title: 'AWS zertifiziert',
@@ -478,13 +478,13 @@ const copyByLanguage: Record<Language, UiCopy> = {
       badge: 'Medium Blog',
       heading: 'Gedanken, Die Geschäftsmetriken Bewegen',
       subheading: 'Tiefgreifende Analysen zu KI-gesteuertem Wachstum, Produktausführung und dem Aufbau nachhaltiger Systeme, die tatsächlich Ergebnisse liefern.',
-      hook: 'Ich schreibe über die Schnittmenge von Technologie und Geschäftsergebnissen – und helfe Builderin, schneller zu denken, intelligenter zu verschiffen und Wirkung zu messen.',
+      hook: 'Ich schreibe darüber, wie Technologie zu Geschäftsergebnissen beiträgt – damit Produktteams schneller lernen, bessere Lösungen entwickeln und Wirkung messen können.',
       featuredArticles: [
         {
           title: 'Ich bin von Indien nach Deutschland gezogen',
           preview: 'Der größte Kulturschock war nicht das, was ich erwartet hatte. Eine persönliche Reise der Anpassung und unerwarteten Perspektiven.',
-          date: 'vor 2 Tagen',
-          readTime: '5 Min',
+          date: '5. Juni 2026',
+          readTime: '7 Min',
           url: 'https://medium.com/@tanmay19/i-left-india-for-germany-520e85d4fa21'
         },
         {

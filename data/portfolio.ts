@@ -556,8 +556,8 @@ export const portfolioData = {
       {
         "title": "I Left India for Germany",
         "preview": "The biggest culture shock wasn't what I expected. A personal journey of adaptation, challenges, and unexpected perspectives.",
-        "date": "2d ago",
-        "readTime": "5 min read",
+        "date": "Jun 5, 2026",
+        "readTime": "7 min read",
         "url": "https://medium.com/@tanmay19/i-left-india-for-germany-520e85d4fa21"
       },
       {

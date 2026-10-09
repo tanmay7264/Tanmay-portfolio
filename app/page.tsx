@@ -57,7 +57,7 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
             <span aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(147,197,253,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(147,197,253,0.6)_1px,transparent_1px)] [background-size:28px_28px]" />
             <span className="relative inline-flex rounded-full border border-blue-300/30 bg-blue-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-200">01 · Classic view</span>
             <span className="relative mt-12 block font-display text-4xl sm:text-5xl">Standard</span>
-            <span className="relative mt-2 block max-w-sm text-sm leading-relaxed text-white/65">A clear, professional view of my experience, projects and skills. Available in English and German.</span>
+            <span className="relative mt-2 block max-w-sm text-sm leading-relaxed text-white/65">A clear, professional view of my experience, projects and skills. German introductions and navigation are available.</span>
             <span className="relative mt-7 inline-flex items-center gap-2 text-sm font-semibold text-blue-200 transition group-hover:gap-3">View Standard <span aria-hidden>↗</span></span>
           </button>
 
@@ -87,9 +87,9 @@ function LanguageSelectModal({
 }) {
   const hookLines = useMemo(
     () => [
-      'Pick a language, unlock a different storytelling rhythm.',
+      'Choose the language for the introduction and navigation.',
       'Same portfolio. Different vibe. Your call.',
-      'Choose your mode: crisp global pitch or local narrative depth.',
+      'Detailed work and project descriptions are in English.',
     ],
     []
   );
@@ -127,7 +127,7 @@ function LanguageSelectModal({
         )}
 
         <h2 className="font-display mb-3 text-4xl text-foreground">Choose your language</h2>
-        <p className="mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">Select portfolio language</p>
+        <p className="mb-3 text-sm uppercase tracking-[0.18em] text-muted-foreground">Select introduction language</p>
 
         <div className="mb-7 min-h-14 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
           <AnimatePresence mode="wait">
@@ -157,7 +157,7 @@ function LanguageSelectModal({
             className="group rounded-2xl border border-white/15 bg-white/[0.03] px-4 py-4 text-left transition-all hover:border-primary hover:bg-primary/20"
           >
             <span className="block text-base font-semibold">Deutsch</span>
-            <span className="block text-xs text-foreground/65">Localized narrative mode</span>
+            <span className="block text-xs text-foreground/65">German introduction · English work details</span>
           </button>
         </div>
       </motion.div>
