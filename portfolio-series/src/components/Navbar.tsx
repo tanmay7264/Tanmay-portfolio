@@ -148,7 +148,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
         {mobileNav && (
           <motion.nav
             aria-label="Sections"
-            className="gutter border-b border-white/5 bg-ink/95 pb-6 pt-2 backdrop-blur-xl lg:hidden"
+            className="gutter max-h-[calc(100svh-4rem)] overflow-y-auto overscroll-contain border-b border-white/5 bg-ink/95 pb-6 pt-2 backdrop-blur-xl lg:hidden"
             initial={{ clipPath: 'inset(0 0 100% 0)' }}
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}

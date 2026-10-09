@@ -133,6 +133,8 @@ export default function Navigation() {
       <motion.button
         className="lg:hidden fixed top-4 right-4 z-50 p-3 glass rounded-full"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isOpen}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
@@ -143,12 +145,12 @@ export default function Navigation() {
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div
-          className="lg:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-lg"
+          className="lg:hidden fixed inset-0 z-40 overflow-y-auto bg-background/95 backdrop-blur-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <div className="flex flex-col items-center justify-center h-full gap-6">
+          <div className="flex min-h-full flex-col items-center justify-center gap-4 py-20 sm:gap-6">
             <div className="mb-2 flex items-center gap-2">
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] p-2">
               {([
@@ -188,26 +190,26 @@ export default function Navigation() {
       )}
 
       {/* Bottom Navigation - Mobile */}
-      <motion.nav
+      {!isOpen && <motion.nav
         className="lg:hidden fixed bottom-0 left-0 right-0 z-40 glass border-t border-white/10"
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="flex justify-around py-2">
-          {navItems.slice(0, 5).map((item) => (
+          {navItems.slice(0, 4).map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all
+              className={`flex flex-col items-center gap-1 px-1.5 py-2 min-[320px]:px-3 rounded-lg transition-all
                 ${activeSection === item.id ? 'text-primary' : 'text-muted-foreground'}`}
             >
               <item.icon className="w-5 h-5" />
-              <span className="text-xs">{item.label}</span>
+              <span className="text-[10px] min-[320px]:text-xs">{item.label}</span>
             </button>
           ))}
         </div>
-      </motion.nav>
+      </motion.nav>}
     </>
   );
 }

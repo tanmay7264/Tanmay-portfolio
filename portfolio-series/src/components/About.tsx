@@ -34,12 +34,12 @@ export default function About() {
               className="absolute inset-0 h-full w-full object-cover object-center [mask-image:radial-gradient(ellipse_80%_75%_at_50%_45%,black_45%,transparent_100%)]"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-2">
               <div>
                 <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">STARRING</p>
-                <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
+                <p className="font-display text-2xl leading-none text-bone sm:text-3xl">{profile.displayName}</p>
               </div>
-              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S04</span>
+              <span className="shrink-0 rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S04</span>
             </div>
           </div>
         </Tilt>

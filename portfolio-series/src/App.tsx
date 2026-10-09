@@ -118,19 +118,21 @@ function Series() {
       </AnimatePresence>
 
       {stage === 'home' && (
-        <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
+        <>
           <Navbar order={order} profileId={profileId} onSwitch={pickProfile} />
-          <main>
-            <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} />
-            <ContinueWatching order={order} />
-            {order.map((id) => (
-              <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>
-                {sections[id]}
-              </Scene>
-            ))}
-            <FinalCTA onReplay={() => setStage('opening')} />
-          </main>
-        </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
+            <main>
+              <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} />
+              <ContinueWatching order={order} />
+              {order.map((id) => (
+                <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>
+                  {sections[id]}
+                </Scene>
+              ))}
+              <FinalCTA onReplay={() => setStage('opening')} />
+            </main>
+          </motion.div>
+        </>
       )}
 
       <Suspense fallback={null}>
