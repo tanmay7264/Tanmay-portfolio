@@ -2,11 +2,13 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { profile } from '../data/portfolio';
 import { useSmoothScroll } from '../hooks/smoothScroll';
+import { useDesktop } from '../hooks/useMedia';
 import { EASE, Magnetic, Particles } from './fx';
 import { SeriesMark } from './Poster';
 
 export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const ref = useRef<HTMLElement>(null);
+  const desktop = useDesktop();
   const { scrollTo } = useSmoothScroll();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start 0.2'] });
   const spacing = useTransform(scrollYProgress, [0, 1], ['0.6em', '0.02em']);
@@ -37,7 +39,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
       </motion.p>
       <motion.h2
         className="relative font-display leading-[0.85] text-bone"
-        style={{ fontSize: 'clamp(3.4rem, 13vw, 12rem)', letterSpacing: spacing, filter: blur, opacity }}
+        style={{ fontSize: 'clamp(3.4rem, 13vw, 12rem)', ...(desktop ? { letterSpacing: spacing, filter: blur, opacity } : {}) }}
       >
         TO BE CONTINUED…
       </motion.h2>

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import { certifications, education, profile, projects, type ProfileId } from '../data/portfolio';
-import { useFinePointer } from '../hooks/useMedia';
+import { useDesktop, useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
 import { SeriesMark } from './Poster';
@@ -14,6 +14,7 @@ const item = {
 
 export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => void; onResume: () => void; profileId: ProfileId }) {
   const ref = useRef<HTMLElement>(null);
+  const desktop = useDesktop();
   const fine = useFinePointer();
   const { scrollTo } = useSmoothScroll();
 
@@ -76,7 +77,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
       {/* portrait */}
       <motion.div
         className="absolute inset-x-0 top-12 z-[2] flex h-[64svh] items-end justify-center sm:h-[70svh] lg:bottom-0 lg:left-auto lg:right-[3vw] lg:top-20 lg:h-auto lg:w-[54vw] xl:right-[6vw] xl:w-[48vw]"
-        style={{ y: imgY, scale: imgScale, opacity: fade }}
+        style={desktop ? { y: imgY, scale: imgScale, opacity: fade } : undefined}
       >
         <motion.div
           className="relative h-full w-full lg:h-[86vh]"
@@ -110,7 +111,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
       {/* copy */}
       <motion.div
         className="gutter relative z-[4] flex min-h-[100svh] flex-col justify-end pb-16 pt-[54svh] sm:pb-20 lg:max-w-[52vw] lg:justify-center lg:pb-0 lg:pt-24"
-        style={{ y: textY, opacity: fade }}
+        style={desktop ? { y: textY, opacity: fade } : undefined}
         variants={container}
         initial="hidden"
         animate="show"
@@ -180,7 +181,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         </motion.div>
       </motion.div>
 
-      <motion.div aria-hidden className="pointer-events-none absolute inset-0 z-[5] bg-ink" style={{ opacity: blackout }} />
+      <motion.div aria-hidden className="pointer-events-none absolute inset-0 z-[5] bg-ink" style={desktop ? { opacity: blackout } : undefined} />
     </section>
   );
 }
