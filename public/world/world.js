@@ -50,14 +50,14 @@ const ZONE = Object.fromEntries(WORLD.zones.map(z => [z.id, z]));
 const litMats = [];                                                     // materials that glow at night (windows, lamps)
 const glowAtNight = (m, c = '#FFD27A', k = 1) => { m.emissive = new THREE.Color(c); m.emissiveIntensity = 0; m.userData.k = k; litMats.push(m); return m; };
 
-/* ---------- Themes: dark navy and light cream. Scene materials by role, recoloured on switch ---------- */
+/* ---------- Themes: dark navy and light. Scene materials by role, recoloured on switch ---------- */
 const THEMES = {
   dark: { ground: '#2A3A52', lawn: '#2E4560', path: '#475569', edge: '#334155', slab: '#1E293B', trim: '#3B82F6', sea: '#0C1B2E', haze: '#0F172A', sky: ['#1E293B', '#0B1222'], skyN: ['#0B1020', '#03050B'] },
-  cream: { ground: '#E8DFC9', lawn: '#CBDBA9', path: '#D2C6AE', edge: '#B8AA8E', slab: '#F4EEE1', trim: '#C8A46A', sea: '#B9D6E0', haze: '#EDE6D6', sky: ['#FFF8EC', '#E9DEC6'], skyN: ['#3A4466', '#1B2036'] },
+  light: { ground: '#E8DFC9', lawn: '#CBDBA9', path: '#D2C6AE', edge: '#B8AA8E', slab: '#F4EEE1', trim: '#C8A46A', sea: '#B9D6E0', haze: '#EDE6D6', sky: ['#FFF8EC', '#E9DEC6'], skyN: ['#3A4466', '#1B2036'] },
 };
 const TM = Object.fromEntries(['ground', 'lawn', 'path', 'edge', 'slab', 'trim', 'sea'].map(r => [r, new THREE.MeshStandardMaterial({ color: THEMES.dark[r], roughness: 0.9 })]));
 const LAWN = '#2E4560';                                                 // lawn colour in the config = themed lawn
-let theme = [new URLSearchParams(location.search).get('theme'), localStorage.getItem('tw-theme')].find(t => t in THEMES) || (matchMedia('(prefers-color-scheme: light)').matches ? 'cream' : 'dark');   // ?theme=dark|cream wins
+let theme = [new URLSearchParams(location.search).get('theme'), localStorage.getItem('tw-theme')].map(t => t === 'cream' ? 'light' : t).find(t => t in THEMES) || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');   // ?theme=dark|light wins; the old name 'cream' still works
 
 /* ---------- Camera: orthographic isometric, tilt locked, spin allowed ---------- */
 const FR = N * 0.62, OFFSET = new THREE.Vector3(60, 52, 60);
@@ -589,7 +589,7 @@ function renderHud() {
   hud.innerHTML = `<div class="hudtop"><span class="era">${esc(era)}</span><span class="where">${esc(where)}</span><span class="sp"></span>
       <button data-sim="play" aria-label="Pause or play">${tour.paused ? '▶' : '❚❚'}</button><button data-sim="speed" aria-label="Speed">${SIM.speed}×</button>
       <button data-sim="follow" class="${follow ? 'on' : ''}" aria-pressed="${follow}">Follow</button><button data-sim="restart">↺</button>
-      <button data-sim="theme" aria-label="Switch theme">${theme === 'cream' ? '🌙 Dark' : '☀ Cream'}</button></div>
+      <button data-sim="theme" aria-label="Switch theme">${theme === 'light' ? '🌙 Dark' : '☀ Light'}</button></div>
     <div class="chips">${WORLD.stats.map(([k, icon, label]) => `<span class="${changed.includes(k) ? 'bump' : ''} ${s[k] ? '' : 'zero'}">${icon} ${k === 'community' ? (s[k] ? s[k].toLocaleString() + '+' : 0) : s[k]} ${label}</span>`).join('')}</div>
     <div class="tl" aria-label="Chapters">${CHAPTERS.map(c => `<button data-jump="${c.g}" class="${c.g < cg ? 'done' : c.g === cg ? 'cur' : ''}" title="${esc(c.st.z.kicker + ': ' + c.st.z.name)}" aria-label="${esc(c.st.z.name)}"></button>${c.st.z.id === 'gcl' ? '<span class="flag">✈</span>' : c.st.z.id === 'europe' ? '<span class="flag">✈</span>' : ''}`).join('')}</div>`;
   if (changed.length) setTimeout(() => hud.querySelectorAll('.chips .bump').forEach(e => e.classList.remove('bump')), 900);
@@ -603,7 +603,7 @@ hud.addEventListener('click', e => {
   if (a === 'speed') { SIM.speed = { 1: 2, 2: 4, 4: 1 }[SIM.speed]; refresh(); }
   if (a === 'follow') { if (!follow) select(null); setFollow(!follow); }
   if (a === 'restart') jumpTo(0);
-  if (a === 'theme') applyTheme(theme === 'cream' ? 'dark' : 'cream');
+  if (a === 'theme') applyTheme(theme === 'light' ? 'dark' : 'light');
 });
 function togglePause() { tour.paused = !tour.paused; refresh(); }
 addEventListener('keydown', e => {
@@ -640,7 +640,7 @@ document.addEventListener('click', e => {
 /* ---------- Theme switch + day/night ---------- */
 function applyTheme(name) {
   theme = name; localStorage.setItem('tw-theme', name);
-  const T = THEMES[name]; document.body.classList.toggle('cream', name === 'cream');
+  const T = THEMES[name]; document.body.classList.toggle('light', name === 'light');
   for (const [r, m] of Object.entries(TM)) m.color.set(T[r]);
   scene.fog.color.set(T.haze); hemi.groundColor.set(T.ground);
   lastNight = -1; if (hud.innerHTML) renderHud();

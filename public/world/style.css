@@ -1,6 +1,6 @@
-/* Two themes: dark navy (default) and light cream. world.js toggles body.cream and sets --sky1/--sky2 for day and night. */
+/* Two themes: dark navy (default) and light. world.js toggles body.light and sets --sky1/--sky2 for day and night. */
 :root { --ink: #F1F5F9; --muted: #94A3B8; --soft: #CBD5E1; --line: #263449; --accent: #8B5CF6; --blue: #3B82F6; --card: #0F172AEE; --hover: #1E293B; --chip: #1E293B; --sky1: #1E293B; --sky2: #0B1222; }
-body.cream { --ink: #2B2418; --muted: #7A6F5E; --soft: #4A4235; --line: #E5DCC8; --accent: #7C3AED; --blue: #2563EB; --card: #FFFDF7F2; --hover: #F3ECDD; --chip: #F3ECDD; }
+body.light { --ink: #2B2418; --muted: #7A6F5E; --soft: #4A4235; --line: #E5DCC8; --accent: #7C3AED; --blue: #2563EB; --card: #FFFDF7F2; --hover: #F3ECDD; --chip: #F3ECDD; }
 * { box-sizing: border-box; }
 body { margin: 0; font: 14px/1.5 'Space Grotesk', system-ui, sans-serif; color: var(--ink); background: radial-gradient(ellipse at 50% 30%, var(--sky1), var(--sky2) 75%); overflow: hidden; transition: background .6s; }
 .map, #scene { position: fixed; inset: 0; width: 100%; height: 100%; }
