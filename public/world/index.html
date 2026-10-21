@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* Hosts with clean URLs serve this page at /world (no slash); pin relative paths to the world folder */
+if (!/\/$|\.html$/.test(location.pathname)) { const b = document.createElement('base'); b.href = location.pathname + '/'; document.head.append(b); }</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tanmay's World · Tanmay Narnaware</title>
 <meta name="description" content="An interactive 3D map of Tanmay Narnaware's journey across engineering, ventures, product, research and AI.">
