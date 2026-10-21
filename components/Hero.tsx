@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowDown, Download, Mail, Linkedin, Github, ChevronDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Download, Mail, Linkedin, Github, ChevronDown, Sparkles, Map as MapIcon } from 'lucide-react';
 import { useLanguage } from '@/lib/language';
 
 export default function Hero() {
@@ -237,6 +237,14 @@ export default function Hero() {
           >
             <Sparkles className="h-5 w-5" />
             Student Exchange Experience
+          </a>
+
+          <a
+            href={`${pagesBasePath}/world/index.html`}
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-accent/50 bg-accent/10 px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-accent hover:bg-accent/20 sm:px-8 sm:py-4 sm:text-base"
+          >
+            <MapIcon className="h-5 w-5" />
+            Explore Tanmay&apos;s World
           </a>
 
           <button
