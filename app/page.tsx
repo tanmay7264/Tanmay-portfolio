@@ -20,13 +20,14 @@ import { LanguageProvider, Language, useLanguage } from '@/lib/language';
 
 const portfolioChoiceLines = [
   'Same portfolio. Different vibe. Your call.',
-  'Explore the details or watch the story unfold.',
+  'Explore the details, watch the story unfold, or walk through it in 3D.',
   'Choose the experience that feels right for you.',
 ];
 
 function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const netflixUrl = `${basePath}/netflix/index.html?portfolio=netflix`;
+  const worldUrl = `${basePath}/world/index.html`;
   const [lineIndex, setLineIndex] = useState(0);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
       <div aria-hidden className="pointer-events-none fixed inset-0 bg-cover bg-[position:22%_center] sm:bg-center" style={{ backgroundImage: `url(${basePath}/netflix/assets/portfolio-choice-background.jpg)` }} />
       <div aria-hidden className="pointer-events-none fixed inset-0 bg-[#080b15]/30" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.17),transparent_38%),radial-gradient(circle_at_85%_75%,rgba(229,19,43,0.14),transparent_40%)]" />
-      <div className="relative mx-auto flex min-h-full max-w-5xl flex-col justify-center">
+      <div className="relative mx-auto flex min-h-full max-w-6xl flex-col justify-center">
         <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/50">Tanmay Narnaware · Portfolio</p>
         <h1 id="portfolio-choice-title" className="font-display text-center text-4xl leading-none sm:text-6xl">How would you like to explore my work?</h1>
         <div className="mx-auto mb-9 mt-5 flex min-h-16 w-full max-w-xl items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
@@ -50,7 +51,7 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
           </AnimatePresence>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           <button type="button" onClick={onStandard} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#111b31] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:p-8">
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-80 transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${basePath}/netflix/assets/portfolio-standard-bg.jpg)` }} />
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c172d] via-[#0c172d]/90 to-[#0c172d]/35" />
@@ -69,6 +70,16 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
             <span className="relative mt-12 block font-display text-4xl sm:text-5xl">Netflix Style</span>
             <span className="relative mt-2 block max-w-sm text-sm leading-relaxed text-white/65">Watch my journey unfold through chapters, featured work and a cinematic introduction.</span>
             <span className="relative mt-7 inline-flex items-center gap-2 text-sm font-semibold text-red-200 transition group-hover:gap-3">View Netflix Style <span aria-hidden>▶</span></span>
+          </a>
+
+          <a href={worldUrl} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#120f24] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-violet-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:col-span-2 sm:p-8 lg:col-span-1">
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(139,92,246,0.5),transparent_55%),radial-gradient(circle_at_15%_85%,rgba(6,182,212,0.25),transparent_50%)]" />
+            <span aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.12] transition duration-500 [background-image:linear-gradient(30deg,rgba(196,181,253,0.7)_1px,transparent_1px),linear-gradient(150deg,rgba(196,181,253,0.7)_1px,transparent_1px)] [background-size:34px_20px] group-hover:scale-105" />
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#120f24] via-[#120f24]/80 to-transparent" />
+            <span className="relative inline-flex rounded-full border border-violet-300/30 bg-violet-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-200">03 · Interactive 3D</span>
+            <span className="relative mt-12 block font-display text-4xl sm:text-5xl">Tanmay&apos;s World</span>
+            <span className="relative mt-2 block max-w-sm text-sm leading-relaxed text-white/65">Walk through my career as a living 3D city: watch each chapter get built, step inside, and fly with me from India to Germany.</span>
+            <span className="relative mt-7 inline-flex items-center gap-2 text-sm font-semibold text-violet-200 transition group-hover:gap-3">Enter the World <span aria-hidden>↗</span></span>
           </a>
         </div>
       </div>
