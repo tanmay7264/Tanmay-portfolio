@@ -57,7 +57,7 @@ const THEMES = {
 };
 const TM = Object.fromEntries(['ground', 'lawn', 'path', 'edge', 'slab', 'trim', 'sea'].map(r => [r, new THREE.MeshStandardMaterial({ color: THEMES.dark[r], roughness: 0.9 })]));
 const LAWN = '#2E4560';                                                 // lawn colour in the config = themed lawn
-let theme = localStorage.getItem('tw-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'cream' : 'dark');
+let theme = [new URLSearchParams(location.search).get('theme'), localStorage.getItem('tw-theme')].find(t => t in THEMES) || (matchMedia('(prefers-color-scheme: light)').matches ? 'cream' : 'dark');   // ?theme=dark|cream wins
 
 /* ---------- Camera: orthographic isometric, tilt locked, spin allowed ---------- */
 const FR = N * 0.62, OFFSET = new THREE.Vector3(60, 52, 60);

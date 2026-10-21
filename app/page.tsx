@@ -73,9 +73,9 @@ function PortfolioSelectModal({ onStandard }: { onStandard: () => void }) {
           </a>
 
           <a href={worldUrl} className="group relative min-h-72 overflow-hidden rounded-3xl border border-white/15 bg-[#120f24] p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-violet-400/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:col-span-2 sm:p-8 lg:col-span-1">
-            <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(139,92,246,0.5),transparent_55%),radial-gradient(circle_at_15%_85%,rgba(6,182,212,0.25),transparent_50%)]" />
-            <span aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.12] transition duration-500 [background-image:linear-gradient(30deg,rgba(196,181,253,0.7)_1px,transparent_1px),linear-gradient(150deg,rgba(196,181,253,0.7)_1px,transparent_1px)] [background-size:34px_20px] group-hover:scale-105" />
-            <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#120f24] via-[#120f24]/80 to-transparent" />
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(139,92,246,0.45),transparent_55%)]" />
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-cover bg-[position:center_25%] opacity-90 transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${basePath}/world/assets/portfolio-world-bg.jpg)` }} />
+            <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#120f24] via-[#120f24]/85 to-[#120f24]/20" />
             <span className="relative inline-flex rounded-full border border-violet-300/30 bg-violet-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-200">03 · Interactive 3D</span>
             <span className="relative mt-12 block font-display text-4xl sm:text-5xl">Tanmay&apos;s World</span>
             <span className="relative mt-2 block max-w-sm text-sm leading-relaxed text-white/65">Walk through my career as a living 3D city: watch each chapter get built, step inside, and fly with me from India to Germany.</span>
