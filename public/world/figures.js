@@ -72,6 +72,11 @@ export function pose(f, mode, ph) {
     const g = Math.pow(Math.max(0, Math.sin(ph * 0.55)), 2);
     f.armR.rotation.x = -1.25 - g * 0.35; f.armR.rotation.z = -0.25; f.elbowR.rotation.x = -0.35 - g * 0.4;
     f.armL.rotation.x = -0.45 + Math.sin(ph * 0.7) * 0.15; f.elbowL.rotation.x = -0.9; f.head.rotation.x = -0.04;
+  } else if (mode === 'ride') {                                              // on a motorbike or bicycle: knees up, hands on the bars, leaning in
+    f.legL.rotation.x = f.legR.rotation.x = -1.15; f.kneeL.rotation.x = f.kneeR.rotation.x = 1.35;
+    f.armL.rotation.x = f.armR.rotation.x = -1.15; f.elbowL.rotation.x = f.elbowR.rotation.x = -0.35; f.torso.rotation.x = 0.28; f.head.rotation.x = -0.18;
+  } else if (mode === 'scoot') {                                             // standing on an e-scooter, hands forward on the bar
+    f.legR.rotation.x = 0.18; f.kneeR.rotation.x = 0.12; f.armL.rotation.x = f.armR.rotation.x = -0.95; f.elbowL.rotation.x = f.elbowR.rotation.x = -0.3; f.torso.rotation.x = 0.08;
   } else if (mode === 'talk') {
     const g = Math.max(0, Math.sin(ph * 0.9));
     f.armR.rotation.x = -0.35 - g * 0.5; f.elbowR.rotation.x = -0.8 - g * 0.5; f.elbowL.rotation.x = -0.3; f.head.rotation.x = Math.sin(ph * 0.4) * 0.05;

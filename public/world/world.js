@@ -3,6 +3,11 @@ import * as THREE from 'three';
 import { MapControls } from 'three/addons/controls/MapControls.js';
 import { WORLD } from './world.config.js';
 import { makeFigure, pose, sitY } from './figures.js';
+import { mat, box, cyl, mesh, rnd, pick, clamp, sstep, ease, litMats, glowAtNight, prism, hipRoof, textMat, instanced } from './kit.js';
+import { buildExterior } from './architecture.js';
+import { buildAirport } from './airport.js';
+import { a380, car, ktm, scooter, bicycle, boat } from './vehicles.js';
+import { plantTrees } from './nature.js';
 
 const $ = s => document.querySelector(s);
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -38,17 +43,7 @@ renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadow
 const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(WORLD.colors.haze, N * 5, N * 8);
 
-const mats = new Map();
-const mat = (c, key = c) => { if (!mats.has(key)) mats.set(key, new THREE.MeshStandardMaterial({ color: c, roughness: 0.85 })); return mats.get(key); };
-const box = (w, h, d) => new THREE.BoxGeometry(w, h, d);
-const mesh = (geo, m, x = 0, y = 0, z = 0, shadow = true) => { const o = new THREE.Mesh(geo, m); o.position.set(x, y, z); o.castShadow = shadow; o.receiveShadow = true; return o; };
-let seed = WORLD.seed || 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647; // same world every visit
-const pick = a => a[Math.floor(rnd() * a.length)];
-const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), sstep = (a, b, x) => { const k = clamp((x - a) / (b - a), 0, 1); return k * k * (3 - 2 * k); };
-const ease = k => 1 - Math.pow(1 - clamp(k, 0, 1), 3);
 const ZONE = Object.fromEntries(WORLD.zones.map(z => [z.id, z]));
-const litMats = [];                                                     // materials that glow at night (windows, lamps)
-const glowAtNight = (m, c = '#FFD27A', k = 1) => { m.emissive = new THREE.Color(c); m.emissiveIntensity = 0; m.userData.k = k; litMats.push(m); return m; };
 
 /* ---------- Themes: dark navy and light. Scene materials by role, recoloured on switch ---------- */
 const THEMES = {
@@ -97,12 +92,6 @@ for (const [x, z, cols] of WORLD.flags || []) {
 /* ---------- Background city: houses, flats, shops, half-timbered Bamberg houses and the cathedral ---------- */
 const fillGlass = glowAtNight(new THREE.MeshStandardMaterial({ color: '#9CC3DE', roughness: 0.4 }), '#FFD27A', 0.9);
 const winSpots = [];
-function prism(len, base, height, m, x, y, z, alongX = false) {     // triangular gable roof; base sits at y
-  const r = base / (2 * Math.sin(Math.PI / 3)), geo = new THREE.CylinderGeometry(r, r, len, 3, 1);
-  geo.rotateX(-Math.PI / 2); if (alongX) geo.rotateY(Math.PI / 2);
-  const o = mesh(geo, m, x, y + r / 2 * (height / (1.5 * r)), z); o.scale.y = height / (1.5 * r); return o;
-}
-function hipRoof(w, d, hh, m, y) { const geo = new THREE.ConeGeometry(1, hh, 4); geo.rotateY(Math.PI / 4); const r = mesh(geo, m, 0, y + hh / 2, 0); r.scale.set(w / 1.414 * 1.12, 1, d / 1.414 * 1.12); return r; }
 for (const [x, z, w, d, h, kind] of WORLD.fillers || []) {
   const g = new THREE.Group(); g.position.copy(at(x + w / 2, z + d / 2)); scene.add(g);
   const wall = { house: pick(['#F1E3C8', '#E8C9A0', '#CFE3E0', '#F3D5C0', '#E4E9F2']), flats: pick(['#D9D4CC', '#CBD5E1', '#E7DCCB', '#C9D6C3']), shop: '#F5EBDD', timber: '#F4EBD6', cathedral: '#D8C3A0' }[kind];
@@ -188,7 +177,7 @@ const PROPS = {
     for (let row = 0; row < 3; row++) for (let i = 0; i < 6; i++) g.add(mesh(box(0.1, 0.22, 0.18), mat(['#EF4444', '#3B82F6', '#22C55E', '#EAB308', '#A855F7', '#F97316'][(i + row) % 6]), -0.33 + i * 0.13, 0.17 + row * 0.3, 0.04, false)); },
   sofa(p, x, z, c) { p.add(mesh(box(0.9, 0.2, 0.4), mat(c), x, 0.1, z), mesh(box(0.9, 0.3, 0.1), mat(c), x, 0.25, z - 0.18)); },
   rug(p, x, z, w, d, c) { p.add(mesh(box(w, 0.01, d), mat(c), x, 0.005, z, false)); },
-  car(p, x, z, c, r = 0) { const g = vehicle(c, false); g.position.set(x, 0, z); g.rotation.y = r; g.scale.setScalar(1.1); p.add(g); },
+  car(p, x, z, c, r = 0) { const g = car(c === '#E11D48' ? 'suv' : 'sedan', c); g.position.set(x, 0, z); g.rotation.y = r; g.scale.setScalar(1.1); p.add(g); },
   booth(p, x, z, c) { p.add(mesh(box(0.8, 0.4, 0.3), mat('#E2E8F0'), x, 0.2, z), mesh(box(0.8, 0.5, 0.03), mat(c), x, 0.95, z - 0.15), mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.5, 6), mat('#64748B'), x - 0.38, 0.6, z - 0.15), mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.5, 6), mat('#64748B'), x + 0.38, 0.6, z - 0.15)); },
   trophy(p, x, z, s = 1) { p.add(mesh(box(0.36, 0.3 * s, 0.36), mat('#E2E8F0'), x, 0.15 * s, z), mesh(new THREE.CylinderGeometry(0.11, 0.05, 0.22, 12), goldM, x, 0.3 * s + 0.16, z), mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.05, 10), goldM, x, 0.3 * s + 0.03, z)); },
   rack(p, x, z) { p.add(mesh(box(0.38, 1.0, 0.36), mat('#1E293B'), x, 0.5, z)); for (let i = 0; i < 4; i++) p.add(mesh(box(0.28, 0.03, 0.01), glow, x, 0.25 + i * 0.2, z + 0.185, false)); },
@@ -264,19 +253,6 @@ function room(z, g) {
   }
   return { inside, board };
 }
-function vehicle(c, rick) {                                             // low-poly car or auto-rickshaw, nose along +x
-  const g = new THREE.Group();
-  const wheel = (x, zz, r = 0.09) => { const w = mesh(new THREE.CylinderGeometry(r, r, 0.06, 12), mat('#111827'), x, r, zz); w.rotation.x = Math.PI / 2; g.add(w); };
-  if (rick) {
-    g.add(mesh(box(0.55, 0.24, 0.4), mat('#FACC15'), 0, 0.22, 0), mesh(box(0.3, 0.2, 0.36), mat('#16A34A'), -0.1, 0.44, 0), mesh(box(0.6, 0.05, 0.44), mat('#111827'), -0.03, 0.56, 0));
-    wheel(0.22, 0); wheel(-0.2, 0.18); wheel(-0.2, -0.18);
-  } else {
-    g.add(mesh(box(0.9, 0.2, 0.42), mat(c), 0, 0.18, 0), mesh(box(0.5, 0.17, 0.38), mat('#CBD5E1'), -0.05, 0.36, 0));
-    for (const [x, zz] of [[0.28, 0.2], [-0.28, 0.2], [0.28, -0.2], [-0.28, -0.2]]) wheel(x, zz);
-  }
-  return g;
-}
-
 /* ---------- Landmarks: Berlin Wall + Eiffel Tower in place of a building ---------- */
 function landmarks(z, g, wallMat) {
   const { w } = z;
@@ -329,21 +305,13 @@ for (const z of WORLD.zones) {
     o = objects[id] = { group: g, body, ext, size: new THREE.Vector3(w, 1.4, d), top: at(x, zz, 3.4), baseTop: 3.4, r: Math.max(w, d) * 0.7, open: 0 };
   } else {
     g.add(mesh(box(w + 0.2, 0.14, d + 0.2), mat('#D6CCBA'), 0, 0.07, 0));                // plinth stays when the building opens
-    const roofG = new THREE.Group(); ext.add(roofG);
-    const body = mesh(box(w, h, d), sm(z.wall || '#F6F1E8'), 0, h / 2, 0); ext.add(body);
-    const glass = glowAtNight(sm('#9CC3DE'));
-    for (let i = 0; i < Math.floor(w / 0.9); i++) ext.add(mesh(box(0.42, h * 0.32, 0.04), glass, -w / 2 + 0.45 + i * 0.9 + (w % 0.9) / 2, h * 0.55, d / 2 + 0.02, false));
-    for (let i = 0; i < Math.floor(d / 0.9); i++) ext.add(mesh(box(0.04, h * 0.32, 0.42), glass, w / 2 + 0.02, h * 0.55, -d / 2 + 0.45 + i * 0.9 + (d % 0.9) / 2, false));
-    ext.add(mesh(box(0.5, h * 0.45, 0.05), sm('#6B5A48'), 0, h * 0.225, d / 2 + 0.03, false)); // door, faces +z
-    let top;
-    if (roof === 'flat') { roofG.add(mesh(box(w + 0.16, 0.18, d + 0.16), sm(color), 0, h + 0.09, 0)); top = h + 0.18; }
-    else { const geo = new THREE.ConeGeometry(1, Math.min(w, d) * 0.45, 4); geo.rotateY(Math.PI / 4); const r = mesh(geo, sm(color), 0, h + Math.min(w, d) * 0.225, 0); r.scale.set(w / 1.414 * 1.12, 1, d / 1.414 * 1.12); roofG.add(r); top = h + Math.min(w, d) * 0.45; }
-    const signM = new THREE.MeshBasicMaterial({ map: signTexture(z.name, color), transparent: true }); shellMats.push(signM);
-    ext.add(mesh(new THREE.PlaneGeometry(Math.min(w * 0.8, 3), 0.5), signM, 0, h * 0.86, d / 2 + 0.05, false));
-    o = objects[id] = { group: g, body, ext, roofG, shellMats, size: new THREE.Vector3(w, h, d), top: at(x, zz, top + 0.3), baseTop: top + 0.3, r: Math.max(w, d) * 0.75, open: 0 };
+    const roofG = new THREE.Group(), yard = new THREE.Group(); ext.add(roofG); g.add(yard);   // yard = outdoor items that stay when it opens
+    const glass = glowAtNight(sm('#9CC3DE')), track = m => { m.transparent = true; shellMats.push(m); return m; };
+    const { body, top, blocks = [] } = buildExterior(z, { ext, roofG, yard, sm, glass, track, glow: c => glowAtNight(sm(c), c, 1.2) });
+    o = objects[id] = { group: g, body, ext, roofG, yard, shellMats, size: new THREE.Vector3(w, z.tall || h, d), top: at(x, zz, top + 0.3), baseTop: top + 0.3, r: Math.max(w, d) * 0.75, open: 0, blocks: blocks.map(([bx, bz, bw, bd]) => [x + bx, zz + bz, bw, bd]) };
     if (z.room) o.room = room(z, g);
   }
-  Object.assign(o, site(w, d, z.shape ? 2.6 : h, g), { built: false, bk: 0 });
+  Object.assign(o, site(w, d, z.shape ? 2.6 : z.tall || h, g), { built: false, bk: 0 });
   g.traverse(m => { if (m.isMesh) { m.userData.id = id; pickables.push(m); } });
 }
 function showOnBoard(id, kicker, title, text) {
@@ -351,13 +319,17 @@ function showOnBoard(id, kicker, title, text) {
   b.key = key; drawBoard(b, ZONE[id].color, kicker, title, text);
 }
 
+/* ---------- Airports: perimeter fence, security gate, control tower, runway markings (airport.js) ---------- */
+const AIRPORTS = Object.values(WORLD.tour.airports).map(a => buildAirport(scene, a, { at, person, crowd }));
+
 /* ---------- Nature: collision-aware seeded scatter per island (never on paths, zones, fillers or solid areas) ---------- */
-const blockers = [...WORLD.zones.map(o => [o.x - o.w / 2, o.z - o.d / 2, o.w, o.d]), ...(WORLD.paths || []), ...(WORLD.areas || []).filter(a => a[5]), ...(WORLD.fillers || []).map(([x, z, w, d]) => [x, z, w, d])];
+const blockers = [...WORLD.zones.map(o => [o.x - o.w / 2, o.z - o.d / 2, o.w, o.d]), ...Object.values(objects).flatMap(o => o.blocks || []), ...AIRPORTS.flatMap(a => a.blocks), ...(WORLD.paths || []), ...(WORLD.areas || []).filter(a => a[5]), ...(WORLD.fillers || []).map(([x, z, w, d]) => [x, z, w, d])];
 const blocked = (x, z, pad) => blockers.some(([bx, bz, bw, bd]) => x > bx - pad && x < bx + bw + pad && z > bz - pad && z < bz + bd + pad);
 const trees = [];
-for (const s of WORLD.islands) for (let n = 0, tries = 0; n < s.trees && tries < 5000; tries++) {
+const SMALL = innerWidth < 900;                                                       // phones: a lighter city
+for (const s of WORLD.islands) for (let n = 0, tries = 0; n < Math.round(s.trees * (SMALL ? 0.75 : 1.15)) && tries < 6000; tries++) {
   const x = s.x + 0.7 + rnd() * (s.w - 1.4), z = s.z + 0.7 + rnd() * (s.d - 1.4);
-  if (!blocked(x, z, 0.9) && trees.every(([a, b]) => Math.hypot(a - x, b - z) > 1.3)) { trees.push([x, z]); n++; }
+  if (!blocked(x, z, 0.9) && trees.every(([a, b]) => Math.hypot(a - x, b - z) > 1.3)) { trees.push([x, z, s.id]); n++; }
 }
 const inst = (geo, m, list, fn, shadow = true) => {
   const im = new THREE.InstancedMesh(geo, m, list.length); im.castShadow = shadow; im.receiveShadow = true;
@@ -365,8 +337,7 @@ const inst = (geo, m, list, fn, shadow = true) => {
   scene.add(im); return im;
 };
 const white = new THREE.MeshStandardMaterial({ color: '#FFFFFF', roughness: 0.9, flatShading: true }); // instance colours tint it
-inst(new THREE.CylinderGeometry(0.08, 0.12, 0.8, 6), mat('#7A5A3E'), trees, (o, [x, z]) => { o.position.copy(at(x, z, 0.4)); });
-inst(new THREE.IcosahedronGeometry(0.62, 0), white, trees, (o, [x, z]) => { o.position.copy(at(x, z, 1.15)); o.scale.setScalar(0.8 + rnd() * 0.5); return WORLD.colors.foliage[Math.floor(rnd() * WORLD.colors.foliage.length)]; });
+plantTrees(scene, trees, at);                                                       // palms and banyans in India, conifers and limes in Germany (nature.js)
 
 /* ---------- Streets: polylines shared by Tanmay, pedestrians, traffic and street lamps ---------- */
 function prepLine(R) { const RL = [0]; for (let i = 1; i < R.length; i++) RL.push(RL[i - 1] + Math.hypot(R[i][0] - R[i - 1][0], R[i][1] - R[i - 1][1])); return { R, RL }; }
@@ -380,18 +351,59 @@ const lampM = glowAtNight(new THREE.MeshStandardMaterial({ color: '#FEF3C7', rou
 for (const { line } of STREETS) for (let s = 1.2, k = 0; s < line.RL.at(-1); s += 3.4, k++) { const p = along(line, s), side = k % 2 ? 1 : -1; lamps.push([p.x - p.dz * 0.95 * side, p.z + p.dx * 0.95 * side]); }
 inst(new THREE.CylinderGeometry(0.03, 0.04, 1.3, 6), mat('#475569'), lamps, (o, [x, z]) => { o.position.copy(at(x, z, 0.65)); });
 inst(new THREE.SphereGeometry(0.1, 10, 8), lampM, lamps, (o, [x, z]) => { o.position.copy(at(x, z, 1.33)); }, false);
-const movers = [];                                                       // pedestrians and vehicles going back and forth along a street
+const movers = [];                                                       // pedestrians, cyclists and vehicles going back and forth along a street
+const INDIA_TRAFFIC = [['taxi'], ['taxi'], ['rick'], ['rick'], ['rick'], ['sedan', '#F8FAFC'], ['hatch', '#DC2626'], ['bus', '#DC2626', 0.9]];
+const GERMAN_TRAFFIC = [['sedan', '#111827'], ['hatch', '#2563EB'], ['suv', '#9CA3AF'], ['sedan', '#F8FAFC'], ['bus', '#FACC15', 0.9]];
 for (const st of STREETS) {
-  const L = st.line.RL.at(-1);
-  for (let i = 0; i < (st.rick ? 10 : 6); i++) { const f = person(0.58); scene.add(f.g); movers.push({ f, st, s: rnd() * L, dir: rnd() < 0.5 ? 1 : -1, v: 0.55 + rnd() * 0.3, off: (rnd() < 0.5 ? -1 : 1) * 0.6, ph: rnd() * 9 }); }
-  for (let i = 0; i < (st.rick ? 6 : 3); i++) { const g = vehicle(pick(['#DC2626', '#2563EB', '#F8FAFC', '#111827', '#16A34A', '#9CA3AF']), st.rick && i % 2 === 0); g.scale.setScalar(0.85); scene.add(g); movers.push({ g, st, s: rnd() * L, dir: rnd() < 0.5 ? 1 : -1, v: 1.3 + rnd() * 0.6, car: true }); }
+  const L = st.line.RL.at(-1), india = st.rick;
+  for (let i = 0; i < Math.round((india ? 15 : 9) * (SMALL ? 0.6 : 1)); i++) { const f = person(0.58); scene.add(f.g); movers.push({ f, st, s: rnd() * L, dir: rnd() < 0.5 ? 1 : -1, v: 0.5 + rnd() * 0.35, off: (rnd() < 0.5 ? -1 : 1) * 0.6, ph: rnd() * 9 }); }
+  for (const [kind, colour, v = 1.4 + rnd() * 0.6] of india ? INDIA_TRAFFIC : GERMAN_TRAFFIC) { const g = car(kind, colour); g.scale.setScalar(0.85); scene.add(g); movers.push({ g, st, s: rnd() * L, dir: rnd() < 0.5 ? 1 : -1, v, car: true }); }
+  if (!india) for (let i = 0; i < 3; i++) {                                          // Bamberg cyclists ride on the right, nearer the kerb
+    const g = bicycle(pick(['#0EA5E9', '#16A34A', '#DC2626'])), f = person(0.55); f.g.rotation.y = Math.PI / 2; f.g.position.set(-0.06, sitY(f, 0.4), 0); g.add(f.g);
+    crowd.push({ f, mode: 'ride', ph: rnd() * 9, rate: 1 }); scene.add(g); movers.push({ g, st, s: rnd() * L, dir: rnd() < 0.5 ? 1 : -1, v: 0.9 + rnd() * 0.3, car: true, lane: 0.52 });
+  }
 }
+/* ---------- Street furniture: kerbs, centre lines, zebra crossings, benches with people, bus shelters, boats ---------- */
+{
+  const kerbs = [], dashes = [], zebras = [], benches = [];
+  for (const { line } of STREETS) {
+    const R0 = line.R, n = R0.length === 6 && R0[4][0] === R0[0][0] && R0[4][1] === R0[0][1] ? 4 : R0.length - 1;   // Germany's loop doubles back: skip the repeat
+    for (let i = 0; i < n; i++) {
+      const [ax, az] = R0[i], [bx, bz] = R0[i + 1], L = Math.hypot(bx - ax, bz - az), ux = (bx - ax) / L, uz = (bz - az) / L, rot = Math.atan2(-uz, ux);
+      for (const side of [-1, 1]) kerbs.push([(ax + bx) / 2 - uz * 0.74 * side, (az + bz) / 2 + ux * 0.74 * side, L + 1.4, rot]);
+      for (let t = 0.9; t < L - 0.9; t += 0.8) dashes.push([ax + ux * t, az + uz * t, rot]);
+      if (i > 0) for (let k = -2; k <= 2; k++) zebras.push([ax + ux * 1.15 - uz * k * 0.26, az + uz * 1.15 + ux * k * 0.26, rot]);   // crossing just after each corner
+      for (let t = 2.2, k = 0; t < L - 1.5; t += 6.5, k++) { const side = k % 2 ? 1 : -1, bx2 = ax + ux * t - uz * 1.12 * side, bz2 = az + uz * t + ux * 1.12 * side; if (!blocked(bx2, bz2, 0.25)) benches.push([bx2, bz2, 0, side, ux, uz]); }
+    }
+  }
+  instanced(scene, box(1, 0.05, 0.1), mat('#D6D3D1', 'kerb'), kerbs, (o, [x, z, L, r]) => { o.position.copy(at(x, z, 0.035)); o.scale.set(L, 1, 1); o.rotation.y = r; }, false);
+  instanced(scene, box(0.32, 0.01, 0.05), mat('#F8FAFC', 'roadpaint'), dashes, (o, [x, z, r]) => { o.position.copy(at(x, z, 0.03)); o.rotation.y = r; }, false);
+  instanced(scene, box(0.55, 0.01, 0.12), mat('#F8FAFC', 'roadpaint'), zebras, (o, [x, z, r]) => { o.position.copy(at(x, z, 0.031)); o.rotation.y = r; }, false);
+  const benchFace = ([, , , side, ux, uz]) => Math.atan2(uz * side, -ux * side);       // seat faces the road
+  instanced(scene, box(0.5, 0.04, 0.16), mat('#8B5A2B', 'bench'), benches, (o, b) => { o.position.copy(at(b[0], b[1], 0.2)); o.rotation.y = benchFace(b); });
+  instanced(scene, box(0.5, 0.16, 0.03), mat('#8B5A2B', 'bench'), benches, (o, b) => { const f = benchFace(b); o.position.copy(at(b[0] - Math.sin(f) * 0.08, b[1] - Math.cos(f) * 0.08, 0.3)); o.rotation.y = f; });
+  instanced(scene, box(0.04, 0.2, 0.14), mat('#334155', 'benchleg'), benches.flatMap(b => [[...b, -0.22], [...b, 0.22]]), (o, b) => { const f = benchFace(b); o.position.copy(at(b[0] + Math.cos(f) * b[6], b[1] - Math.sin(f) * b[6], 0.1)); o.rotation.y = f; });
+  instanced(scene, new THREE.CylinderGeometry(0.07, 0.06, 0.22, 8), mat('#15803D', 'bin'), benches, (o, b) => { const f = benchFace(b); o.position.copy(at(b[0] + Math.cos(f) * 0.42, b[1] - Math.sin(f) * 0.42, 0.11)); });
+  benches.forEach((b, i) => { if (i % 3) return; const f = person(0.55), p = at(b[0], b[1]); f.g.position.set(p.x, sitY(f, 0.22), p.z); f.g.rotation.y = benchFace(b); scene.add(f.g); crowd.push({ f, mode: i % 2 ? 'sit' : 'sit-eat', ph: rnd() * 9, rate: 1.5 }); });
+  for (const [x, z, rot] of WORLD.busStops || []) {                                   // bus shelter with people waiting
+    const g = new THREE.Group(); g.position.copy(at(x, z)); g.rotation.y = rot; scene.add(g);
+    for (const s of [-1, 1]) g.add(mesh(box(0.05, 0.75, 0.05), mat('#475569'), s * 0.55, 0.375, -0.18));
+    g.add(mesh(box(1.25, 0.05, 0.5), mat('#1D4ED8', 'shelter'), 0, 0.78, 0), mesh(box(1.15, 0.5, 0.02), new THREE.MeshStandardMaterial({ color: '#BAE6FD', transparent: true, opacity: 0.45 }), 0, 0.42, -0.2), mesh(box(0.9, 0.04, 0.16), mat('#8B5A2B', 'bench'), 0, 0.22, -0.1));
+    const sg = mesh(new THREE.PlaneGeometry(0.42, 0.12), textMat('BUS', { bg: '#1D4ED8', fg: '#FFFFFF', w: 256, h: 72, font: '800 54px Arial, sans-serif' }), 0, 0.7, 0.26, false); g.add(sg);
+    for (const dx of [-0.35, 0.25]) { const f = person(0.56); f.g.position.set(dx, 0, 0.05); g.add(f.g); crowd.push({ f, mode: 'stand', ph: rnd() * 9, rate: 2 }); }
+  }
+  for (const isle of WORLD.islands) for (let n = 0, tries = 0; n < (isle.id === 'india' ? 4 : 2) && tries < 400; tries++) {   // friends chatting on the lawns
+    const x = isle.x + 2 + rnd() * (isle.w - 4), z = isle.z + 2 + rnd() * (isle.d - 4); if (blocked(x, z, 0.5)) continue; n++;
+    for (const s of [-1, 1]) { const f = person(0.57), p = at(x + s * 0.22, z); f.g.position.copy(p); f.g.rotation.y = s > 0 ? -Math.PI / 2 : Math.PI / 2; scene.add(f.g); crowd.push({ f, mode: 'talk', ph: rnd() * 9, rate: 1.8 }); }
+  }
+}
+const boats = (WORLD.boats || []).map(([kind, x1, z1, x2, z2, v]) => { const g = boat(kind); scene.add(g); return { g, a: at(x1, z1, -1.2), b: at(x2, z2, -1.2), u: rnd(), v, dir: 1 }; });
 function stepMovers(dt) {
   for (const m of movers) {
     const L = m.st.line.RL.at(-1); m.s += m.dir * m.v * dt;
     if (m.s > L) { m.s = L; m.dir = -1; } if (m.s < 0) { m.s = 0; m.dir = 1; }
     const p = along(m.st.line, m.s), dx = p.dx * m.dir, dz = p.dz * m.dir;
-    const off = m.car ? 0.32 * m.st.side : m.off;                       // cars keep to their lane, people to the pavement edge
+    const off = m.car ? (m.lane || 0.32) * m.st.side : m.off;                       // cars keep to their lane, people to the pavement edge
     const pos = at(p.x - dz * off, p.z + dx * off);
     if (m.car) { m.g.position.copy(pos); m.g.rotation.y = Math.atan2(-dz, dx); }
     else { m.f.g.position.copy(pos); m.f.g.rotation.y = Math.atan2(dx, dz); m.ph += dt * 6; pose(m.f, 'walk', m.ph); }
@@ -407,23 +419,18 @@ const spot = new THREE.Mesh(new THREE.RingGeometry(0.5, 0.6, 48), new THREE.Mesh
 spot.rotation.x = -Math.PI / 2; scene.add(spot);
 
 /* ---------- The plane: parked at an airport, flies Tanmay between islands ---------- */
-const plane = new THREE.Group(); scene.add(plane);
-{ const wht = mat('#F8FAFC'), blue = mat('#3B82F6'), vio = mat('#7C3AED');
-  const body = mesh(new THREE.CylinderGeometry(0.2, 0.17, 2.0, 14), wht, 0, 0, 0); body.rotation.z = Math.PI / 2;
-  const nose = mesh(new THREE.SphereGeometry(0.2, 14, 10), wht, 1.0, 0, 0); nose.scale.set(1.6, 1, 1);
-  plane.add(body, nose, mesh(box(1.9, 0.05, 0.41), blue, 0, -0.04, 0, false),
-    mesh(box(0.6, 0.05, 2.5), wht, 0.1, -0.05, 0), mesh(box(0.4, 0.05, 0.9), wht, -0.9, 0.06, 0), mesh(box(0.42, 0.5, 0.05), vio, -0.88, 0.3, 0));
-  for (const s of [-0.65, 0.65]) { const e = mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.35, 10), mat('#94A3B8'), 0.2, -0.15, s); e.rotation.z = Math.PI / 2; plane.add(e); }
-}
-plane.scale.setScalar(1.6);
+const RIDES = { in: ktm(), de: scooter() }; scene.add(RIDES.in, RIDES.de);    // KTM in India, Xiaomi e-scooter in Germany
+const rideFor = li => li === 2 ? RIDES.de : RIDES.in;
+const parkRide = (v, cell, dir = [1, 0]) => { v.position.copy(at(cell[0], cell[1])); v.rotation.y = Math.atan2(-dir[1], dir[0]); };
+const plane = a380(); scene.add(plane);                                         // Airbus A380-style double-decker (vehicles.js)
 const AIR = WORLD.tour.airports;
-const parkPlane = code => { const a = AIR[code]; plane.position.copy(at(a.park[0], a.park[1], 0.4)); plane.rotation.set(0, yaw(a.dir[0], a.dir[1]), 0); };
+const parkPlane = code => { const a = AIR[code]; plane.position.copy(at(a.park[0], a.park[1], 0)); plane.rotation.set(0, yaw(a.dir[0], a.dir[1]), 0); plane.userData.gear.visible = true; };
 parkPlane('in');
 
 /* ---------- Flight: take-off run → rotate and climb → banked cruise → approach → touchdown → rollout ---------- */
 const bez = (a, c1, c2, b, u) => { const v = 1 - u; return a.clone().multiplyScalar(v * v * v).addScaledVector(c1, 3 * v * v * u).addScaledVector(c2, 3 * v * u * u).addScaledVector(b, u * u * u); };
 function flightPlan(f, t) {
-  const A = AIR[f], B = AIR[t], P = (c, y) => at(c[0], c[1], y), G = 0.4;              // G = wheels on the runway
+  const A = AIR[f], B = AIR[t], P = (c, y) => at(c[0], c[1], y), G = 0;                // G = wheels on the runway (the A380's origin is at its wheels)
   const dA = P(A.roll, 0).sub(P(A.park, 0)).normalize(), dB = P(B.touch, 0).sub(P(B.approach, 0)).normalize();
   const c0 = P(A.climb, 3), c3 = P(B.approach, 3.2), D = Math.min(c0.distanceTo(c3) * 0.38, 20);
   return [
@@ -453,6 +460,7 @@ function stepFlight(dt) {                                                       
     plane.rotation.x += (bank - plane.rotation.x) * Math.min(1, dt * 3);
   }
   plane.position.copy(pos); me.g.position.copy(pos);
+  plane.userData.gear.visible = pos.y < 1.3;                                       // gear up once airborne, down for landing
   return fl.k === fl.segs.length - 1 && fl.t >= sg.dur;
 }
 plane.rotation.order = 'YZX';
@@ -493,13 +501,27 @@ const stop = () => LEGS[tour.leg].stops?.[tour.i];
 function walk(cells) {                                                              // cells: [x, z] or [x, z, y]
   const pts = [me.g.position.clone(), ...cells.map(c => at(c[0], c[1], c[2] || 0))];
   const L = [0]; for (let k = 1; k < pts.length; k++) L.push(L[k - 1] + pts[k].distanceTo(pts[k - 1]));
-  Object.assign(tour, { path: pts, L, s: reduceMotion ? L.at(-1) : 0 }); mePose = 'walk';
+  Object.assign(tour, { path: pts, L, s: reduceMotion ? L.at(-1) : 0, rides: [false, ...cells.map(c => !!c.ride)], riding: false }); mePose = 'walk';
 }
+const R = c => Object.assign([...c], { ride: true });                              // a street point reached by bike or scooter
 function stepWalk(dt) {                                                             // true once the walk is done
-  const { path: p, L } = tour; tour.s = Math.min(L.at(-1), tour.s + 2.2 * dt);
-  let i = 0; while (i < L.length - 2 && L[i + 1] < tour.s) i++;
+  const { path: p, L } = tour;
+  let i = 0; while (i < L.length - 2 && L[i + 1] <= tour.s) i++;
+  const riding = tour.rides?.[i + 1] && !reduceMotion, v = rideFor(tour.leg);
+  tour.s = Math.min(L.at(-1), tour.s + (riding ? 4.4 : 2.2) * dt);
+  while (i < L.length - 2 && L[i + 1] < tour.s) i++;
   me.g.position.lerpVectors(p[i], p[i + 1], (tour.s - L[i]) / (L[i + 1] - L[i] || 1));
-  const dv = p[i + 1].clone().sub(p[i]); if (dv.lengthSq() > 1e-6) me.g.rotation.y = face(dv.x, dv.z);
+  const dv = p[i + 1].clone().sub(p[i]), dl = Math.hypot(dv.x, dv.z);
+  if (dv.lengthSq() > 1e-6) me.g.rotation.y = face(dv.x, dv.z);
+  if (riding) {                                                                     // bike/scooter under him, a little ahead of his hips
+    const ux = dv.x / (dl || 1), uz = dv.z / (dl || 1), k = -v.userData.riderX;
+    v.position.set(me.g.position.x + ux * k, 0, me.g.position.z + uz * k); if (dl > 1e-4) v.rotation.y = yaw(dv.x, dv.z);
+    mePose = v.userData.pose; me.g.position.y = v.userData.seat != null ? sitY(me, v.userData.seat) : v.userData.deck;
+  } else {
+    if (tour.riding && dl > 1e-4) v.position.add(new THREE.Vector3(dv.x / dl * 0.45, 0, dv.z / dl * 0.45));   // just got off: park by the kerb
+    mePose = 'walk';
+  }
+  if (tour.riding !== riding) { tour.riding = riding; renderHud(); }
   return tour.s >= L.at(-1);
 }
 const exitFrom = st => st && !st.sp.outside ? [...(st.aisle ? [st.aisle] : []), st.door] : [];   // leave the way he came in
@@ -507,7 +529,7 @@ function startLeg(li) {
   const leg = LEGS[tour.leg = li];
   if (leg.fly) {                                                                    // walk out to the plane, then board
     const st = LEGS[li - 1].stops.at(-1), a = AIR[leg.fly[0]];
-    walk([...exitFrom(st), a.park]); Object.assign(tour, { phase: 'board', here: null, lastStop: null }); refresh(); return;   // after boarding there is no building to walk out of
+    walk([...exitFrom(st), ...(a.gateOnBoard ? [a.gate] : []), a.park]); Object.assign(tour, { phase: 'board', here: null, lastStop: null }); refresh(); return;   // through security when the terminal is landside
   }
   tour.fromS = leg.fromS;
   startStop(0);
@@ -516,7 +538,7 @@ function startStop(i) {
   const leg = LEGS[tour.leg], st = leg.stops[i], a = tour.fromS, b = st.s;
   const mid = leg.R.filter((_, k) => leg.RL[k] > a + 0.01 && leg.RL[k] < b - 0.01);
   Object.assign(tour, { i, phase: 'walk', here: null, fromS: b });
-  walk([...exitFrom(tour.lastStop), routeAt(leg, a), ...mid, routeAt(leg, b), st.door, ...(st.aisle ? [st.aisle] : []), [...st.in, st.sp.outside ? 0 : 0.16]]);
+  walk([...exitFrom(tour.lastStop), ...(tour.viaGate ? [tour.viaGate] : []), routeAt(leg, a), ...mid.map(R), R(routeAt(leg, b)), st.door, ...(st.aisle ? [st.aisle] : []), [...st.in, st.sp.outside ? 0 : 0.16]]);
   refresh();
 }
 function arrive() {
@@ -544,7 +566,7 @@ function updateTour(dt) {
   else if (tour.phase === 'board') {
     if (stepWalk(dt)) { me.g.visible = false; Object.assign(tour, { phase: 'fly', fl: { segs: flightPlan(...LEGS[tour.leg].fly), k: 0, t: 0, kind: 'takeoff' } }); refresh(); }
   } else if (tour.phase === 'fly') {
-    if (stepFlight(dt)) { const t = LEGS[tour.leg].fly[1]; me.g.position.copy(plane.position).setY(0); me.g.visible = true; startLeg(tour.leg + 1); }
+    if (stepFlight(dt)) { const t = LEGS[tour.leg].fly[1]; me.g.position.copy(plane.position).setY(0); me.g.visible = true; tour.viaGate = AIR[t].gate; startLeg(tour.leg + 1); tour.viaGate = null; }   // leave the airfield through security
   } else if (tour.phase === 'end' && (tour.beatT += dt) >= 6) jumpTo(0);            // journey complete: start again
 }
 function skip() {
@@ -560,6 +582,8 @@ function jumpTo(g) {
   GSTOPS.slice(0, g).forEach(e => { reached.add(e.st.z.id); Object.assign(objects[e.st.z.id], { built: true, bk: 1 }); });
   lastStats = null; $('#toasts').replaceChildren();
   parkPlane(li === 2 ? 'de' : 'in'); me.g.visible = true;
+  const inAir = LEGS[0].stops.find(st => st.z.id === 'airport-in'), deLeg = LEGS[2];   // rides wait at the airport of the country Tanmay is not in
+  parkRide(RIDES.in, li === 2 ? routeAt(LEGS[0], inAir.s) : routeAt(leg, i > 0 ? leg.stops[i - 1].s : leg.fromS)); parkRide(RIDES.de, li === 2 ? routeAt(deLeg, i > 0 ? leg.stops[i - 1].s : deLeg.fromS) : routeAt(deLeg, deLeg.fromS));
   const from = i > 0 ? leg.stops[i - 1].s : leg.fromS;
   me.g.position.copy(at(...routeAt(leg, from)));
   Object.assign(tour, { leg: li, fromS: from, paused: false, lastStop: null }); select(null); setFollow(true); startStop(i);
@@ -584,7 +608,7 @@ function curG() { const l = LEGS[tour.leg]; return l.fly ? gIndex(tour.leg + 1, 
 function renderHud() {
   const leg = LEGS[tour.leg], st = stop(), cg = curG();
   const era = tour.phase === 'end' ? '2017 → 2026' : leg.fly ? `✈ ${leg.title}` : st.z.era || '';
-  const where = tour.phase === 'end' ? 'Journey complete' : leg.fly ? (leg.fly[1] === 'de' ? 'India → Germany' : 'Germany → India') : `${st.z.where || ''} · ${tour.phase === 'dwell' ? 'inside ' + st.z.name : 'walking to ' + st.z.name}`;
+  const where = tour.phase === 'end' ? 'Journey complete' : leg.fly ? (leg.fly[1] === 'de' ? 'India → Germany' : 'Germany → India') : `${st.z.where || ''} · ${tour.phase === 'dwell' ? 'inside ' + st.z.name : (tour.riding ? (tour.leg === 2 ? 'scooting to ' : 'riding to ') : 'walking to ') + st.z.name}`;
   const s = stats(), changed = lastStats ? Object.keys(s).filter(k => s[k] !== lastStats[k]) : []; lastStats = s;
   hud.innerHTML = `<div class="hudtop"><span class="era">${esc(era)}</span><span class="where">${esc(where)}</span><span class="sp"></span>
       <button data-sim="play" aria-label="Pause or play">${tour.paused ? '▶' : '❚❚'}</button><button data-sim="speed" aria-label="Speed">${SIM.speed}×</button>
@@ -804,6 +828,8 @@ renderer.setAnimationLoop(() => {
     if (anim.t >= 1) anim = null;
   }
   updateTour(sim); stepMovers(sim); dayNight(sim);
+  for (const bt of boats) { bt.u += bt.dir * sim * bt.v / bt.a.distanceTo(bt.b); if (bt.u > 1 || bt.u < 0) { bt.dir *= -1; bt.u = clamp(bt.u, 0, 1); } bt.g.position.lerpVectors(bt.a, bt.b, bt.u); const d = bt.b.clone().sub(bt.a).multiplyScalar(bt.dir); bt.g.rotation.y = Math.atan2(-d.z, d.x); bt.g.position.y = -1.2 + Math.sin(t * 1.3 + bt.v) * 0.03; }
+  for (const ap of AIRPORTS) ap.update(dt, me.g.visible ? me.g.position : null);
   if (follow && !anim) {                                   // glide after Tanmay; dive in while he explains a building
     const zWant = tour.phase === 'fly' ? (tour.fl.kind === 'cruise' ? 0.62 : 1.25) : { dwell: 2.9, end: 0.6 }[tour.phase] || 1.9;
     camera.zoom += (zWant - camera.zoom) * Math.min(1, dt * (reduceMotion ? 60 : 1.2)); camera.updateProjectionMatrix();
@@ -820,7 +846,7 @@ renderer.setAnimationLoop(() => {
   for (const [id, o] of Object.entries(objects)) {
     if (o.built && o.bk < 1) o.bk = reduceMotion ? 1 : Math.min(1, o.bk + dt / 1.6);   // rise from the building site
     const b = ease(o.bk);
-    o.ext.scale.y = Math.max(0.04, b); o.sc.visible = b < 0.999; o.sc.scale.y = Math.max(0.001, 1 - b);
+    o.ext.scale.y = Math.max(0.04, b); if (o.yard) o.yard.scale.y = Math.max(0.04, b); o.sc.visible = b < 0.999; o.sc.scale.y = Math.max(0.001, 1 - b);
     if (o.jib && !reduceMotion) o.jib.rotation.y = Math.sin(t * 0.25 + o.group.position.x) * 0.9;
     if (!o.room) continue;                                 // open the building Tanmay is in (or the one you picked)
     const want = id === tour.here || id === selected ? 1 : 0;

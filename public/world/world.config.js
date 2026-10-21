@@ -33,7 +33,7 @@ export const WORLD = {
     [-0.6, 25.6, 3.7, 1.2],                                           // terminal → street
     [-4.6, 2, 2.2, 31],                                               // India runway
     [78.9, -17.2, 22.1, 1.4], [99.6, -23.7, 1.4, 7.9], [78.9, -23.7, 22.1, 1.4], [78.9, -23.7, 1.4, 7.9],
-    [78.5, -15, 23, 1.3],                                             // Germany runway
+    [78.5, -15.1, 23, 2.2],                                             // Germany runway
   ],
   // [x, z, stripes top→bottom]
   flags: [[-1.6, 21.5, ['#FF9933', '#FFFFFF', '#138808']], [83.8, -32.6, ['#111111', '#DD0000', '#FFCE00']]],
@@ -46,13 +46,18 @@ export const WORLD = {
     [79.6, -31.6, 2.2, 2.0, 1.6, 'timber'], [79.6, -28.6, 2.2, 2.0, 1.4, 'timber'], [82.2, -31.8, 1.6, 1.8, 1.7, 'timber'],
     [100.4, -30.2, 2.4, 4.6, 2.2, 'cathedral'],
   ],
+  // Bus shelters [x, z, rotation] and boats [kind, x1, z1, x2, z2, speed] crossing the sea between the islands
+  busStops: [[16.5, 21.15, 0], [91.8, -24.15, Math.PI]],
+  boats: [['ferry', 42, 6, 72, -8, 1.2], ['sail', 50, 24, 66, 14, 0.6], ['sail', 58, -26, 46, -14, 0.5]],
   // The journey: walk a leg's street line stop by stop, fly between countries, walk on.
   tour: {
     beat: 6,                                                          // seconds per explained point inside a building
     // Runway points for a real take-off run, climb, cruise, approach, touchdown and rollout (x, z on the grid).
     airports: {
-      in: { park: [-3.5, 27.6], dir: [0, -1], roll: [-3.5, 13], climb: [-3.5, 2], approach: [-3.5, -12], touch: [-3.5, 5] },
-      de: { park: [90, -14.35], dir: [1, 0], roll: [98, -14.35], climb: [107, -14.35], approach: [68, -14.35], touch: [80, -14.35] },
+      in: { park: [-3.5, 27.6], dir: [0, -1], roll: [-3.5, 13], climb: [-3.5, 2], approach: [-3.5, -12], touch: [-3.5, 5],
+            fence: [[-4.85, 1.6], [2.2, 1.6], [2.2, 33.4], [-4.85, 33.4]], gate: [2.2, 26.2], boothSide: 'out', tower: [0.9, 19], runway: [-4.6, 2, 2.2, 31] },
+      de: { park: [90, -14], dir: [1, 0], roll: [98, -14], climb: [107, -14], approach: [68, -14], touch: [80, -14],
+            fence: [[78, -15.65], [102.5, -15.65], [102.5, -12.25], [78, -12.25]], gate: [85, -15.65], boothSide: 'in', gateOnBoard: true, tower: [95, -12.6], runway: [78.5, -15.1, 23, 2.2] },
     },
     legs: [
       { route: [[3.7, 10], [28.3, 10], [28.3, 20], [3.7, 20], [3.7, 29], [28.3, 29]],
@@ -69,6 +74,7 @@ export const WORLD = {
   zones: [
     /* ---------------- India ---------------- */
     { id: 'sinhgad', name: 'SKN Sinhgad College', kicker: 'CHAPTER 1 · FOUNDATION', x: 7, z: 6, w: 4.4, d: 3.4, h: 2.0, color: '#64748B', room: 'campus',
+      style: 'college-in', tall: 2.6,
       era: '2017 – 2021', where: 'Pune, India', milestone: '🎓 Started B.E. Computer Engineering at SKN Sinhgad, Pune', gain: { studies: 1 },
       people: [{ name: 'Professor', board: true, shirt: '#7C2D12', pants: '#292524', hair: '#3F3F46', style: 'short' }],
       step: 'Learning how technology is built.',
@@ -81,6 +87,7 @@ export const WORLD = {
         ['Google Student Developer', 'Junior Community Lead, West Zone. Supported 20+ peers with debugging, project guidance and collaborative problem solving.'],
       ] },
     { id: 'apexon', name: 'Apexon', kicker: 'CHAPTER 2 · SOFTWARE ENGINEERING', x: 13.5, z: 6, w: 4.2, d: 3.4, h: 2.6, color: '#3B82F6', roof: 'flat', room: 'office',
+      style: 'it-tower', tall: 4.6,
       era: 'Oct 2021 – Apr 2024', where: 'Pune, India', milestone: '💼 Joined Apexon as Senior Developer: +30% load speed, −40% defects', gain: { roles: 1 },
       step: 'Senior Developer, connecting code to customer outcomes.',
       blurb: 'Senior Developer in Pune, building customer-facing web experiences with React, JavaScript and CSS in Agile/Scrum teams.',
@@ -93,6 +100,7 @@ export const WORLD = {
         ['The AEM go-to', 'Led Adobe Experience Manager (AEM) solutions for the team and ran cross-team knowledge sharing.'],
       ] },
     { id: 'socialsweb', name: 'The Socials Web', kicker: 'CHAPTER 3 · DIGITAL VENTURE', x: 20, z: 6, w: 3.8, d: 3.2, h: 1.8, color: '#EC4899', roof: 'flat', room: 'office',
+      style: 'studio',
       era: 'Venture', where: 'India', milestone: '🚀 Co-founded The Socials Web: 3× online leads', gain: { ventures: 1 },
       step: 'Co-founding a web and digital-marketing studio.',
       blurb: 'Co-founded a digital venture delivering websites, SEO, content optimisation and campaigns, with KPI and ROI tracking.',
@@ -104,6 +112,7 @@ export const WORLD = {
         ['Delivery discipline', '100% of client projects delivered on time.'],
       ] },
     { id: 'lonavala', name: 'Lonavala Villas', kicker: 'CHAPTER 4 · OPERATING A BUSINESS', x: 25.5, z: 6, w: 3.8, d: 3.2, h: 1.6, color: '#EA580C', room: 'villa',
+      style: 'villa',
       era: 'Venture', where: 'Lonavala, India', milestone: '🏡 Founded Lonavala Villas: occupancy 45% → 80%', gain: { ventures: 1 },
       step: 'Growing a real hospitality business.',
       blurb: 'Founded Lonavala Villas by Tanmay: campaigns, pricing, guest experience, events and vendor partnerships.',
@@ -115,6 +124,7 @@ export const WORLD = {
         ['Top 5 performer', 'Ranked a Top 5 performer for two consecutive years.'],
       ] },
     { id: 'weschool', name: 'WeSchool, Mumbai', kicker: 'CHAPTER 5 · BUSINESS SCHOOL', x: 25.5, z: 16, w: 4.6, d: 3.4, h: 2.2, color: '#7C3AED', room: 'campus',
+      style: 'college-modern', tall: 2.8,
       era: '2025 – 2027', where: 'Mumbai, India', milestone: '🎓 Began PGDM E-Business at WeSchool · We4Tech Second Runner-Up', gain: { studies: 1, awards: 1, community: 1400 },
       people: [{ name: 'Faculty', board: true, shirt: '#4C1D95', pants: '#1E1B4B', hair: '#1B1612', style: 'long' }],
       step: 'Adding business, marketing and strategy.',
@@ -127,6 +137,7 @@ export const WORLD = {
         ['Smart India Hackathon', 'WeSchool nominated the team for the Smart India Hackathon.'],
       ] },
     { id: 'batchmates', name: 'BatchMates HQ', kicker: 'CHAPTER 6 · FOUNDER', x: 20, z: 16, w: 4.2, d: 3.4, h: 2.4, color: '#06B6D4', roof: 'flat', room: 'office',
+      style: 'startup', tall: 2.6,
       era: 'Founder', where: 'Mumbai, India', milestone: '🚀 Founded BatchMates: Meet → Collaborate → Grow', gain: { ventures: 1 },
       step: 'Meet → Collaborate → Grow.',
       blurb: 'Founded BatchMates, a student networking platform with verified profiles, skill-based discovery and cross-batch collaboration.',
@@ -139,6 +150,7 @@ export const WORLD = {
         ['30-Day AI Edge', 'A practical AI-learning system for students: daily tasks, curated tools and business applications, built on repeated practice.'],
       ] },
     { id: 'nurture', name: 'Nurture+', kicker: 'CHAPTER 7 · CONSUMER PRODUCT', x: 13.5, z: 16, w: 3.6, d: 3.0, h: 1.6, color: '#EAB308', room: 'home',
+      style: 'home',
       era: 'Founder', where: 'India', milestone: '👶 Nurture+ prototype validated with 200+ people', gain: { ventures: 1 },
       step: 'Raise curious, kind, well-rounded kids.',
       blurb: 'An AI-powered parenting companion prototype for families from pregnancy to about age 12.',
@@ -149,6 +161,7 @@ export const WORLD = {
         ['Validated with 200+ people', 'Tested the concept with 200+ parents, paediatricians and teachers. It is a prototype, not a medical product.'],
       ] },
     { id: 'gcl', name: 'Vatsalya Trust · GCL', kicker: 'CHAPTER 8 · GIVING BACK', x: 7, z: 16, w: 4.2, d: 3.2, h: 1.8, color: '#22C55E', room: 'community',
+      style: 'hall',
       era: '2025 – 2026', where: 'Mumbai, India', milestone: '🤝 Led skill-development workshops at Vatsalya Trust', gain: {},
       step: 'Teaching confidence and employability.',
       blurb: 'Global Citizen Leadership: skill-development workshops for underprivileged youth at Vatsalya Trust.',
@@ -159,6 +172,7 @@ export const WORLD = {
         ['Measuring progress', 'Tracked confidence, classroom engagement and interview readiness through feedback and observation.'],
       ] },
     { id: 'airport-in', name: 'Airport · India', kicker: 'DEPARTURES', x: 0.3, z: 24.5, w: 3.2, d: 2.4, h: 1.4, color: '#94A3B8', roof: 'flat', room: 'terminal',
+      style: 'terminal', tall: 1.6, signText: 'AIRPORT · INDIA', bridge: -1,
       era: 'Spring 2026', where: 'India', milestone: '✈ Selected for the exchange: 1 of 6 from 1,110', gain: {},
       step: 'Selected for an international exchange.',
       blurb: 'Where the Germany chapter begins.',
@@ -168,6 +182,7 @@ export const WORLD = {
         ['Next stop: Germany', 'A semester of study, a Product Management & Strategy internship, and life in a new culture.'],
       ] },
     { id: 'sirp', name: 'SIRP Library', kicker: 'CHAPTER 14 · RESEARCH', x: 7, z: 25, w: 4.0, d: 3.2, h: 1.8, color: '#0D9488', roof: 'flat', room: 'library',
+      style: 'library',
       era: 'Aug 2026', where: 'Bamberg → Mumbai', milestone: '📚 SIRP research: 20 studies, 4 themes, 1 framework', gain: {},
       people: [{ name: 'Prof. Pratibha Jha', note: 'Faculty mentor', at: [1.3, 0.35], mode: 'talk', shirt: '#9D174D', pants: '#3B2F45', hair: '#1B1612', style: 'bun' }],
       step: 'Why students adopt, and keep using, networking platforms.',
@@ -180,6 +195,7 @@ export const WORLD = {
         ['The finding', 'Segmentation shapes how students respond to adoption factors, and active participation matters more than sign-ups. These insights feed BatchMates\' onboarding, matching and retention.'],
       ] },
     { id: 'ailab', name: 'AI Lab', kicker: 'CHAPTER 15 · AI IN PRACTICE', x: 13.5, z: 25, w: 3.8, d: 3.2, h: 2.0, color: '#6366F1', roof: 'flat', room: 'lab',
+      style: 'lab', tall: 2.2,
       era: '2026', where: 'Mumbai, India', milestone: '🤖 Root-First, Daily AI Brief and the Communication Roadmap', gain: {},
       step: 'Human judgment first, AI acceleration, human validation.',
       blurb: 'Practical AI frameworks, automations and learning resources.',
@@ -191,6 +207,7 @@ export const WORLD = {
         ['Communication Roadmap', '12 weeks, 8 sections, 12 drills, 27 trackable tasks: Pyramid Principle, PREP, STAR and recorded practice with AI feedback.'],
       ] },
     { id: 'trophies', name: 'Trophy Hall', kicker: 'CHAPTER 16 · RECOGNITION', x: 21, z: 25, w: 5.4, d: 3.4, h: 2.2, color: '#D4A017', room: 'hall',
+      style: 'museum',
       era: '2025 – 2026', where: 'India', milestone: '🏆 InnoMUN winner · Tata Imagination finalist · AWS, McKinsey, HubSpot', gain: { awards: 2, certs: 4 },
       step: 'Competitions, certifications and recognition.',
       blurb: 'Wins, finals and credentials collected along the way.',
@@ -204,12 +221,14 @@ export const WORLD = {
 
     /* ---------------- Germany ---------------- */
     { id: 'airport-de', name: 'Airport · Germany', kicker: 'ARRIVALS', x: 82.2, z: -19.8, w: 2.8, d: 2.4, h: 1.4, color: '#94A3B8', roof: 'flat', room: 'terminal',
+      style: 'terminal', tall: 1.6, signText: 'AIRPORT · GERMANY',
       era: 'April 2026', where: 'Germany', milestone: '🇩🇪 Landed in Germany', gain: { countries: 1 },
       step: 'Willkommen in Deutschland.',
       blurb: 'Gateway to the Germany chapter.',
       facts: [['Semester', '1 Apr – 30 Sep 2026']],
       inside: [['Willkommen in Bamberg', 'Exchange student (non-degree) for Summer Semester 2026, 1 April – 30 September.']] },
     { id: 'bamberg', name: 'Universität Bamberg', kicker: 'CHAPTER 9 · STUDENT EXCHANGE', x: 87.3, z: -19.8, w: 4.4, d: 2.8, h: 2.4, color: '#B91C1C', room: 'campus',
+      style: 'college-eu',
       era: 'Apr – Sep 2026', where: 'Bamberg, Germany', milestone: '🏛 Exchange student at Universität Bamberg', gain: {},
       people: [{ name: 'Lecturer', board: true, shirt: '#475569', pants: '#1E293B', hair: '#6B4F3A', style: 'short' }],
       step: 'Studying in a German classroom.',
@@ -222,6 +241,7 @@ export const WORLD = {
         ['Living, not visiting', 'Groceries, laundry, budgeting, paperwork and a new city: independence built from hundreds of small decisions.'],
       ] },
     { id: 'ism', name: 'Chair of IS Management', kicker: 'CHAPTER 10 · INTERNSHIP', x: 93, z: -19.8, w: 4.0, d: 2.8, h: 2.2, color: '#0284C7', roof: 'flat', room: 'office',
+      style: 'institute', tall: 2.4,
       era: 'May – Aug 2026', where: 'Bamberg, Germany', milestone: '🏅 Outstanding Internship Recognition from the Chair of IS Management', gain: { roles: 1, awards: 1 },
       people: [{ name: 'Prof. Dr. Daniel Beimborn', note: 'Supervisor', at: [1.35, 0.1], mode: 'talk', shirt: '#334155', pants: '#1E293B', hair: '#8D8A86', style: 'short' }],
       step: 'Product Management & Strategy Intern.',
@@ -236,6 +256,7 @@ export const WORLD = {
         ['Outstanding Internship Recognition', 'A Letter of Recommendation (30 Aug 2026) recognising product management & strategy excellence, research excellence, initiative and ownership.'],
       ] },
     { id: 'sperber', name: 'Autohaus Sperber', kicker: 'CHAPTER 11 · CONSULTING', x: 97.4, z: -19.8, w: 3.2, d: 2.8, h: 1.6, color: '#E11D48', roof: 'flat', room: 'garage',
+      style: 'showroom', tall: 1.8,
       era: 'Summer 2026', where: 'Bamberg, Germany', milestone: '🚗 3 AI recommendations + a 90-day roadmap for Autohaus Sperber', gain: {},
       step: 'AI and customer-experience consulting for a car dealership.',
       blurb: 'AI and digital-transformation consulting during the internship: customer-experience analysis and a 90-day roadmap.',
@@ -246,6 +267,7 @@ export const WORLD = {
         ['A 90-day roadmap', 'Listen and pilot → automate the loops → roll out the brand engine. Recommendations phased to learn before scaling.'],
       ] },
     { id: 'munich', name: 'Munich Tech Job Fair', kicker: 'CHAPTER 12 · CAREER', x: 96, z: -27.5, w: 4.4, d: 3.4, h: 2.6, color: '#84CC16', roof: 'flat', room: 'fair',
+      style: 'expo',
       era: 'Summer 2026', where: 'Munich, Germany', milestone: '🎤 Pitched at the Munich Tech Job Fair', gain: {},
       step: 'Learning to pitch in 30 seconds.',
       blurb: 'A recruiter conversation is a short pitch.',
